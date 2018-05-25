@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+ 
+ 
+
+	<title>定制债权</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css?v=0.1">
+	<link rel="stylesheet" href="/static/mobileSite/css/list.css?v=0.1">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/dropload.css?v=0.1">
+	<script src="../../js/lib/flexible.js"></script>
+	<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+	<style>
+		#scroller{margin-bottom: 1.3rem;margin-top: 0rem;}
+		.totalhead{
+		    width: 100%;
+		    background: #f84d4d;
+		    /*position: fixed;*/
+		    top: 0;
+		    z-index: 100;
+		    height: 4rem;
+	        height: auto;
+		}
+		.totalhead ul{
+			/*padding: 0.5rem 0;*/
+		}
+		.totalhead li {
+		    /*width: calc(100% / 3);*/
+		    height: 2.266667rem;
+		    /*line-height: 2.266667rem;*/
+		    text-align: center;
+		    float: left;
+		    color: #fff;
+	        height: auto;
+		}
+		.totalhead li{width: 32.5%;}
+		.totalhead li:nth-child(2){width: 32.5%;}
+		.totalhead li:nth-child(3){width: 35%;}
+		.totalhead li .i1 {
+			font-size: 0.533333rem;
+			margin-top: 0.666667rem;
+			margin-bottom: 0.4rem;
+		}
+		.totalhead li .i2 {
+			font-size: 0.293333rem;
+			margin-bottom: 0.666667rem;
+		}
+		.totalhead .jl {
+		    font-size: 0.3rem;
+		    line-height: 1.2rem;
+		    height: 1.2rem;
+		    color: #333333;
+		    background-color: #fff;
+		    padding: 0 0.4rem;
+		}
+		
+		.totalhead .jl .i1 {
+			float: left;
+			font-size: 0.4rem;
+		}
+		.totalhead .jl .i2 {
+			float: right;
+			margin-right: 0.3rem;
+			font-size: 0.373333rem;
+		}
+		.i2update,.i2del{color: #25BCFF;}
+		.totalhead .jl .i3 {
+			float: right;
+		    background: url(../../images/right-btn.png) no-repeat 0 0;
+		    background-size: 100% 100%;
+		    width: 0.2rem;
+		    height: 0.386667rem;
+		    margin-top: 0.41rem;
+		}
+		.mana-main{margin-top:0.213333rem;}
+		.mana-detail-list>.mana-over-li{
+			background-color: #fff;
+		}
+		.mana-over-d{
+		    width: calc(100% - 0.88rem);
+		    padding: 0.3rem 0.44rem;
+		    background: #fff;
+		    border-top: 2px solid #f0f0f0;
+		}
+		.mana-over-d label{
+		    font-size: 0.346667rem;
+    		color: #7a7a7a;
+		}
+		.mana-over-d .i1{
+			font-size: 0.346667rem;
+			color: #333;
+		}
+		.mana-over-d .i2{
+			float: right;
+			color: #25bcff;
+		}
+		.mana-over-d .i2update{margin-right: 0.8rem;}
+		.dibu{
+		    width: 100%;
+		    background: #FFFFFF;
+		    position: fixed;
+		    bottom: 0;
+		    z-index: 100;
+		    height: auto;
+		    text-align: center;
+		}
+		.dibu p{
+			padding-top: 0.4rem;
+		}
+		.dibu div{
+	    	padding: 0.2rem 0;
+	    	text-align: left;
+	    	padding-left: 0.25rem;
+	    }
+		.dibu .btn{
+		    color: #fff;
+		    background-color: #F94747;
+		    line-height: 1.1rem;
+		    padding: 0.32rem 2.3rem;
+		    font-size: 0.5rem;
+		    border-radius: 15px;
+		}
+		.dibu .tip{
+			color: #a6a6a6;
+		    font-size: 0.33rem;
+		}
+		.dibu .xy{
+		    color: #25bcff;
+		    float: right;
+		    right: 0.54rem;
+		    bottom: 0.2rem;
+		    position: absolute;
+		    font-size: 0.4rem;
+		    text-decoration: underline;
+		}
+		.enddate{margin-left: 0.15rem;}
+		.reward_jiaxi{background: url(/static/mobileSite/images/reward.png) no-repeat center!important;background-size: 90%!important;color: #fff;padding: 0 0.3rem;font-size: 0.373333rem;}
+		.reward_hb{background: url(/static/mobileSite/images/redbg.png) no-repeat center!important;background-size: 100%!important;color: #fff;padding: 0 0.3rem;font-size: 0.373333rem;}
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<div class="meng">
+		<div class="alert_new">
+			<button class="alert-btn-new" id="holdOn">稍后再说</button>
+			<button class="alert-btn-new goshow-new" id="toKH">去开户</button>
+		</div>
+	</div>
+	<div class="totalhead">
+		<ul class="clearfix">
+			<li>
+				<div class="i1">0</div>
+				<div class="i2">匹配债权(个)</div>
+			</li>
+			<li>
+				<div class="i1" data-v="">0</div>
+				<div class="i2">匹配金额(元)</div>
+			</li>
+			<li>
+				<div class="i1" data-v="">0.00</div>
+				<div class="i2">还可匹配(元)</div>
+			</li>
+		</ul>
+		<div class="jl">
+			<span class="i1">可用奖励</span>
+			<span class="i3"></span>
+			<span class="i2" id="reward">暂无可用</span>
+		</div>
+	</div>
+	
+<!-- 	<div class="mana-main" id="scroller" style="margin-top: 4.8rem;"> -->
+	<div class="mana-main">
+		<!-- 私人定制理财匹配债权列表 -->
+		<div class="mana-detail mana-sesame-detail" id="tailor" style="margin-top: 0rem;">
+			<ul class="mana-detail-list" id="tailor_content" style="padding-bottom: 3rem;"></ul>
+		</div>
+	</div>
+	<!-- </div> -->
+	<!-- </div>  wrapper -->
+	<div class="dibu">
+		<p><a class="btn dis_btn">同意协议并出借<span class="enddate" id="enddate" style='font-size: 0.5rem;'>05:00</span></a></p>
+		<div><span class="tip">网贷有风险，出借需谨慎</span></div>
+		<img src="/static/mobileSite/images/checkno.png" alt="" class='protocolCheck' id="protocolCheck" style='position: absolute;right: 2.45rem;bottom: 0.28rem;'><a class="xy">协议及说明</a>
+	</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_tailor">
+	{{#each this}}
+	<li class="mana-over-li delay" data-jump="{{id}}" data-lock="{{lockExt}}">
+		<a alt="跳转详情页" href='{{jump tenderIdEpt "zqxq"}}'>
+		<div class="mana-over-t clearfix" style="">
+			<p class="title">
+				<label style='color:#333;'>{{creditImg}}&nbsp;</label>
+				<i class="txt">{{tenderName}}</i>
+				<span class="syfslist">{{repayWayStr}}</span>
+			</p>
+			<p class="rjkje">
+				<span class="jkje">借：{{restAmount borrowAmountStr amount}}万元<i class="arrow"></i></span>
+			</p>
+		</div>
+		</a>
+		<div class="mana-buy-list mana-buyListOnly tailor">
+			<ol class="mana-list-ol clearfix">
+				<li style="width: 36%;">
+					<p class="mana-color-red"><span class="mana-ol-num1">{{borrowRate}}</span><span class="mana-over-num2">%</span><span class="mana-ol-num2">{{{checkVipRate status "tailor"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-color-black"><span class="mana-ol-num1">{{restAmount surplusAmount amount}}</span></p>
+					<p>剩余可投(万元)</p>
+				</li>
+				<li>
+					<p class="mana-color-black" style="padding-right: 0.652rem;"><span class="mana-ol-num1">{{loanTimeLimit}}</span></p>
+					<p>借款期限(月)</p>
+				</li>
+			</ol>
+		</div>
+		<div class="mana-over-d clearfix" style="">
+			<p class=""><label class="i1" data-v="{{investAmount}}">出借本金：{{investAmount}}元</label><label class="i2 i2del">删除</label><label class="i2 i2update">修改</label></p>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/lib/dropload.min.js"></script>
+<!-- <script src="../js/lib/iscroll.js"></script> -->
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/jquery.dropload.js"></script>
+<!-- <script src="../js/tools/jquery.datapage.js?v=0.0.2"></script> -->
+<script src="../../js/tools/el.amountinput.js?v=0.0.1"></script>
+<script src="../../js/common/checkVip.js?v=3.0"></script>
+<script src="../../js/common/checkKH.js?v=3.0"></script>
+<script src="../../js/common/checkLogin.js?v=3.0"></script>
+<script src="../../js/tailor/shoppingcart_list.js?v=3.0"></script>
+</html>

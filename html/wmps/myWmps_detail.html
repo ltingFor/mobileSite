@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的翼农计划详情</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/detail.css?v=1.1">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+
+	<style>
+		.wrapper{bottom: 0!important;top: 4.2rem;}
+		.detail-inv-end p{text-align: center!important;}
+		.position_ab{top: 1.4rem!important;z-index: 20001;}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="detail-main detail-main11 detail-mainOnly">
+		<!-- 芝麻开花详情页头部 -->
+		<div class="detail-head">
+			<!-- <img src="./images/big-bg.png" alt=""> -->
+			<ul class="detail-h-list clearfix">
+				<li id="title"></li>
+				<li id="protoUrl">协议</li>
+			</ul>
+			<!-- 百分比 预期年化回报率 -->
+			<div class="det-per">
+				<h3 id="strFirstInter" class="myWmpsH3"></h3>
+				<p>预期年化利率</p>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec">
+				<ul class="detail-dec-list detail-dec-listZ11 clearfix">
+					<li>
+						<p><span id="amount"></span></p>
+						<p>出借本金(元)</p>
+					</li>
+					<li>
+						<p><span id="realEarn"></span></p>
+						<p>已收利息(元)</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 出借说明 -->
+		<div class="detail-inv-dec">
+			<div class="detail-inv-pp">
+				<p><span>起投金额</span> &nbsp;<font id="startInvestDesc"></font></p>
+				<p><span>付息方式</span> &nbsp;<font id="repayWayDesc"></font></p>
+				<p><span>发布时间</span> &nbsp;<font id="publicDate"></font></p>
+				<p><span>募集期</span> &nbsp;&nbsp;&nbsp;<font id="recruitmentPeriod"></font></p>
+				<p><span>出借人数</span> &nbsp;<font id="yuGouNumDesc"></font></p>
+				<p><span>退出方式</span> &nbsp;<font id="withdrawingDesc"></font></p>
+				<p><span>本金到账</span> &nbsp;<font id="principalPaymentDesc"></font></p>
+			</div>
+
+			<ul class="detail-dec-list detail-xi-list detailListZ11 clearfix">
+				<li>
+					<p>计息时间</p>
+					<p id="interdate"></p>
+				</li>
+				<li>
+					<p>首次付息</p>
+					<p id="firstInterdate"></p>
+				</li>
+				<li>
+					<p>到期时间(T)</p>
+					<p id="strEndDate"></p>
+				</li>
+				<li class="detail-dotted1"></li>
+				<li class="detail-dotted2"></li>
+			</ul>
+		</div>
+		<!-- 出借本金 -->
+		<div class="detail-inv-end">
+			<p>出借<span id="amount_same"></span>元,到期预计回报<span class="detail-inv-profit" id="preEarn"></span>元 <a href="javascript:void(0);" id="investTip"></a></p>
+		</div>
+		<!-- 向上拖动 -->
+		<div class="detail-drag" id="dwonToTender">
+			<p>点击查看更多</p>
+		</div>
+	</div>
+	<div class="detail-main1">
+		<div class="upArrow" id="upToViewDetail">
+			<!-- <p><span></span>点击查看产品详情记录<span></span></p> -->
+		</div>
+		<!-- 头部切换 -->
+		<div class="detail-tab detail-TabOnly">
+			<ul class="detail-tab-list clearfix">
+				<li class="detail-tab-show detail-listOnlyOne" id="zq">债权列表</li>
+				<!-- <li id="tz">出借记录</li> -->
+			</ul>
+		</div>
+		<div id="wrapper" class="wrapper wrapperOnlyWmps">
+		<div id="scroller">
+		<!-- 债券列表 -->
+		<div class="detail-record detail-record-zhaiquan detail-record-show" id="zqlb">
+			<ul class="detail-record-list record-zq-list clearfix" id="zqlb_content"></ul>
+		</div>
+		<!-- 出借记录列表 -->
+		<!-- <div class="detail-record detail-record-fuxi" id="tzlb">
+			<ul class="detail-record-list clearfix" id="tzlb_content">
+
+			</ul>
+		</div> -->
+	</div>
+	</div>
+</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{id}}" wmpsAgreeMentHolding={{protocolURL}}>
+			<p>{{detailsTitle}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人:<span>{{realname3}}</span></p>
+				<p>证件号码：<span>{{strIdcard}}</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>借款人地区:<span>{{disCityname}}</span></p>
+				<p>借款金额：<span>{{amount}}</span></p>
+			</div>
+		</li>
+	{{/each}}
+</script>
+
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/iscroll.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.datapage.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/wmps/myWmps_detail.js?v=3.1"></script>
+</html>

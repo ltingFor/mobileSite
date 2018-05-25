@@ -1,0 +1,300 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+	font-size: 0.4rem;
+}
+.invest-main {
+	width: 100%;
+	height: 100%;
+	background: #f6f6f6;
+	position: relative;
+}
+.invest-head {
+	width: 100%;
+	height: 2.76rem;
+	background:linear-gradient(top,#f97862,#f65856);
+	background:-webkit-linear-gradient(top,#f97862,#f65856);
+  background:-moz-linear-gradient(top,#f97862,#f65856);
+  background:-o-linear-gradient(top,#f97862,#f65856);
+	color: #fff;
+}
+.invest-h-title {
+	width: calc(100% - 0.88rem);
+	height: 1.373333rem;
+	line-height: 1.373333rem;
+	font-size: 0.373333rem;
+	padding: 0 0.44rem;
+}
+.invest-head .invest-h-list {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+}
+.invest-h-list li {
+	float: left;
+	width: calc(100% / 3);
+	text-align: center;
+	font-size: 0.293333rem;
+}
+.invest-h-list li:nth-child(1) {
+	text-align: left;
+}
+.invest-h-list li:nth-child(3) {
+	text-align: center;
+	width:28%;
+	float: right;
+}
+.invest-h-list li>p {
+	line-height: 0.533333rem;
+	font-size: 0.466667rem;
+	text-align: center;
+}
+.invest-h-list li:nth-child(1)>p:nth-child(1) {
+	text-align: left;
+}
+.invest-h-list li:nth-child(3)>p {
+	text-align: center;
+}
+.invest-h-list li>p i{
+	/*font-size: 0.466667rem;*/
+	font-size: 0.32rem;
+}
+.invest-h-list li>p i img {
+	width: 0.29rem !important;
+	height: 0.29rem !important;
+	vertical-align:middle;
+}
+#term,#interest1 {
+	font-size: 0.466667rem;
+}
+#restAmount {
+	font-size: 0.466667rem;
+}
+.invest-con {
+	border-top: 1px solid #fff;
+	margin-bottom: 0.266667rem;
+}
+.invest-con .inv-money {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	padding-top: 0.733333rem;
+	background: #fff;
+	position: relative;
+}
+/*输入金额叉叉*/
+.inv-money .z-addClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	position: absolute;
+	top: 0.964103rem;
+	right: 1.217949rem;
+	background: url(../../images/cha.png) no-repeat 0 0;
+	background-size: cover;
+}
+.inv-money>span {
+	float: left;
+	font-size: 0.64rem;
+	color: #333;
+	line-height: 0.866667rem;
+	margin-bottom: 0.53333rem;
+}
+.money-inp::-webkit-input-placeholder {
+	font-size: 0.453333rem;
+}
+.inv-money>.money-inp {
+	width: 6.8rem;
+	/*width: 8.266667rem;*/
+	height: 0.866667rem;
+	color: #333;
+	font-size: 0.64rem;
+	margin-left: 0.2rem;
+	border:none;
+	float: left;
+}
+.invest-con .inv-pr {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	font-size: 0.32rem;
+	/*font-size: 0.23333rem;*/
+	color: #f84d4d;
+	line-height: 0.853333rem;
+	margin-bottom: 1px;
+	background: #fff;
+}
+.inv-line {
+	width: 100
+}
+.inv-pr>span {
+	font-size: 0.23333rem;
+}
+.inv-yu {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	background: #fff;
+}
+.inv-yu>p {
+	float: left;
+	line-height: 1.16rem;
+	color: #333;
+	font-size: 0.373333rem;
+}
+.inv-yu>p:nth-child(2) {
+	margin-left: 0.64rem;
+	color: #25bcff;
+	font-size: 0.426667rem;
+}
+.invest-packet {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	/*padding: 0 0.44rem 0.586667rem;*/
+	background: #fff;
+}
+.invest-packet>p:nth-child(1) {
+	line-height: 1.173333rem;
+	padding-top: 0.133333rem;
+	font-size: 0.346667rem;
+}
+.redbagReward{background: url(/static/mobileSite/images/redbg.png) no-repeat center!important;background-size: 100%!important;}
+.invest-packet>p:nth-child(1) .reward{float: right;display: block;width: 1.25rem;height: 1.1rem;line-height:1.1rem;text-align: center;background: url(/static/mobileSite/images/reward.png) no-repeat center;background-size: 100%;color: #fff;font-size: .32rem;}
+.invest-packet>p:nth-child(1) .noreward{font-size: .32rem;height: 1.1rem;line-height:1.1rem;float: right;}
+.invest-packet>p:nth-child(1) .goto{float: right;display: block;width: 1.0rem;height: 1.0rem;background: url(/static/mobileSite/images/goto.png) no-repeat center;background-size: 50%;}
+.invest-packet .invest-p-list {
+	width: 100%;
+	background: #fff;
+	height: 0.666667rem;
+}
+.invest-p-list>li {
+	width: 1.563333rem;
+	float: left;
+	height: 0.64rem;
+	border:1px solid #c7c7c7;
+	margin-left: 0.28rem;
+	text-align: center;
+	line-height: 0.64rem;
+	border-radius: 0.093333rem;
+}
+/*选中红包的样式*/
+.invest-p-list>li.inv-p-show {
+	border-color: #f84d4d;
+	color: #f84d4d;
+}
+.invest-p-list>li:nth-child(1) {
+	margin-left: 0;
+}
+/*充值按钮*/
+.rechange {
+	margin-top: 0.266667rem;
+	text-align: right;
+	/*margin-bottom: 3.6rem;*/
+}
+.rechange>span {
+	width: 2.0rem;
+	height: 0.773333rem;
+	text-align: center;
+	line-height: 0.773333rem;
+	/*background: #f84d4d;*/
+	border: 2px solid #f84d4d;
+	border-radius: 0.093333rem;
+	color: #f84d4d;
+	/*padding: 0 0.533333rem;*/
+	margin-right: 0.44rem;
+	display: inline-block;
+
+}
+.invest-xieyi{
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	margin-left: 0.64rem;
+}
+.invest-xieyi>a {
+	line-height: 1.066667rem;
+	/*text-decoration: underline;*/
+	color: rgba(37, 188, 255, 0.65);
+	font-size: 0.346667rem;
+}
+.inv-go-btn {
+	/*position: fixed;*/
+	/*bottom: 0;*/
+	width: 7.8rem;
+	/*width: 8.397436rem;*/
+    height: 1.102564rem;
+    text-align: center;
+    line-height: 1.102564rem;
+    background: #f84d4d;
+    border: none;
+    color: #fff;
+    border-radius: 0.133333rem;
+    font-size: 0.453333rem;
+    margin: 1.476923rem auto 0;
+    display: block;
+}
+
+
+
+
+/*投资页  转让详情*/
+.invest-title-list {
+	width: calc(100% - 0.88rem);
+	height: 1.373333rem;
+	padding: 0 0.44rem;
+}
+.invest-title-list>li{
+	width: calc(100% / 2);
+	float: left;
+	line-height: 1.373333rem;
+}
+.invest-title-list>li:nth-child(1) {
+	text-align: left;
+}
+.invest-title-list>li:nth-child(2) {
+	text-align: right;
+}
+.transfer-mon {
+	width: calc(100% - 0.88rem);
+	padding: 0.373333rem 0.44rem 0.4rem;
+	background: #fff;
+}
+.transfer-mon p {
+	text-align: center;
+}
+.transfer-mon p:nth-child(1) {
+	height: 1.053333rem;
+	line-height: 1.053333rem;
+}
+.transfer-mon p:nth-child(2) {
+	position: relative;
+}
+.transfer-mon p:nth-child(2)>span {
+
+	width: 0.32rem;
+	height: 0.32rem;
+	background: url(../../images/warn.png) no-repeat 0 0;
+	background-size: cover;
+	display: inline-block;
+	margin-bottom: -0.066667rem;
+
+}
+.inv-plan-mon {
+	padding-bottom: 0.4rem;
+}
+.invest-con .inv-pr>p {
+	width: 6.773333rem;
+	height: 0.6rem;
+	line-height: 0.6rem;
+	border-radius: 0.24rem;
+	text-align: center;
+	font-size: 0.293333rem;
+	margin: 0 auto;
+	padding: 0 0.533333rem;
+	background: #efeff0;
+
+	color: #6e6e6e;
+}
+.inv-plan-mon>p span,  .inv-plan-mon>p span>i{
+	font-size: 0.293333rem;
+	color: #f84d4d;
+}
+

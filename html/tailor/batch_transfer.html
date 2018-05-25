@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="format-detection" content="email=no">
+      <meta itemprop="image" content="http://mstatic.eloancn.com/report/03/images/logo.png"/>
+      <title>转让债权</title>
+      <link rel="stylesheet" href="../../css/base.css">
+      <link rel="stylesheet" href="../../css/layer.css">
+      <link rel="stylesheet" type="text/css" href="../../css/tailor/batch_transfer.css" />
+    </head>
+    <body style="margin-bottom: 2.55rem;background: #f2f2f2;">
+    <!--弹窗层---开始-->
+    <div class="alert_layer"></div>
+    <div class="alert_box alert_box_yes">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container">
+        <div class="alert_btn alert_btn_know">知道了</div>
+      </div>
+    </div>
+    <div class='alert_auto'><span></span></div>
+    <!--弹窗层---结束-->
+      <div class="transzhai_wrap">
+        <div class="zhai-header">
+          <ul class="clearfix">
+            <li>
+              <p id="tender_num">-</p>
+              <span>转让总债权(个)</span>
+            </li>
+            <li>
+              <p id="tender_money" data-num=''>--</p>
+              <span>转让后总实收(元)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="zhai-cont">
+          <ul id="contents">
+          </ul>
+        </div>
+        <div class="zhai-btn">
+          <div class="btn">转让</div>
+          <div class="remd">提示：已过滤不满足转让条件的债权，转让申请提交成功后10分钟内不可取消</div>
+        </div>
+      </div>
+    <script src='../../js/lib/flexible.js'></script>
+    </body>
+<script type="text/x-handlebars-template" id="tpl_trans">
+{{#each this}}
+  <li class="list" data-prodStr='{{cessionProd}}'>
+    <div class="tit clearfix">
+      <h3>{{borrowTitle}}</h3>
+      <p class="check"></p>
+    </div>
+    <div class="cent">
+      <ul>
+        <li>
+          <p>出借本金：<span>{{format investAmt 'y'}}元</span></p>
+          <p>还款方式：<span>{{loanRepaymentWayStr}}</span></p>
+        </li>
+        <li>
+          <p>当前已收利息：<span>{{format curPaidInter 'y'}}元</span></p>
+          <p>转让本金：<span>{{format unpaidPrincipal 'y'}}元</span></p>
+        </li>
+        <li>
+          <p>当期未收利息：<span>{{format restInterest 'y'}}元</span></p>
+          <p>转让费：<span>{{format transferFee 'y'}}元</span></p>
+        </li>
+      </ul>
+    </div>
+    <div class="bot">
+      <ul data-max='{{rebateMin}}' data-min='{{rebateMax}}'>
+        <li class="jiage clearfix">
+          <span data-class='add' class="transTo" data-shishou='{{realGetAmt}}' style="display:none;">高价转</span>
+          <span data-class='sub' class="transTo" data-shishou='{{realGetAmt}}'>低价转</span>
+          <p>此次浮动范围{{rebateMin}}～{{rebateMax}}元</p>
+        </li>
+        <li class="clearfix">
+          <p>浮动金额</p>
+          <div class="inp-box">
+            <span class="sub changeBtn" data-cf='false'></span>
+            <label><i class="l_i"></i><input type="tel" value="0" class="jine"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" disabled='disabled'><i class="r_i">元</i></label>
+            <span class="add changeBtn" data-cf='false'></span>
+          </div>
+        </li>
+        <li class="clearfix">
+          <p>转让后实收<a href="javascript:void(0);" class="remd" data-tip='{{iconTip}}'></a></p>
+          <span><label class="shishou" data-num='{{realGetAmt}}'>{{format realGetAmt 'y'}}</label>元</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+{{/each}}
+</script>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/jquery.base64.js"></script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/tools/el.amountinput.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/getToken.js?v=3.0"></script>
+<script src='/static/mobileSite/js/tailor/batch_transfer.js?v=3.0'></script>
+</html>

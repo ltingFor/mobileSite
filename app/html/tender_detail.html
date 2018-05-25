@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<link rel="shortcut icon" href="https://www.eloancn.com/images/favicon.ico">
+	<title>债权详情</title>
+	<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/base.css'/>  
+	<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/layer.css'/>  
+	<!-- <link rel="stylesheet" href="css/base.css?v=0.1"> -->
+	<!-- <link rel="stylesheet" href="css/layer.css"> -->
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+
+		.wrap{background-color: #f2f2f2;width: 100%;color: #333;}
+		.level{background:url(../../images/level.png) no-repeat center;background-size: 100% 100%;color: #fff;font-size:0.34rem;width: 0.72rem;height: 0.346667rem;line-height: 0.346667rem;margin-top:0.05rem;float: left;margin-left: 0.2rem;font-size: 0.232533rem;text-align: center;}
+		.title{padding: 0.4rem 0.64rem 0.4rem 0.64rem;margin-bottom: 0.133333rem;background-color: #fff;overflow: hidden;}
+		.title .titleConent{float: left;width: 76%;}
+		.title .titleImg{float: right;width:1.866667rem;height: 1.866667rem;position:relative;text-align:right;}
+		.title .titleImg .innercricle{position:absolute;width:0.74rem;height:0.74rem;opacity:0;background:#666;border-radius:1rem;z-index:2;right:-0.2rem;bottom:0;}
+		.title .titleImg .industryimg{position:absolute;width:0.7rem;height:0.7rem;background:#666;border-radius:1rem;z-index:3;right:-0.2rem;bottom:0;;background:#fff;border:0.05rem solid #e6e6e6;}
+
+		.title .titleImg .userphoto{border-radius:1.866667rem;border:0.06rem solid #e6e6e6;width:1.76rem;height:1.76rem;}
+		.titleConent .purpose{height: .85rem;line-height: .85rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.titleConent .purpose,.title .purpose label{font-size: 0.4rem;color: #333;}
+		.title .titleConent .titleDes,.title .titleConent .titleDes label{font-size: 0.346667rem;line-height: 0.533333rem;color: #6e6e6e;}
+		.h_48{height: 0.64rem!important;line-height: 0.64rem!important;}
+
+		.content{margin-bottom: 0.133333rem;background-color: #fff;padding:0 0.64rem;}
+		.content .conTitle{height:1.12rem;line-height: 1.12rem;border-bottom: 2px solid #f2f2f2;}
+		.content .conTitleitem{height:1.12rem;line-height: 1.12rem;border-bottom: 2px solid #f2f2f2;margin:0 0.2rem;}
+		.content .conTitle img{margin-right: 0.2rem;vertical-align: middle;width: 0.416666rem;}
+		.content .conTitle label{vertical-align: middle;font-size: .4rem;color: #333;}
+		.content .conTitleitem label{vertical-align: middle;color:#afa7a5;font-size:0.346667rem}
+
+		.descrip .desContent{line-height: 0.533333rem;font-size: 0.346667rem;margin: 0.2rem 0.2rem 0.133333rem 0.2rem;padding-bottom:0.2rem;color: #6e6e6e;}
+		.descrip .desContent p{font-size: 0.346667rem;overflow: hidden;}
+		.person .personCon,.data .dataContent{margin: 0 0.2rem;padding-bottom:0.2rem;}
+		.person .personCon .basicinfo{width: 2.0rem;border-radius: 0.3rem;background-color: #fab8bc;color: #fff;margin: 0.613333rem 0 0.373333rem 0;height: 0.466667rem;line-height: 0.48rem;text-align: center;font-size: 0.346667rem;}
+		.data .dataContent{padding-top: 0.533333rem;}
+		.person .personCon .moneyinfo{background-color: #dcc8e0!important;}
+		.person .personCon .workinfo{background-color: #fcd7b2!important;}
+		.person .personCon .creditinfo{background-color: #bcddf5!important;}
+		.person .personCon .personText{width:100%;}
+		.person .personCon .personText td,.data .dataContent .dataText td{border-bottom:1px dashed  #ddd;line-height: 0.74rem;font-size: 0.293333rem;text-align: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #6e6e6e;width:4.16rem;}
+		.person .personCon .personText tr.noborder td,.data .dataContent .dataText tr.noborder td{border-bottom:none;}
+		.person .personCon .personText td label,.data .dataContent .dataText td label{font-size: 0.293333rem;color: #6e6e6e;}
+		.foot{text-align: right;margin: 4%;}
+		.foot label{color:#25bcff;}
+		.levelico{width:0.416666rem;vertical-align:sub;margin-left:0.28rem;}
+
+		.w_47{width: 50%;}
+		.w_60{width: 60%;}
+		.w_100{width: 100%;}
+		
+		.levelbox_mark{position:fixed;width:100%;height:100%;background:#000;opacity:0.5;z-index:4;}
+		.levelbox_main{position:fixed;width:7.8rem;z-index:5;left:1.1rem;top:2rem;}
+		.levelbox_close img{width:0.74rem;}
+		.levelbox_close{text-align:right;font-size:0;}
+		.levelbox_wrap{position:relative;height:10rem;width:100%;}
+		.levelbox_t{height:1rem;line-height:1rem;background:#f58250;border-radius:0.2rem 0.2rem 0 0;color:#fff;font-size:0.42rem;text-align:center;}
+		.levelbox_m{height:9rem;background:#fff;overflow:auto;border-radius:0 0 0.2rem 0.2rem;}
+		.levelbox_b{border-radius:0.2rem;height:1.25rem;position:absolute;bottom:-0.25rem;width:7.8rem;left:0;background-image:-webkit-linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,0)); background-image:linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,0));}
+		.levelbox_m tr th{color:#f58250;text-align:center;font-size:0.37rem;padding:0.315rem 0.6rem;}
+		.levelbox_m tr td{color:#333;text-align:center;font-size:0.37rem;padding:0.315rem  0.6rem;}
+		.levelbox_m tr.bg_powder td{background:#fff6f1;}
+		.levelbox_m tr td.levelbox_td,.levelbox_m tr th.levelbox_td{width:1.58rem;border-right:0.04rem solid #fff;}
+		.footer{font-size:0.3rem;text-align:center;height:1.48rem;line-height:1.48rem;color:#afa7a5;background:#f8f8f8;}
+	</style>
+</head>
+<body  style="background:#f2f2f2;">
+<!--弹窗层---开始-->
+<div class="alert_layer"></div>
+<div class="alert_box alert_box_yes">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container">
+		<div class="alert_btn alert_btn_know">知道了</div>
+	</div>
+</div>
+<div class="alert_box alert_box_ok">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container clearfix">
+		<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+		<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+	</div>
+</div>
+<div class='alert_auto'><span></span></div>
+<div class="levelbox" style="display:none;">
+<div class="levelbox_mark"></div>
+<div class="levelbox_main"><div class="levelbox_close"><img class="levelbox_closeico" src="../../images/levelcloseico.png"></div>
+<div class="levelbox_wrap">
+<div class="levelbox_t">风险评估</div>
+<div class="levelbox_m"><table>
+<tr><th class="levelbox_td">信用等级</th><th>风险评估提示</th></tr>
+<tr class="bg_powder"><td class="levelbox_td">AAA</td><td>信誉优良，风险微小</td></tr>
+<tr><td class="levelbox_td">AA+</td><td>信誉优良，风险微小</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">AA</td><td>信誉优良，风险微小</td></tr>
+<tr><td class="levelbox_td">A+</td><td>信誉优良，风险微小</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">A</td><td>信誉优良，风险微小</td></tr>
+<tr><td class="levelbox_td">BB+</td><td>信誉较好，具备支付能力，风险较小</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">BB</td><td>信誉较好，具备支付能力，风险较小</td></tr>
+<tr><td class="levelbox_td">B+</td><td>信誉较好，具备支付能力，风险较小</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">B</td><td>信誉较好，具备支付能力，风险较小</td></tr>
+<tr><td class="levelbox_td">CC+</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">CC</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+<tr><td class="levelbox_td">C+</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">C</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+<tr><td class="levelbox_td">D</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+<tr class="bg_powder"><td class="levelbox_td">HR</td><td>信誉较好，基本具备支付能力，风险可控</td></tr>
+</table></div>
+
+<div class="levelbox_b"></div>
+</div>
+</div>
+
+</div>
+
+
+<!--弹窗层---结束-->
+<script type="text/x-handlebars-template" id="tender_tpl">
+	<div class="wrap">
+		<div class="title">
+			<div class="titleConent">
+				<p class="purpose">借款目的：<label>{{title}}</label></p>
+			<p class="titleDes"><label>借款人：{{realName}}</label>&nbsp;&nbsp;{{cityName}}</p>
+				<P class="titleDes">信用等级：<label>{{finalLevel}}<img class="levelico"  src="../../images/i_tipico.png?v=1" alt="等级说明"></label></p>
+				<p class="titleDes">借款金额：<label>{{amount}}元</label></p>
+			</div>
+		<!-- 	<div class="titleImg"><img class="userphoto" src="{{photo}}" alt="用户"><div class="innercricle"></div><img class="industryimg" src="{{industryIcon}}" alt="用户"></div> -->
+		</div>
+		<div class="content descrip">
+		<p class="conTitle">
+				<img src="../../images/xxms.png" alt=""><label>项目基本信息</label>
+			</p>
+			<p class="conTitleitem">
+				<label>项目简介</label>
+			</p>
+			<div class="desContent" style="font-size:0.342rem;">
+				借款描述：
+				{{#limitText description}}
+				<p>暂无描述</p>
+				{{else}}
+				<p>{{description}}</p>
+				{{/limitText}}
+			</div>
+		</div>
+		<div class="content descrip">
+		
+			<p class="conTitleitem">
+				<label>还款来源</label>
+			</p>
+			<div class="desContent" style="font-size:0.341rem;">
+				{{repaymentSource}}
+			</div>
+		</div>
+		<div class="content person">
+		
+			<p class="conTitleitem">
+				<label>还款保障措施</label>
+			</p>
+			<div class="personCon">
+			<table class="personText">
+				<tr>
+					<td  colspan="2" style="font-size:0.2933rem;">年收入：<label style="font-size:0.2933rem;">{{nsr}}</label></td>												
+					</tr>
+					<tr  class="noborder">						
+						<td  colspan="2">担保人：<label>{{isExists peopleGuarantee}}</label></td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+		<div class="content person">
+						{{#checkCompany borrowerType}}
+						<p class="conTitle"><img src="../../images/grzl.png">企业资料</p>
+						<p class="conTitleitem">
+							<label>企业信息</label>
+						</p>
+						{{else}}
+						<p class="conTitle"><img src="../../images/grzl.png">个人资料</p>
+						<p class="conTitleitem">
+							<label>基本信息</label>
+						</p>
+						{{/checkCompany}}
+			
+			<div class="personCon">
+			
+				<table class="personText">
+					<tr>
+						{{#checkCompany borrowerType}}
+						<td>企业法人姓名：<label>{{legalName}}</label></td>
+						{{else}}
+						<td>性别：<label>{{gender}}</label></td>
+						{{/checkCompany}}
+						<td>年龄：<label>{{age}}</label></td>
+					</tr>
+					<tr>
+						<td>文化程度：<label>{{jycd}}</label></td>
+						<td>婚姻状况：<label>{{hyzk}}</label></td>
+					</tr>
+					<tr class="noborder">
+						<td>户口所在地：<label>{{nativePlace}}</label></td>
+						<td>长期居住地：<label>{{cqjzd cqjzd}}</label></td>
+					</tr>
+				</table>
+
+				
+				
+			</div>
+			</div>
+			<div class="content person">
+			<p class="conTitleitem">
+				<label>工作信息</label>
+			</p>
+			<div class="personCon">
+			
+				<table class="personText">
+					<tr>
+						<td>工作年限：<label>{{isExists gznx}}</label></td>
+						<td>行业：<label>{{industry industry}}</label></td>
+					</tr>
+					<tr class="noborder">
+						<td>社保年限：<label>{{isExists sbnx}}</label></td>
+						<td>商业保险：<label>{{isExists sybx}}</label></td>
+					</tr>
+				</table>
+				</div>
+				</div>
+				<div class="content person"  style="margin-bottom:0;">
+				<p class="conTitleitem">
+				<label>信用信息</label>
+			</p>
+			<div class="personCon">
+			
+				
+				<table class="personText">
+					<tr class="noborder">
+						<td>负债信息：<label>{{liability}}</label></td>
+						<td>征信报告中的逾期情况：<label>{{creditReportOverdue}}</label></td>
+					</tr>
+					
+				</table>
+				</div>
+		</div>
+		{{#equalstatus status}}
+		<div class="content descrip" style="margin-bottom:0;margin-top:0.133333rem;">
+		
+			<p class="conTitle"><img src="../../images/hktj.png">项目进度</p>
+			<div class="desContent" style="font-size: 0.293333rem;margin-bottom:0;">
+				逾期情况： {{overdueStatus}}
+			</div>
+		</div>
+		{{/equalstatus}}
+		<div class="foot"></div>
+		<div class="footer">温馨提示：网贷有风险，出借需谨慎！</div>
+	</div>
+	</script>
+    <script src="../../js/lib/jquery-1.10.1.min.js"></script>
+    <script src="../../js/lib/share.js"></script>
+	<script src="../../js/lib/handlebars-v3.0.1.js"></script>	
+	<script src="../../js/tools/el.tools.js"></script>
+	<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+	<script src="../../js/tools/jquery.request.js?v=3.0"></script>
+	<script src="../../js/mobileSet.common.js?v=3.0"></script>
+
+<script>
+(function(w,jq,h,r,t){
+    var Globalxieyi={xieyiname:'',xieyiurl:''};
+	var param_obj = t.getParams();
+	if(param_obj.id){
+	tid=param_obj.id
+	}else{
+	tid=param_obj.tid
+	}
+	var tid = decodeURIComponent(tid),//tenderid
+		xieyiUrl = param_obj.url?param_obj.url:param_obj.wmpsAgreeMentHolding;
+		xieyiUrl = xieyiUrl ? decodeURIComponent(xieyiUrl) : '';
+	h.registerHelper('isExists',function(status){
+		console.log(status);
+		if(status == '0' || !status){
+			return '无';
+		}else if(status == '1'){
+			return '有';
+		}else{
+			return status;
+		}
+	});
+	h.registerHelper('cqjzd',function(status){
+
+		if(status == '0' || !status){
+			return '无';
+		}else if(status == '1'){
+			return '有';
+		}else{
+			return status.length>6?status.substring(0,6)+'...':status;
+		}
+	});
+	//status不是2或7时不显示逾期情况
+	h.registerHelper('equalstatus',function(status,options){
+
+		if(status == '2' || status == '7'){
+			return options.fn(this);
+		}else{
+			return options.inverse(this);
+		}
+	});
+	h.registerHelper('industry',function(status){
+
+		if(status == '0' || !status){
+			return '无';
+		}else if(status == '1'){
+			return '有';
+		}else{
+			return status.length>9?status.substring(0,9)+'...':status;
+		}
+	});
+	h.registerHelper('checkCompany',function(borrowerType,options){
+		if(borrowerType == '2'){//企业用户
+			return options.fn(this);
+		}else{
+			return options.inverse(this);
+		}
+	});
+	h.registerHelper('limitText',function(des,options){
+		if(!des || !des.length){
+			return options.fn(this);
+		} else {
+			return options.inverse(this);
+		}
+	});
+	h.registerHelper('isEmpty',function(arr,options){
+		if(!arr || !arr.length){
+			return options.fn(this);
+		} else {
+			return options.inverse(this);
+		}
+	});
+	var	body = jq('body'),
+		tenderTpl = h.compile(jq('#tender_tpl').html());
+		// materialTpl = h.compile(jq('#material_tpl').html());
+
+	var sendData = {
+		requesturl : CONFIG.COMMON_TenderDetail_URL,
+		id : tid,
+		mark:2,
+		url : xieyiUrl
+	};
+	if(xieyiUrl){
+		sendData.url = xieyiUrl;
+	}
+	r.postLayer({
+		url : PUBLIC.URL_FWD_COMMON,
+		data : sendData,
+		success : function(data){
+			if(data.data){
+				var response_data = data.data || {};
+				var d = (response_data || {});
+				var html = tenderTpl(d);
+				body.append(html);
+				$('.levelbox_closeico').click(function(){
+				$('.levelbox').hide();
+				$(".wrap").css("position","static");
+				})
+				$('.levelico').click(function(){
+				$('.levelbox').show();
+				$(".wrap").css("position","fixed");
+				})
+				var xieyiO = response_data.urlentry || {};
+				if(xieyiO.code == '0'){
+				     Globalxieyi.xieyiname=xieyiO.entryName;
+				     Globalxieyi.xieyiurl=xieyiO.entryDesc;				 
+
+					$(".foot").append('<label id="xieyi">'+xieyiO.entryName+'</label>');
+					$('#xieyi').bind('click',function(){
+						window.location.href = xieyiO.entryDesc;
+					});
+				}else{
+					$(".foot").addClass('dis_none');
+				}
+			}else{
+				//alert(1);
+				body.html('<p style="text-align: center;margin-top: 150px;"><span class="no_data">暂无数据</span></p>')
+			}
+			
+			
+			 if(param_obj.platform=='1'){
+				$(".foot").addClass('dis_none');
+				share.getProtocol(Globalxieyi.xieyiname,Globalxieyi.xieyiurl);				
+			}
+			if(param_obj.platform=='2'){
+				 $(".foot").addClass('dis_none');
+				 window.webkit.messageHandlers.getProtocolIOS.postMessage(JSON.stringify(Globalxieyi));
+			}
+		}
+		});
+}(window,$,Handlebars,requestUtil,Tools));
+</script>
+</body>
+</html>

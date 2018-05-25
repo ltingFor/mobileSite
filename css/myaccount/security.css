@@ -1,0 +1,77 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	background: #f6f6f6;
+}
+section {
+	width: calc(100% - 0.88rem);
+	margin-bottom: 0.213333rem;
+	padding: 0 0.44rem;
+	background: #fff;
+}
+.re-head p:nth-child(1) {
+	float: left;
+	font-size: 0.4rem;
+	color: #333;
+	line-height: 2.0rem;
+}
+.re-head a:nth-child(2) {
+	float: right;
+	width: 1.2rem;
+	height: 2.0rem;
+	line-height: 2.0rem;
+	display: inline-block;
+}
+.re-head a:nth-child(2) img {
+	width: 100%;
+	vertical-align: middle;
+}
+.re-con {
+	height: 1.466667rem;
+}
+.re-con>p {
+	line-height: 1.466667rem;
+	font-size: 0.4rem;
+}
+.re-con1 {
+	margin-bottom: 0.04rem;
+}
+.re-con .re-left {
+	float: left;
+	color: #333;
+}
+.re-con .re-right {
+	float: right;
+	font-size: 0.373333rem;
+}
+.re-con>p .re-go-btn {
+	width: 0.2rem;
+	height: 0.386667rem;
+	background: url(../../images/right-btn.png) no-repeat 0 0;
+	background-size: cover;
+	display: inline-block;
+	margin-bottom: -0.06rem;
+	margin-left: 0.266667rem;
+}
+.re-end {
+	margin-top: 0.933333rem;
+	text-align: center;
+	background-color: #f6f6f6;
+}
+.re-end>p {
+	width: 8.72rem;
+	height: 1.133333rem;
+	text-align: center;
+	line-height: 1.133333rem;
+	margin: 0 auto;
+	color: #f84d4d;
+	border: 2px solid #fac8c8;
+	border-radius: 0.08rem;
+	background-color: #fff;
+	font-size: 0.453333rem;
+}
+.disColor{color: #dcdcdc!important;}

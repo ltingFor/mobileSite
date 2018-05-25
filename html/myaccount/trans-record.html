@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>交易记录</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/myaccount/transDrawal.css?v=1.0">
+	<link rel="stylesheet" href="../../css/dropload.css">
+	<script src="../../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<!-- <p class="alert_title">提示</p> -->
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<!-- <div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div> -->
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 头部 -->
+	<section class="transtion-head">
+		<p>筛选<span class="screen-btn"></span></p>
+	</section>
+	<!-- 交易记录表 -->
+	<section class="transtion-main">
+		<!-- class drawal-green是绿色 drawal-red是红色-->
+		<div class="trans-date">
+			<!-- <h4>2016年10月20日</h4> -->
+			<ul class="trans-date-list">
+				<!-- <li class="date-li">
+					<div class="drawal-money clearfix">
+						<p>提现成功</p>
+						<p class="drawal-green">-3600.80</p>
+					</div>
+					<div class="drawal-time clearfix">
+						<p>18:21:04</p>
+						<p>余额: <span>1000000.00</span>元</p>
+					</div>
+				</li>
+				<li class="date-li">
+					<div class="drawal-money">
+						<p>提现成功</p>
+						<p class="drawal-red">+3600.80</p>
+					</div>
+					<div class="drawal-time">
+						<p>18:21:04</p>
+						<p>余额: <span>1000000.00</span>元</p>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+		<!-- <div class="trans-date">
+			<h4>2016年10月4日</h4>
+			<ul class="trans-date-list">
+				<li class="date-li">
+					<div class="drawal-money clearfix">
+						<p>提现成功</p>
+						<p class="drawal-green">-3600.80</p>
+					</div>
+					<div class="drawal-time clearfix">
+						<p>18:21:04</p>
+						<p>余额: <span>1000000.00</span>元</p>
+					</div>
+				</li>
+			</ul>
+		</div> -->
+	</section>
+
+	<!-- 筛选条件框 -->
+	<!-- class类名 trans-selected是选中的时候变红色的类 -->
+	<section class="screen-box" style="display: none;">
+		<div class="screen-bg">
+			<div class="trans-comm-select trans-style">
+				<h5>选择交易类型</h5>
+				<ul class="trans-comm-list clearfix screenList">
+					<li class="trans-selected" data-trade="0">全部</li>
+					<li data-trade="10">出借</li>
+					<li data-trade="12">回报</li>
+					<li data-trade="15">返还本金</li>
+					<li data-trade="11">转让</li>
+					<li data-trade="2">充值</li>
+					<li data-trade="4">提现</li>
+					<li data-trade="7">红包变现</li>
+				</ul>
+			</div>
+			<div class="trans-comm-select trans-look">
+				<h5>选择查看时间</h5>
+				<ul class="trans-comm-list clearfix timeList">
+					<li data-time="1">今天</li>
+					<li data-time="0" class="trans-selected">近一个月</li>
+					<li data-time="2">近三个月</li>
+					<li data-time="3">三个月前</li>
+				</ul>
+				<p class="trans-warn">提示: 超过一年数据请前往官网查询</p>
+			</div>
+			<div class="trans-comm-select trans-btn">
+				<strong class="strong-cancle">取消</strong>
+				<strong class="strong-selected">确定</strong>
+			</div>
+		</div>
+	</section>
+	<!-- 上拉加载更多 -->
+	<!-- <div class="drop-load">上拉加载更多！</div> -->
+	<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../../js/tools/jquery.request.js"></script>
+	<script src="../../js/tools/el.layer.js"></script>
+	<script src="../../js/tools/el.tools.js"></script>
+	<script src="../../js/mobileSet.common.js?v=3.0"></script>
+	<script src="../../js/lib/dropload.min.js?v=3.0"></script>
+	<script src="../../js/myaccount/transRecord.js?v=3.0"></script>
+
+</body>
+</html>

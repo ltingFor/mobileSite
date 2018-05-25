@@ -1,0 +1,322 @@
+html {
+	width: 100%;
+	min-height: 100%;
+}
+body {
+	width: 100%;
+	min-height: 100%;
+	background: #f6f6f6;
+}
+
+.my-count-page {
+	width: 100%;
+}
+.my-head {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	height: 5.56rem;
+	background: #f84d4d;
+	background-size: cover;
+}
+.my-head>.my-head-top {
+	width: 100%;
+	height: 1.546667rem;
+	padding-top: 0.293333rem;
+	text-align: center;
+	/*margin-bottom: 0.266667rem;*/
+}
+.my-head-top>.vip-main {
+	width: 0.933333rem;
+	height: 0.933333rem;
+	display: inline-block;
+
+	float: left;
+	margin-left: 0.293333rem;
+	
+	margin-top: 0.32rem;
+	position: relative;
+}
+.vip-main>img:nth-child(1) {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.vip-main>img:nth-child(2) {
+	width: 0.72rem;
+	height: 0.52rem;
+	position: absolute;
+	left:0.12rem;
+	top: -0.34rem;
+	overflow: hidden;
+}
+.my-head-top>p {
+	float: left;
+	line-height: 1.546667rem;
+	color: #fff;
+	margin-left: 0.253333rem;
+	font-size: 0.4rem;
+}
+.eye{float: right!important;height: 0.5rem;width: 0.7rem;}
+
+.my-count-page>.my-head-con {
+	width: 100%;
+	margin-bottom: 0.586667rem;
+}
+.my-head-con>p {
+	text-align: center;
+	color: #fff;
+}
+.my-head-con>p:nth-child(1) {
+	font-size: 0.666667rem;
+	line-height: 0.8rem;
+}
+.my-head-con>p:nth-child(2) {
+	font-size: 0.373333rem;
+	line-height: 0.72rem;
+}
+/*新版样式*/
+.head-list {
+	height: 3.733333rem;
+}
+.head-left {
+	float: left;
+	color: #fff;
+	margin-left: 0.293333rem;
+	margin-top: 1.0rem;
+}
+.head-right {
+	float: right;
+	text-align: left;
+	color: #fff;
+}
+.head-right li {
+	height: 0.72rem;
+}
+.head-right li:nth-child(1) {
+	padding-top: 0.293333rem;
+}
+.head-right li p {
+	display: inline-block;
+	font-size: 0.32rem;
+}
+.head-right li p>span {
+	font-size: 0.32rem;
+}
+.head-right li .preBg {
+	width: 0.106667rem;
+	height: 0.106667rem;
+	display: inline-block;
+	background: url(../../images/white.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-bottom: 0.013333rem;
+	margin-right: 0.106667rem;
+}
+.head-right li .preBg2, .head-right li .preBg3 {
+	width: 0.106667rem;
+	height: 0.106667rem;
+	margin-bottom: 0.133333rem;
+	margin-right: 0.106667rem;
+	display: inline-block;
+}
+.head-right li .preBg4 {
+	width: 0.293333rem;
+	height: 0.293333rem;
+	display: inline-block;
+	background: url(../../images/redtishi.png) no-repeat 0 0;
+	background-size: contain;
+	margin-bottom: -0.0383333rem;
+}
+
+
+.head-left .head-total {
+	font-size: 1.066667rem;
+}
+.head-left p:nth-child(2){
+	text-align: center;
+}
+.head-left p:nth-child(3) {
+	font-size: 0.32rem;
+}
+
+.head-profit {
+	width: 100%;
+	min-height: 1.973333rem;
+	background: #f95b5b;
+}
+.my-head-profit {
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	min-height: 1.973333rem;
+}
+.profit-list>li {
+	float: left;
+	width: 50%;
+	min-height: 0.933333rem;
+	margin-top: 0.533333rem;
+}
+.profit-list>li:nth-child(1) {
+	width: calc(50% - 2px);
+	border-right: 2px solid #fcadad;
+}
+.profit-list>li p {
+	text-align: center;
+	color: #fff;
+	font-size: 0.32rem;
+}
+.profit-list>li p:nth-child(1) {
+	margin-bottom: 0.226667rem;
+}
+
+.recharge-btn {
+	width: 100%;
+	min-height: 1.626667rem;
+	margin-bottom: 0.133333rem;
+	background: #fff;
+}
+.recharge-btn>div {
+	width: 94%;
+	/*width: calc(100% - 0.88rem);*/
+	min-height: 1.626667rem;
+	/*padding: 0 3%;*/
+	/*padding: 0 0.44rem;*/
+	margin: 0 auto;
+}
+.recharge-btn>div p{
+	float: left;
+	width: 42%;
+	/*width: 3.946667rem;*/
+	min-height: 0.933333rem;
+	border-radius: 0.106667rem;
+	border:1px solid #f84d4d;
+	text-align: center;
+	line-height: 0.933333rem;
+	margin-top: 0.326667rem;
+	color: #f84d4d;
+	font-size: 0.426667rem;
+}
+.recharge-btn>div p:nth-child(1) {
+	margin-left: 3%;
+	/*margin-left: 0.266667rem;*/
+	margin-right: 10%;
+	/*margin-right: 0.626667rem;*/
+}
+
+/*模块列表*/
+.module-list {
+	width: 100%;
+	/*margin-bottom: 2rem;*/
+	margin-bottom: 1.354333rem;
+}
+.acc-list>li {
+	width: calc(100% - 0.88rem);
+	min-height: 1.6rem;
+	min-height: 1.6rem;
+
+	background: #fff;
+	padding: 0 0.44rem;
+	margin-bottom: 2px; 
+	position: relative;
+}
+.acc-list>li p {
+	font-size: 0.4rem;
+	color: #333;
+}
+.acc-list>li .float-left {
+	float: left;
+	margin-top: 0.55rem;
+}
+.acc-list>li .float-right {
+	float: right;
+	margin-top: 0.65rem;
+	margin-left: 0.133333rem;
+}
+.acc-list>li span {
+	width: 0.2rem;
+	min-height: 0.386667rem;
+	background: url(../../images/right-btn.png) no-repeat 0 0;
+	background-size: cover;
+	display: inline-block;
+}
+.acc-list>li .my-red {
+	float: right;
+	color: #6e6e6e;
+	margin-top: 0.65rem;
+}
+#z-reward {
+	font-size: 0.373333rem;
+}
+.acc-list>li .my-red  i {
+	width: 0.16rem;
+	height: 0.16rem;
+	background:url(../../images/point.png) no-repeat 0 0;
+	background-size: contain;
+	display: inline-block;
+	margin: 0 0.2rem;
+	margin-bottom: 0.086667rem;
+}
+.redBagArrow{margin-top: 0.0013333rem!important;}
+
+
+
+
+/*列表前面的图标样式*/
+.module-list>.acc-list .float-left>.pre-i {
+	height: 0.533333rem;
+	background-size: cover;
+	display: inline-block;
+	margin-right: 0.333333rem;
+	margin-bottom: -0.126667rem;
+}
+.module-list>.acc-list .float-left>.pre-i1 {
+	width:0.44rem;
+	background: url(../../images/icon1.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-i2 {
+	width: 0.506667rem;
+	background: url(../../images/icon2.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-wmpsplus {
+	width: 0.506667rem;
+	background: url(../../images/ynadd.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-i3 {
+	width: 0.44rem;
+	background: url(../../images/icon4.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-i4 {
+	width: 0.506667rem;
+	height: 0.493333rem;
+	background: url(../../images/icon5.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-i5 {
+	width: 0.533333rem;
+	background: url(../../images/setting.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-i6 {
+	width: 0.533333rem;
+	background: url(../../images/icon7.png) no-repeat 0 0;
+	background-size: cover;
+}
+.module-list>.acc-list .float-left>.pre-itailor {
+	width: 0.506667rem;
+	background: url(../../images/icontailor.png) no-repeat 0 0;
+	background-size: cover;
+}
+
+.openEye{display: none;}
+
+.fgt{
+	margin-top: 0.133333rem !important;
+    min-height: 0px !important;
+    height: 0px !important;
+}

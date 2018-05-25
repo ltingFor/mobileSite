@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>芝麻开花详情</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/sesame/sesame.css?v=1.2">
+	<link rel="stylesheet" href="/static/mobileSite/css/cal.css?v=0.0.3">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+		.detailOnlyNone li:nth-child(1) {
+		    display: block!important;
+		}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+<div class="alert_layer"></div>
+<div class="alert_box alert_box_yes">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container">
+		<div class="alert_btn alert_btn_know">知道了</div>
+	</div>
+</div>
+<div class="alert_box alert_box_ok">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container clearfix">
+		<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+		<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+	</div>
+</div>
+<div class='alert_auto'><span></span></div>
+<!--弹窗层---结束-->
+<div class="cal">
+	<span class="cal_close"></span>
+	<p class="cal_title">回报计算器</p>
+	<div class="calShow">
+		<div class="showL">
+			<p class="showTitle">出借本金（元）</p>
+			<p class="cursor calInput sesameinput" id="sesame_money">
+				<span class="val amount bigSize"></span>
+				<span class="cursor-blink">|</span>
+			</p>
+			<p class="intrestname">预期年化利率</p>
+			<p class="intreststr bigSize"><label class="intrest bigSize"></label>%<label class="supRateStr" id="supRateStr"></label></p>
+		</div>
+		<div class="showR">
+			<p class="showTitle">持有天数（天）</p>
+			<p class="cursor calInput sesameinput" id="sesame_holdDay">
+				<span class="calDay bigSize"></span>
+				<span class="cursor-blink dis_none">|</span>
+			</p>
+			<p class="intrestname">预计回报（元）</p>
+			<p class="intreststr output bigSize"></p>
+		</div>
+	</div>
+	<div class="calkeyboard">
+		<p class="calTip">实际年化利率以交易为准</p>
+		<table>
+			<tr>
+				<td class="key">1</td>
+				<td class="key">2</td>
+				<td class="key">3</td>
+			</tr>
+			<tr>
+				<td class="key">4</td>
+				<td class="key">5</td>
+				<td class="key">6</td>
+			</tr>
+			<tr>
+				<td class="key">7</td>
+				<td class="key">8</td>
+				<td class="key">9</td>
+			</tr>
+			<tr>
+				<td class="dott">C</td>
+				<td class="key">0</td>
+				<td class="del"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!--计算器  end-->
+
+	<div class="detail-main">
+		<!-- 芝麻开花详情页头部 -->
+		<div class="detail-head">
+			<ul class="detail-h-list clearfix">
+				<li id="title"></li>
+				<li class="enddate">00时00分00秒</li>
+			</ul>
+			<!-- 百分比 预期年化回报率 -->
+			<div class="det-per">
+				<h3 id="interests"><span>-</span>~<span>-</span>%<span></span></h3>
+				<p>预期年化利率</p>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec">
+				<ul class="detail-dec-list detail-dec-listNew clearfix">
+					<li>
+						<p><span id="closePeriod">-</span></p>
+						<p>封闭期(天)</p>
+					</li>
+					<li>
+						<p id="twoAmount"><span>-</span>万/<span>-</span></p>
+						<p>剩余可投/募集总额(万)</p>
+					</li>
+					<li>
+						<p><span id="chiyou_time">-</span></p>
+						<p>最长持有时间(天)</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 出借说明 -->
+		<div class="detail-inv-dec">
+			<div class="detail-inv-pp">
+				<p><span>起投金额</span> &nbsp;<label id="startInvestAmountStr">100元，并以整数倍递增</label></p>
+				<p><span>出借上限</span> &nbsp;<label id="everyAmountStr"></label></p>
+				<p><span>付息方式</span> &nbsp;<label id="payMode"></label></p>
+				<p><span>发布时间</span> &nbsp;<label id="effectDate"></label></p>
+				<p><span>募集期</span> &nbsp;&nbsp;<label id="collectPeriod"></label></p>
+				<p><span>转让规则</span> &nbsp;<label id="transferRule">封闭期结束后即可转让</label></p>
+				<p><span>转让限制</span> &nbsp;<label id="transferLimit">付息日及前1天不可转让</label></p>
+				<p><span>到期时间</span> &nbsp;<label id="exitTimeStr"></label></p>
+			</div>
+			<ul class="detail-dec-list detail-xi-list clearfix">
+				<li>
+					<p>计息时间</p>
+					<p id="interstTimeStr"></p>
+				</li>
+				<li>
+					<p>付息时间</p>
+					<p id="fxsj"></p>
+				</li>
+				<li>
+					<p>封闭期结束</p>
+					<p id="endCloseDateStr">2017-12-06</p>
+				</li>
+				<li class="detail-dotted1"></li>
+				<li class="detail-dotted2"></li>
+			</ul>
+		</div>
+		<!-- 出借本金 -->
+		<div class="detail-inv-end">
+			<p>出借<span>10000</span>元,到期预计回报<span class="detail-inv-profit">-</span>元</p>
+			<span class="calImg"></span>
+		</div>
+		<!-- 向上拖动 -->
+		<div class="detail-drag" id="dwonToTender">
+			<p>点击查看更多</p>
+		</div>
+	</div>
+
+	<div class="detail-main1">
+	<!-- 向上拖动 -->
+		<div class="upArrow" id="upToViewDetail">
+			<!-- <p><span></span>点击查看产品详情记录<span></span></p> -->
+		</div>
+		<!-- 付息头部切换 -->
+		<div class="detail-tab">
+			<ul class="detail-tab-list clearfix">
+				<li class="detail-tab-show" data="#sylb">回报列表</li>
+				<li data="#zqlb">债权列表</li>
+				<li data="#tzjl">出借记录</li>
+			</ul>
+		</div>
+		<div id="wrapper" class="wrapper">
+		<div id="scroller">
+		<!-- 回报列表 -->
+		<div class="detail-record detail-record-shouyi detail-record-show" id="cpxq">
+			<ul class="detail-record-list shouyi-list clearfix" id="syll"></ul>
+			<div class="pulldown"></div>
+			<p class="shouyi-dec">实收利率=借款利率-服务费率-转让费率</p>
+		</div>
+
+		<!-- 债券列表 -->
+		<div class="detail-record detail-record-zhaiquan" id="zqlb">
+			<ul class="detail-record-list record-zq-list clearfix" id="zqlb_content"></ul>
+			<p class="pulldown"></p>
+
+		</div>
+		<!-- 出借记录列表 -->
+		<div class="detail-record detail-record-fuxi" id="tzlb">
+			<ul class="detail-record-list detailOnlyNone clearfix" id="tzlb_content">
+			</ul>
+			<p class="pulldown"></p>
+		</div>
+	</div>
+	</div><!-- iscroll-->
+</div><!-- wrap -->
+	<!-- 马上出借按钮 -->
+<div class="detail-inv-btn">马上出借</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_sylb">
+	{{#each this}}
+		{{#compareIndexEnd1 @index}}
+		<li class="clearfix">
+			<p>持有至</p>
+			<p>实收利率</p>
+		</li>
+		{{/compareIndexEnd1}}
+		<li class="clearfix">
+			<p>{{ratePhase}}</p>
+			<p>{{delPlus curRate}}{{{checkAddRateStatus}}}{{{checkVipStatus}}}</p>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{enTenderId}}">
+		<a href="javascript:void(0);">
+			<p>{{title}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人:<span>{{owner_name}}</span></p>
+				<p>证件号码：<span>{{idcard}}</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>借款人地区:<span>{{areaname}}</span></p>
+				<p>借款金额：<span>{{unmatch_amount}}</span></p>
+			</div>
+			</a>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_tzlb">
+	{{#each this}}
+		{{#compareIndexEnd @index}}
+			<li class="clearfix">
+				<p>出借人</p>
+				<p>出借本金</p>
+				<p>加入时间</p>
+			</li>
+		{{/compareIndexEnd}}
+		<li class="clearfix">
+			<p>{{user_name}}</p>
+			<p>{{amount}}</p>
+			<p>{{createDateStr}}</p>
+		</li>
+	{{/each}}
+</script>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/iscroll.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.datapage.js?v=0.0.2"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script type="text/javascript" src="/static/cms/html/zhimaTransfer/js/calculate_1.0.0.js?v=2"></script>
+<script type="text/javascript" src="/static/cms/html/zhimaTransfer/js/date_1.0.0.js?v=2"></script>
+<script type="text/javascript" src="/static/cms/html/zhimaTransfer/js/invest.js?v=16"></script>
+<script type="text/javascript" src="/static/cms/html/zhimaTransfer/js/chart_rate_pos.js?v=2"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/sesame/detail.js?v=3.1"></script>
+<script src="/static/mobileSite/js/cal.js?v=3.0"></script>
+</html>

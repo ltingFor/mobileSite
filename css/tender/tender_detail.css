@@ -1,0 +1,62 @@
+/*css reset*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body{ font-size: 12px; font-family:'Microsoft Yahei','Simsun'; color:#444; line-height:150%; background:#f0f0f0; -webkit-text-size-adjust:none; min-width:320px;}
+h1,h2{ font-size:100%; }
+ul,li,ol{ list-style:none;}
+img{ vertical-align:middle;border:0;}
+a{ text-decoration:none; color:#646464}
+a:hover,a:active,a:focus{ text-decoration: none;}
+b{ font-weight:normal;}
+#content{padding:20px 10px;}
+/*忙艩鈥⒚碘€灻ニ嗏€斆÷�*/
+.lendingBox,.lendingDetail{border-radius:5px;background-color:#fff;width:100%;padding: 10px 0;position:relative;overflow:hidden;margin-bottom: 10px;}
+.ldTit{height: 30px;line-height: 30px;padding:0 10px;}
+.ldTit h1{font-weight:normal;font: 16px/30px "Microsoft Yahei";overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.ldTit h1 a{color:#000;}
+.ldArea{height: 25px;line-height: 25px;padding: 0 10px;color:#666;}
+.ldArea .person,.ldArea .city{margin-right:20px;}
+.ldMeony{height: 25px;line-height: 25px;margin:0 10px;}
+.lddInfo{background-color:#fbf3ee;margin: 10px 10px;border-radius:5px;height: 60px;padding-left:10px;}
+.lddInfo li{float:left;border-right:1px solid #f8d9c6;height: 50px;font: 16px "Microsoft Yahei";color:#a83030;text-align:center;padding: 10px 0 0 0;}
+.lddInfo li span{color:#666;font-size:14px;}
+.lddInfo li:last-child{border-right:none;}
+.lendingBox .bao{border:1px solid #0fbaeb;color:#0fbaeb;padding:0 2px;}
+.lendingBox .di{border:1px solid #ff8939;color:#ff8939;padding:0 2px;margin-left:8px;}
+.lendingBox .benxi{border:1px solid #dd8484;color:#dd8484;padding:0 2px;}
+.personHead{float:right;border-radius:320px;background-color:#e4ffd6;width:64px;height:64px;position:absolute;top:2%;right:2%;text-align:center;}
+.personHead img{width:60px;height:60px;border-radius:32px;}
+.countDown{font:14px/30px "Microsoft Yahei";color:#666;margin:0 10px;}
+.countDown span{color:#ff944c;font-size: 16px;padding:0 2px;}
+.countDown span.end{color:#666;}
+/*忙聽鈥∶γζ掆€γぢ柯∶β伮�*/
+.lendingDetail{margin: 15px 0 0 0;}
+.lendingDetail .tabTit{border-radius:5px;background-color:#a83030;margin:0px 10px;height: 30px;}
+.lendingDetail .tabTit li{width:100%;float:left;text-align:center;font: 1.1em/30px "Microsoft Yahei";color:#fff;}
+/* .lendingDetail .tabTit li:first-child{border-radius:5px 0 0 5px;}
+.lendingDetail .tabTit li:last-child{border-radius:0 5px 5px 0;} */
+/* .lendingDetail .tabTit li.on{background-color:#a83030;} */
+.tabCont{clear:both;margin:15px 10px 0 15px;}
+.detailList{margin-top:25px;}
+.detailList h2{font: 14px/17px "Microsoft Yahei";color:#111;height:20px;}
+.detailList h2 i{border: 2px solid #a83030;border-width: 0 2px 0 1px;border-radius:4px;display:inline-block;height: 14px;margin-right:8px;}
+.detailList table,.payPlan table{margin: 5px 2px 10px 0px;width:100%;}
+.detailList table tr td{border-bottom: 1px dashed #ccc;padding:10px 0 10px 5px;font: 0.5rem "Microsoft Yahei";}
+.detailList table tr td span{font: 0.5rem "Microsoft Yahei";}
+.detailList table tr td:nth-child(1),.detailList table tr td:nth-child(3){text-align:right;}
+.detailList table tr td:nth-child(2),.detailList table tr td:nth-child(4){text-align:left;}
+.detailList table tr td span{display:block;height:16px;line-height:15px;padding:0 5px 0 0;color:#222;}
+.detailList table tr td .line{border-right: 1px dashed #ccc;}
+.detailList table tr td .color8{color:#666;}
+.detailList table tr td span.lStyle{line-height:18px;height:auto;}
+.detailList table tr td.last span:first-child{text-align:left;}
+.detailList table tr td.last span:last-child{line-height:24px;height:auto;margin-top:5px;text-align:left;}
+.payPlan table tr th{font: 14px/30px "Microsoft Yahei";}
+.payPlan table tr th span{background-color:#eeeeee;height: 30px;display:block;}
+.payPlan table tr th.firstBDR span{border-radius:5px 0 0 5px;}
+.payPlan table tr th.lastBDR span{border-radius:0 5px 5px 0;}
+.payPlan table tr td{font: 12px/35px "Microsoft Yahei";text-align:center;border-bottom:1px dashed #ddd}
+.payPlan table tr td span{color:#a83030;}
+.wd20{width:20%;}
+.wd30{width:30%;}
+.wd76{/* width: 66px; */}
+.clearfix:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size:0; }

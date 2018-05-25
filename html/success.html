@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>出借成功</title>
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/success.css?v=1.2">
+	<script src="../js/lib/flexible.js"></script>
+</head>
+<body>
+	<div class="page-yes current-show">
+		<div class="page-head">
+			<img src="/static/mobileSite/images/yes.png" alt="" class="yes-img">
+			
+			<p id="tip_success">恭喜您，出借成功！</p>
+			<i></i>
+		</div>
+		<div class="page-con">
+			<img src="/static/mobileSite/images/elo1.png" alt="" class="elo-logo">
+			<div class="newusermsg" id="newusermsg" >30天新手30天新手30天新手30天新手30天新手30天新手30天新手3</div>
+			<p class="check-me">
+				<button id="toInvest" class="btn">去出借</button>
+				<button id="account" class="btn" style="margin-left:0.3rem;">查看我的账户</button>
+			</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+var getParams = function(name){
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r!=null)return  unescape(r[2]); 
+	else if(name == "platform"){
+		return "4";	
+	}else{
+		return "3";
+	}
+};
+
+
+	window.onload = function(){
+		obj = document.getElementById('account');
+		obj1 = document.getElementById('toInvest');
+		console.log(obj);
+		var _CODE = getParams('code'),_msg = localStorage.getItem('reminder'),str = '';
+		switch(_CODE){
+			case "transfer_1":str = '恭喜您，转让申请提交成功！';document.getElementsByTagName("title")[0].innerHTML = '转让成功';break;
+			case "transfer_2":str = '恭喜您，取消成功！';document.getElementsByTagName("title")[0].innerHTML = '取消成功';break;
+			default : str = "恭喜您，出借成功！";document.getElementsByTagName("title")[0].innerHTML = '出借成功';
+		}
+		document.getElementById('tip_success').innerText = str;
+		obj.addEventListener('click',function(){
+			window.location.href = '/static/mobileSite/html/myaccount/myaccount.html?platform='+getParams('platform')+'&v='+Math.random();
+		});
+		obj1.addEventListener('click',function(){
+			window.location.href = '/static/mobileSite/html/invest_list.html?platform='+getParams('platform')+'&v='+Math.random();
+		});
+		
+		if(_msg&&_msg!=""){
+		
+		document.getElementById('newusermsg').innerText = _msg;document.getElementById('newusermsg').style.display="block";localStorage.removeItem("reminder");
+		
+		obj1.addEventListener('click',function(){
+			window.location.href = '/static/mobileSite/index.html?platform='+getParams('platform')+'&v='+Math.random();
+		});
+		}
+	}
+</script>
+</html>

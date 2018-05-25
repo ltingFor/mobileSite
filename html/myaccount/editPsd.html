@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>修改登录密码</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/login.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<script src="../../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<body>
+	<!-- 头部 -->
+	<!-- 登录 -->
+	<div class="login-inp forget-m1" id="step1">
+		<label class="tel">
+			<input type="password" class="inp-tel forget-m1-tel" placeholder="请输入原始密码" id="oldPsd" value="">
+			<span class="z-forClo-tel" id="oldClose"></span>
+		</label>
+		<label class="tel">
+			<input type="password" class="inp-tel forget-m1-tel" placeholder="新密码为6~16位数字，字母或符号组合" id="newPsd" value="">
+			<span class="z-forClo-tel" id="newClose"></span>
+		</label>
+		<label class="tel">
+			<input type="password" class="inp-tel forget-m1-tel" placeholder="请再次输入新密码" id="newPsdAgin" value="">
+			<span class="z-forClo-tel" id="newCloseAgain"></span>
+		</label>
+
+		<!-- 登录按钮 -->
+		<button class="login-button dis_btn" id="subBtn">确定</button>
+	</div>
+	<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../../js/lib/tripledes.js"></script>
+	<script src="../../js/lib/mode-ecb-min.js"></script>
+	<script src="../../js/tools/jquery.request.js"></script>
+	<script src="../../js/tools/el.layer.js"></script>
+	<script src="../../js/tools/el.tools.js"></script>
+	<script src="../../js/mobileSet.common.js?v=3.0"></script>
+	<script src="../../js/myaccount/editPsd.js?v=3.0"></script>
+</body>
+</html>

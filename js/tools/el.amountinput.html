@@ -1,0 +1,177 @@
+<style>
+<!--
+.b_t{border-top: 1px solid #eee;}
+.b_l{border-right: 1px solid #eee!important;}
+.b_b{border-bottom: 1px solid #eee;}
+.keybordwrapLayer{
+	position: fixed;
+    bottom: 0rem;
+    z-index: 19994;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.4;
+    display: none;
+}
+.keybordwrap{
+	position: fixed;
+    bottom: -20rem;
+    z-index: 19995;
+    width: 100%;
+    /*display: none;*/
+}
+.keybordwrap #targetObj{
+	padding-bottom: 0.2rem;
+    background-color: #f6f6f6;
+}
+.keybordwrap .mana-over-t, .keybordwrap .mana-buy-list{
+  background-color: #f6f6f6;
+}
+.keybord{
+    background: #fff;
+}
+
+.keybord div{
+    height: 1.5rem;
+}
+.keybord div *{
+	line-height: 1.5rem;
+    float: left;
+    font-size: 0.55rem;
+    color: #000;
+}
+.keybord .h{
+    border: 1px solid #eee;
+}
+.keybord .je{
+	    margin-left: 0.4rem;
+}
+.keybord .y{
+	float: right;
+    margin-right: 0.4rem;
+}
+.keybord .confirm{
+    background-color: #FA4B48;
+    width: 3rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.5rem;
+    float: right;
+}
+.keybord .num{
+    width: calc(100%/3 - 2px);
+    text-align: center;
+    font-size: 0.64rem;
+    /*font-weight: bold;*/
+    /*border: 1px solid #eee;*/
+}
+.w_3{ width: calc(100%/3)!important;}
+.keybord .kb{
+    width: calc(100%/3 - 1px);
+    text-align: center;
+    background-color: #AFAFAF;
+    /*border: 1px solid #eee;*/
+}
+.keybord .qx{
+	color: #fff;
+	font-size: 0.45rem;
+}
+.keybord .xc{
+	/* color: #fff;
+	font-size: 0.45rem; */
+	background: url(/static/mobileSite/images/delete.png) #b9bdc0 no-repeat center;
+    background-size: 23%;
+}
+#targetObj>li{margin-bottom:0!important;}
+.cursor-blink {
+  animation: twinkling 1s infinite ease-in-out;
+  -webkit-animation: twinkling 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes twinkling{    /*透明度由0到1*/
+    0%{
+       opacity:0; /*透明度为0*/
+     }
+    100%{
+       opacity:1; /*透明度为1*/
+    }
+}
+.num_close{position: fixed;right: 3.5rem;}
+-->
+</style>
+<div class="keybordwrapLayer"></div>
+<div class="keybordwrap">
+	<ul class="mana-detail-list" id="targetObj"></ul>
+	<div class="keybord">
+		<div class="b_b b_t">
+			<div class="je"></div>
+			<span class="cursor-blink">|</span>
+			<span class="num_close"></span>
+			<div class="confirm" onclick="">确定</div>
+			<div class="y">元</div>
+		</div>
+		<div class="b_t">
+			<div class="num b_l">1</div>
+			<div class="num b_l">2</div>
+			<div class="num w_3">3</div>
+		</div>
+		<div class="b_t">
+			<div class="num b_l">4</div>
+			<div class="num b_l">5</div>
+			<div class="num w_3">6</div>
+		</div>
+		<div class="b_t">
+			<div class="num b_l">7</div>
+			<div class="num b_l">8</div>
+			<div class="num">9</div>
+		</div>
+		<div class="b_t">
+			<div class="kb qx b_l">关闭</div>
+			<div class="num b_l">0</div>
+			<div class="kb xc w_3"></div>
+		</div>
+		<script type="text/javascript">
+		$('.keybordwrap .qx').click(function() {
+			// $('.keybordwrap').fadeOut(100, function(){
+				// $('.keybord.je').text('');
+				// $('.keybordwrap #targetObj').html('');
+				// $('.keybordwrapLayer').am();
+				$(".keybordwrapLayer").fadeOut('slow');
+				$('.keybordwrap').animate({'bottom':'-20rem'}, "slow" );
+				$('.keybord.je').text('');
+				$('.keybordwrap #targetObj').html('');
+			// });
+
+		});
+		$(".keybordwrapLayer").unbind('touchstart').bind('touchstart',function() {
+			/* Act on the event */
+			$(".keybordwrapLayer").fadeOut('slow');
+			$('.keybordwrap').animate({'bottom':'-20rem'}, "slow" ,function(){
+				$('.keybord.je').text('');
+				$('.keybordwrap #targetObj').html('');
+			});
+
+		});
+		$('.keybordwrap .num').unbind('touchstart').bind('touchstart',function() {
+		// $('.keybordwrap .num').click(function() {
+			var tv = $(this).text();
+			var v = $('.je').text();
+			if (v.length>12) return;
+			if (tv=='0' && v=='') return;
+			if (v=='') {
+				$('.je').text(tv);
+			} else {
+				$('.je').text(v+tv);
+			}
+		});
+		$('.keybordwrap .xc').unbind('touchstart').bind('touchstart',function() {
+		// $('.keybordwrap .xc').click(function() {
+			var tv = $('.je').text();
+			if (tv=='') {
+			} else {
+				$('.je').text(tv.substring(0, tv.length-1));
+			}
+		});
+		</script>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>出借</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/invest.css">
+
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="invest-main">
+		<!-- 出借标题 -->
+		<div class="invest-head">
+			<h3 class="invest-h-title" id="title"></h3>
+			<ul class="invest-h-list clearfix">
+				<!-- <li><p><i>6.4</i>-<i>9.6</i>%</p>预计年化回报</li>
+				<li><p><i>00.0</i></p>合约期限(天)</li>
+				<li><p><i>000.00</i></p>剩余可投(元)</li> -->
+
+				<li><p id="interest1"><i id="interest2">-</i></p>预计年化回报</li>
+				<li><p><i id="term">-</i></p>合约期限</li>
+				<li><p><i id="restAmount">-</i></p>剩余可投</li>
+			</ul>		
+		</div>
+		<!-- 出借账户 -->
+		<div class="invest-con">
+			<p class="inv-money clearfix"><span>¥</span><input type="text" name="" class="money-inp" placeholder="请输入100的整数倍" id="num"></p>
+			<p class="inv-pr dis_none" id="expect_interest">出借本金必须为100的整数倍</p>
+			<div class="inv-yu clearfix">
+				<p>可用余额:<span id="userAmount">-</span>元</p>
+				<p id="max">全投</p>				
+			</div>
+		</div>
+		<!-- 可用红包变现金额 -->
+		 <div class="invest-packet">
+			<p id="rbText">
+				<label class="rbTexttitle">可用奖励</label>
+				<label class="goto"></label>
+				<label class="reward dis_none"></label>
+				<label class="noreward dis_none">暂无可用奖励</label>
+			</p>
+			<!-- <ul class="invest-p-list clearfix" id="redbagContent"></ul> 			 -->
+		</div>
+		<!-- 充值按钮 -->
+		<div class="rechange"><span id="recharge">充值</span></div>
+		
+		<!-- 马上出借按钮 -->
+		<div class="inv-go-btn dis_btn" id="invest_btn">
+			同意协议并出借
+		</div>
+		<!-- 同意协议并出借 -->
+		<div class="invest-xieyi">
+			<a href="javascript:;" id="protocolUrl"></a>
+		</div>
+		<p class="touzi_tip">网贷有风险，出借需谨慎</p>
+	</div>
+	
+		
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/wmps/invest.js?v=3.0"></script>
+<script src="/static/mobileSite/app/js/matchRewards.js?v=3.0"></script>
+</html>

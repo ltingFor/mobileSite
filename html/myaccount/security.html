@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的设置</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/myaccount/security.css">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<section class="re-head clearfix">
+		<p>头像</p>
+		<a href="javascript:;">
+			<img src="/static/mobileSite/images/head1.png" alt="用户头像" id="userImg" onerror="this.src='../../images/head1.png'">
+		</a>
+	</section>
+	<!-- <section class="re-con clearfix re-con1">
+		<p class="re-left">手机验证</p>
+		<p class="re-right" id="mobilePhone"></p>	
+	</section> -->
+	<section class="re-con clearfix" id="eitMobileNum">
+		<p class="re-left">银行预留手机号码</p>
+		<p class="re-right">修改<i class="re-go-btn"></i></p>
+	</section>
+	<section class="re-con clearfix disColor dis_none" id="no_eitMobileNum">
+		<p class="re-left disColor">银行预留手机号码</p>
+		<p class="re-right disColor">修改</p>
+	</section>
+	<section class="re-con clearfix" id="deitChargePsd">
+		<p class="re-left">交易密码</p>
+		<p class="re-right"><label id="transPwdText">修改</label><i class="re-go-btn"></i></p>
+	</section>
+	<section class="re-con clearfix disColor dis_none" id="no_deitChargePsd">
+		<p class="re-left disColor">交易密码</p>
+		<p class="re-right disColor"><label id="transPwdText disColor">修改</label></p>
+	</section>
+	<section class="re-con clearfix re-con1">
+		<p class="re-left">登录密码</p>
+		<p class="re-right" id="change-pas-btn">修改<i class="re-go-btn"></i></p>		
+	</section>
+	<section class="re-con clearfix re-con1" style='position: relative;'>
+		<p class="re-left">消息通知</p>
+		<input type="checkbox" class="al-toggle-button" value='1'>
+	</section>
+	<section class="re-con clearfix re-con1">
+		<p class="re-left">风险等级测评</p>
+		<p class="re-right" id="goTest"><font id="typeText">去测评</font><i class="re-go-btn"></i></p>		
+	</section>
+	
+	<section class="re-end">
+		<p id="logout-btn">安全退出</p>
+	</section>
+	<style>
+		/*仿IOS开关*/
+.al-toggle-button{
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 1.453333rem;
+    height: 0.1rem;
+    background: #dfdfdf;
+    border-radius: 0.306667rem;
+    border: 1px solid #dfdfdf;
+    outline: 0;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0.33rem;
+    top: 0.8rem;
+}
+.al-toggle-button:checked{
+    border-color: #ff4a26;
+    background-color: #ff4a26;
+}
+.al-toggle-button:before, .al-toggle-button:after{
+    content: " ";
+    position: absolute;
+    bottom: -0.28rem;
+    left: 0;
+    height: 0.56rem;
+    border-radius: 0.28rem;
+    transition: transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+}
+.al-toggle-button:before{
+    width: 1.4rem;
+    height: 0;
+    background-color: #fdfdfd;
+}
+.al-toggle-button:after{
+    width: 0.6rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.al-toggle-button:checked:before{
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.al-toggle-button:checked:after{
+    transform: translateX(0.9rem);
+    -webkit-transform: translateX(0.9rem);
+}
+/*仿IOS开关  end*/
+	</style>
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/myaccount/security.js?v=3.0"></script>
+</html>

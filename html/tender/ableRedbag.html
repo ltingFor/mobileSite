@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>选择奖励</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/tender/ableRedbag.css?v=1.0">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/dropload.css">
+	<script src="../../js/lib/flexible.js"></script>
+	<style>
+		.alert_box{top:10%!important;}
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 红包状态 -->
+	<!-- pac-tab是切换显示隐藏的 -->
+	<div class="packet-state pac-tab">
+		<div class="line-txt clearfix">
+			<strong class="line1"></strong>
+			<p class="lineP">可用奖励(<span class="red-num" id="abelNum">0</span>个)</p>
+			<strong class="line1"></strong>
+		</div>
+		<ul class="state-list pac-fot" id="ableRedbagList"></ul>
+	</div>
+	<div class="packet-state pac-tab m_b_12 dis_none" id="disContain">
+		<div class="line-txt clearfix">
+			<strong class="line2"></strong>
+			<p class="lineP">不满足使用条件奖励(<span class="red-num" id="disNum">0</span>个)</p>
+			<strong class="line2"></strong>
+		</div>
+		<ul class="state-list pac-fot" id="disableRedbagList"></ul>
+	</div>
+	<button class="lineBtn" id="no_redbag">暂不使用奖励</button>
+</body>
+<script type="text/x-handlebars-template" id="tpl_enable">
+	{{#each this}}
+		{{#checkType type}}<li class="state-li" id="{{id}}" data-num='{{balance}}' data-status='{{status}}' data-type='{{type}}' data-activatebalance='{{activateBalance}}'>
+		{{else}}<li class="state-li jiaxiBg" id="{{id}}" data-num='{{balance}}' data-status='{{status}}' data-type='{{type}}' data-activatebalance='{{activateBalance}}'>
+		{{/checkType}}
+			<h3 class="pac-list-t">{{rewardTitle}}{{#checkType type}}{{else}}<label class="orange">(加息天数：{{experienceDaysStr}})</label>{{/checkType}}</h3>
+			<div class="clearfix">
+				<div class="state-li-l">
+					{{#checkType type}}
+					<p><strong><span>{{balance}}</span>元</strong>[满<i>{{activateBalance}}</i>元可用]</p>
+					<p>有限期至：<time>{{overduedateStr}}</time><a href="javascript:;" class="pac-rule">使用规则</a></p>
+					{{else}}
+					<p><strong><span class="orange">+{{balance}}%</span></strong>[满<i>{{activateBalance}}</i>元可用]</p>
+					<p>有限期至：<time>{{overduedateStr}}</time><a href="javascript:;" class="pac-rule orange">使用规则</a></p>
+					{{/checkType}}
+					
+					<section class="dis_none">
+						<p>有效期止：<strong>{{overduedateStr}}</strong></p>
+						<p>适用平台：<strong>{{realizationChannelStr}}</strong></p>
+						<p>适用金额条件：<strong>{{activateBalance}}</strong></p>
+						<p>适用说明：<strong>{{description}}</strong></p>
+						<p>备注：<strong>{{realizationProStr}}</strong></p>
+					</section>
+				</div>
+			</div>
+			<span class="canUse {{checkStatus id}}"></span>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_dis">
+	{{#each this}}
+		{{#checkType type}}<li class="state-li state-over-li" id="{{id}}" data-num='{{balance}}'>
+		{{else}}<li class="state-li state-over-li jiaxiBg_dis" id="{{id}}" data-num='{{balance}}'>
+		{{/checkType}}
+			<h3 class="pac-list-t">{{rewardTitle}}{{#checkType type}}{{else}}<label>(加息天数：{{experienceDaysStr}})</label>{{/checkType}}</h3>
+			<div class="clearfix">
+				<div class="state-li-l">
+					{{#checkType type}}
+					<p><strong><span>{{balance}}</span>元</strong>[满<i>{{activateBalance}}</i>元可用]</p>
+					<p>有限期至：<time>{{overduedateStr}}</time><a href="javascript:;" class="pac-rule">使用规则</a></p>
+					{{else}}
+					<p><strong><span>+{{balance}}%</span></strong>[满<i>{{activateBalance}}</i>元可用]</p>
+					<p>有限期至：<time>{{overduedateStr}}</time><a href="javascript:;" class="pac-rule orange">使用规则</a></p>
+					{{/checkType}}
+					<section class="dis_none">
+						<p>有效期止：<strong>{{overduedateStr}}</strong></p>
+						<p>适用平台：<strong>{{realizationChannelStr}}</strong></p>
+						<p>适用金额条件：<strong>{{activateBalance}}</strong></p>
+						<p>适用说明：<strong>{{description}}</strong></p>
+						<p>备注：<strong>{{realizationProStr}}</strong></p>
+					</section>
+				</div>
+			</div>
+			<span class="canUse"></span>
+		</li>
+	{{/each}}
+</script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/lib/iscroll.js"></script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/tender/ableRedbag.js?v=3.0"></script>
+</html>

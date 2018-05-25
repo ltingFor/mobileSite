@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的账户</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css?v=0.1">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/myaccount/myaccount.css?v=1.3">
+	<link rel="stylesheet" href="/static/mobileSite/css/lib/animate.min.css">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 我的账户页面 -->
+	<div class="my-count-page">
+		<section class="my-head">
+			<!-- my-count-tel -->
+			<div class="my-head-top clearfix">
+				<div class="vip-main">
+					<img src="../../images/vip-h.png" alt="" class="vip-head" onerror="this.src='../../images/vip-h.png'">
+					<img src="../../images/vip1.png" alt="" class="vip-level dis_none">
+				</div>
+				<p id="userName">-</p>
+				<p id="eye" class="eye"><img src="../../images/account_close_eye.png" style="width:60%;"/></p>
+			</div>
+			<div class="head-list clearfix">
+				<div class="head-left">
+					<p id="yesterdayEarning" class="head-total openEye">0.00</p>
+					<p class="head-total closeEye">***</p>
+					<p>昨日收息(元)</p>
+				</div>
+				<ul class="head-right">
+					<li>
+						<!-- <span class="preBg"></span> -->
+						<!-- <span class="preBg2"></span> -->
+						<p>总资产(元): <span id="total_amount" class="openEye">-</span><span class="closeEye">***</span></p>
+					</li>
+					<li>
+						<!-- <span class="preBg2"></span> -->
+						<p>可用余额(元): <span id="useableAmt" class="openEye">-</span><span class="closeEye">***</span></p>
+					</li>
+					<li>
+						<!-- <span class="preBg3"></span> -->
+						<p>冻结金额(元): <span id="dongAmount" class="openEye">-</span><span class="closeEye">***</span></p>
+					</li>
+					<li id="totalEarningTip">
+						<p>累计回报(元): <span id="totalEarning" class="openEye">-</span><span class="closeEye">***</span></p>
+						<span class="preBg4"></span>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- <section class="head-profit">
+			<div class="my-head-con">
+				<p id="total_amount">-</p>
+				<p>总资产(元)</p>
+			</div>
+			<div class="my-head-profit">
+				<ul class="profit-list clearfix">
+					<li>
+						<p id="yesterdayEarning">-</p>
+						<p>昨日回报(元)</p>
+					</li>
+					<li>
+						<p id="totalEarning">-</p>
+						<p>累计回报(元)</p>
+					</li>
+				</ul>
+			</div>
+		</section> -->
+		<!-- 充值 提现 按钮-->
+		<section class="recharge-btn clearfix">
+			<div>
+				<p class="re-charge" id='recharge'>充值</p>
+				<p class="with-drawal" id="withdrawCash">提现</p>
+			</div>
+		</section>
+		<!-- 模块列表 -->
+		<section class="module-list">
+			<ul class="acc-list">
+				<li class="clearfix" id="myWmps">
+					<p class="float-left"><i class="pre-i pre-i1"></i>翼农计划</p>
+					<p  class="my-red clearfix"><strong id="z-win"></strong><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="clearfix" id="myWmpsplus">
+					<p class="float-left"><i class="pre-i pre-wmpsplus"></i>翼农计划+</p>
+					<p  class="my-red clearfix"><strong id="z-winplus"></strong><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="clearfix" id="mySesame">
+					<p class="float-left"><i class="pre-i pre-i2"></i>芝麻开花</p>
+					<!-- <span class="float-right"></span> -->
+					<p  class="my-red clearfix"><strong id="z-sesame"></strong><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="clearfix" id="myTailor">
+					<p class="float-left"><i class="pre-i pre-itailor"></i>私人定制</p>
+					<!-- <span class="float-right"></span> -->
+					<p  class="my-red clearfix"><strong id="z-sesame"></strong><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="fgt"></li>
+				<!-- <li class="clearfix">
+					<p class="float-left">散标出借</p>
+					<span class="float-right"></span>
+				</li> -->
+				<li class="clearfix" id="transRecord">
+					<p class="float-left"><i class="pre-i pre-i3"></i>交易记录</p>
+					<!-- <span class="float-right"></span> -->
+					<p  class="my-red clearfix"><strong id="z-funds"></strong><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="clearfix" id="myRewards">
+					<p class="float-left"><i class="pre-i pre-i4"></i>我的奖励</p>
+					<p  class="my-red clearfix">
+					<strong id="z-reward"></strong><i id="z-reward-i" class="dis_none"></i><span class="float-right redBagArrow"></span></p>
+				</li>
+				<li class="clearfix" id="security">
+					<p class="float-left"><i class="pre-i pre-i5"></i>我的设置</p>
+					<span class="float-right"></span>
+				</li>
+				<!-- <li class="fgt"></li>
+				<li class="clearfix" id="security">
+					<p class="float-left"><i class="pre-i pre-i6"></i>消息通知</p>
+					<input type="checkbox" class="al-toggle-button" value='1'>
+				</li> -->
+			</ul>
+		</section>
+		<!-- 底部固定 -->
+		<div class="home-main-list">
+			<ul class="home-bot-list clearfix">
+				<!-- <li id="home_page"><img src="../../images/footer/icon_home@2x.png" alt="首页"><p>首页</p></li>
+				<li id="investList_page"><img src="../../images/footer/icon_money@2x.png" alt="出借"><p>产品</p></li>
+				<li id="transList_page"><img src="../../images/footer/4.png" alt="转让"><p>转让</p></li>
+				<li id='account_page' class="home-bot-btn"><img src="../../images/footer/icon_user_y@2x.png" alt="我的"><p>我的</p></li> -->
+				<li style="width: 24.8%;" id="home_page"><img src="../../images/footer/2018/index_n.png" alt="首页" style='width: 1.333333rem;height: 0.8rem;'><p>首页</p></li>
+		        <li id="investList_page" style="width: 24.8%;"><img src="../../images/footer/2018/pro_n.png" alt="出借" style='width: 1.333333rem;height: 0.8rem;'><p>产品</p></li>
+		        <li id="transList_page" style="width: 24.8%;"><img src="../../images/footer/2018/trans_n.png" alt="转让" style='width: 1.333333rem;height: 0.8rem;'><p>转让</p></li>
+		        <li id='account_page' style="width: 24.8%;" class="home-bot-btn"><img src="../../images/footer/2018/account_y.png" alt="我的" style='width: 1.333333rem;height: 0.8rem;'><p>我的</p></li>
+			</ul>
+			<!-- <ul class="home-bot-list clearfix">
+				<li id="home_page">首页</li>
+				<li id="investList_page">出借</li>
+				<li id="account_page"  >我的</li>
+			</ul> -->
+		</div>
+	</div>
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/myaccount/myaccount.js?v=3.0"></script>
+</html>

@@ -1,0 +1,275 @@
+.cursor-blink {
+    animation: twinkling 1s infinite ease-in-out;
+    -webkit-animation: twinkling 1s infinite ease-in-out;
+}
+input:disabled{
+border:none;
+background-color:#fff;
+}
+.b_b{display: none;}
+/*转让债权*/
+.transzhai_wrap{
+  width:100%;
+  background-color: #f2f2f2;
+}
+.zhai-header{
+  width: 100%;
+  padding:0.533333rem 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: -webkit-linear-gradient(top ,#fb735b,#f8534f);
+  background: -moz-linear-gradient(top ,#fb735b,#f8534f);
+}
+.zhai-header li{
+  width:50%;
+  float: left;
+  text-align:center;
+  color:#ffffff;
+}
+.zhai-header li p{
+  font-size:0.533333rem;
+}
+.zhai-header li span{
+  display:block;
+  font-size:0.293333rem;
+  margin-top:0.266667rem;
+}
+.zhai-cont{
+  width:100%;
+  /* padding-bottom: 2.55rem; */
+}
+.zhai-cont ul li.list{
+  margin-bottom:0.213333rem;
+  padding:0.266667rem 0.453333rem;
+  background-color: #fff;
+  box-sizing:border-box;
+}
+.zhai-cont .tit{
+  height:0.6rem;
+  line-height:0.6rem;
+}
+.zhai-cont .tit h3{
+  float: left;
+  font-size:0.373333rem;
+  color:#333333;
+  width:80%;
+}
+.zhai-cont .tit .check{
+  float: right;
+  width:0.426667rem;
+  height:0.426667rem;
+  background: url('/static/mobileSite/images/checkyes.png') no-repeat 0 0;
+  background-size: 100% 100%;
+  margin-top: 0.1rem;
+}
+.zhai-cont .cent{
+  padding:0.133333rem 0 0.266667rem;
+}
+.zhai-cont .cent li{
+  height: 0.666667rem;
+}
+.zhai-cont .cent li p{
+  width:50%;
+  float: left;
+  font-size:0.293333rem;
+  color:#6e6e6e;
+  line-height:0.666667rem;
+}
+.zhai-cont .cent li p span{
+  color:#333333;
+  font-size: 0.293333rem;
+}
+.zhai-cont .bot{
+  border-top:1px dashed #ffbbbb;
+}
+.zhai-cont .bot li{
+  padding-top:0.466667rem;
+}
+.zhai-cont .bot li p{
+  font-size:0.373333rem;
+  color:#333333;
+  width:2.5rem;
+  // width:1.666667rem;
+  float: left;
+  height: 0.5933333rem;
+  line-height: 0.5933333rem;
+}
+.zhai-cont .bot li .inp-box{
+  float: left;
+  height:0.5933333rem;
+}
+.zhai-cont .bot li .inp-box span{
+  float: left;
+  width:0.533333rem;
+  height:0.533333rem;
+  margin-top:2px;
+}
+.zhai-cont .bot li .inp-box label{
+  border:none;
+  border-bottom: 1px solid #cecece;
+  float: left;
+  // width:5.733333rem;
+  width:4.933333rem;
+  height:0.55rem;
+  line-height:0.45rem;
+  font-size:0.426667rem;
+  color:#333333;
+  text-align:center;
+  padding-bottom:2px;
+}
+.zhai-cont .bot li .inp-box label i.l_i{float: left;height: 0.55rem;line-height: 0.60rem;margin-left: 0.32rem;}
+.zhai-cont .bot li .inp-box label i.r_i{float: right;height: 0.55rem;line-height: 0.60rem;margin-right: 0.32rem;}
+/*.zhai-cont .bot li .inp-box label i.input{*/
+.zhai-cont .bot li .inp-box label input{
+  display:inline-block;
+  -webkit-appearance: none;
+  border:none;
+  // width:0.55rem;
+  // width:1.133333rem;
+  width:1.48rem;
+  text-align:center;
+  font-size:0.426667rem;
+  color:#a6a6a6;
+  border-bottom: #dcdcdc solid 1px;
+}
+.zhai-cont .bot li .inp-box label i.input i{font-size: 0.426667rem;}
+/* .zhai-cont .bot li .inp-box label input.sub-txt{
+  color:#00b838;
+} */
+.zhai-cont .bot li .inp-box label .cursor-blink{display:none;}
+.zhai-cont .bot li.sub_flag .inp-box label i.l_i:before{
+  content:'降';
+  color: #00b838;
+
+}
+.zhai-cont .bot li.add_flag .inp-box label i.l_i:before{
+  content:'涨';
+  color: #f84d4d;
+}
+.zhai-cont .bot li.add_flag .inp-box label .cursor-blink{display:inline-block;color:#f84d4d;}
+.zhai-cont .bot li.add_flag .inp-box label input{
+  color: #f84d4d;
+}
+.zhai-cont .bot li.sub_flag .inp-box label .cursor-blink{display:inline-block;color:#00b838;}
+.zhai-cont .bot li.sub_flag .inp-box label input{
+  color: #00b838;
+}
+/* .zhai-cont .bot li .inp-box label input.up-txt{
+  color:#f84d4d;
+} */
+.zhai-cont .bot li .inp-box em{
+  float:left;
+  font-size:0.373333rem;
+  color:#333333;
+  margin-left:5px;
+}
+.dis_sub{
+  background: url('/static/mobileSite/images/subiconno.png') no-repeat 0 0!important;
+  background-size: 100% 100%!important;
+}
+.dis_add{
+  background: url('/static/mobileSite/images/addiconno.png') no-repeat 0 0!important;
+  background-size: 100% 100%!important;
+}
+.zhai-cont .bot li .inp-box .sub{
+  margin-right:0.133333rem;
+  background: url('/static/mobileSite/images/subiconno.png') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+ .zhai-cont .bot li.add_flag .inp-box .sub, .zhai-cont .bot li.sub_flag .inp-box .sub{
+  background: url('/static/mobileSite/images/subicon.png') no-repeat 0 0;
+  background-size: 100% 100%;
+} 
+.zhai-cont .bot li .inp-box .add{
+  margin-left:0.133333rem;
+  background: url('/static/mobileSite/images/addiconno.png') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+ .zhai-cont .bot li.add_flag .inp-box .add, .zhai-cont .bot li.sub_flag .inp-box .add{
+  background: url('/static/mobileSite/images/addicon.png') no-repeat 0 0;
+  background-size: 100% 100%;
+} 
+.able_sub{background: url('/static/mobileSite/images/subicon.png') no-repeat 0 0;
+  background-size: 100% 100%;}
+.able_add{background: url('/static/mobileSite/images/addicon.png') no-repeat 0 0;
+  background-size: 100% 100%;}
+.zhai-cont .bot li.jiage span{
+  float:left;
+  height:0.533333rem;
+  line-height:0.533333rem;
+  box-sizing:border-box;
+  border: 1px solid #d5d5d5;
+  text-align:center;
+  font-size:0.346667rem;
+  color:#a6a6a6;
+  border-radius:4px;
+  padding:0 0.266667rem;
+  margin-right:0.266667rem;
+}
+.zhai-cont .bot li.jiage span.gaojia{
+  border-color: #f84d4d;
+  color:#f84d4d;
+}
+.zhai-cont .bot li.jiage span.dijia{
+  border-color:#00b838;
+  color:#00b838;
+}
+.zhai-cont .bot li.jiage p{
+  float:right;
+  line-height:0.533333rem;
+  font-size:0.293333rem;
+  color:#a6a6a6;
+  width:50%;
+  text-align:right;
+}
+.zhai-cont .bot li:nth-child(3) .remd{
+  display:inline-block;
+  width:0.333333rem;
+  height:0.333333rem;
+  background: url('/static/mobileSite/images/bule.png') no-repeat 0 0;
+  background-size: 100%;
+  margin-left:7px;
+  vertical-align:middle;
+}
+.zhai-cont .bot li:nth-child(3) span{
+  color:#f84d4d;
+  float:left;
+  line-height: 0.5933333rem;
+  height: 0.5933333rem;
+}
+.zhai-cont .nocheck-list .tit .check{
+  background: url('/static/mobileSite/images/checkno.png') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+.zhai-cont .nocheck-list .bot{
+  display:none;
+}
+.zhai-btn{
+  width:100%;
+  border-top:1px solid #dddddd;
+  padding:0.2rem 0.453333rem 0;
+  box-sizing:border-box;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  z-index: 1001;
+}
+.zhai-btn .btn{
+  width:8.72rem;
+  height:1.133333rem;
+  line-height:1.233333rem;
+  text-align:center;
+  border-radius:0.106667rem;
+  background-color: #f84d4d;
+  color:#fff;
+  font-size:0.48rem;
+  margin:0 auto;
+}
+.zhai-btn .remd{
+  width:8.72rem;
+  color:#a6a6a6;
+  font-size:0.293333rem;
+  line-height:0.426667rem;
+  margin:0 auto;
+  padding:0.2rem 0;
+}

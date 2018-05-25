@@ -1,0 +1,441 @@
+﻿html {
+	width: 100%;
+	height: 100%;
+	background: #f6f6f6;
+}
+body {
+	width: 100%;
+	height: 100%;
+	background:#f6f6f6;
+}
+
+#wrapper {
+    top: 1.4rem;
+    background: #f6f6f6;
+}
+.upArrow{
+	background: url(../../images/up_03.png) no-repeat 0 0;
+	width: 1.04rem;
+	height: 1.04rem;
+	position: absolute;
+	z-index: 20000;
+	top: 11.5rem;
+	right: 0.42rem;
+	background-size: cover;
+}
+.detail-main {
+	width: 100%;
+	height: 92%;
+	overflow-y: auto;
+	/*display: none;*/
+}
+.detail-main1 {
+	position: relative;
+	width: 100%;
+	/*height: 92%;
+	overflow-y: auto;*/
+	display: none;
+}
+.detail-head {
+	width: 100%;
+	height: 6.4rem;
+	margin: 0 auto;
+	background: url(../../images/big-bg.png) no-repeat 0 0;
+	background-size: cover;
+}
+.detail-head .detail-h-list {
+	width: calc(100% - 0.8rem);
+	height: 1.266667rem;
+	margin: 0 auto;
+}
+.detail-h-list li {
+	line-height: 1.266667rem;
+	color: #fff;
+}
+.detail-h-list li:nth-child(1){
+	float: left;
+	font-size: 0.346667rem;
+}
+.detail-h-list li:nth-child(2){
+	float: right;
+	font-size: 0.293333rem;
+}
+.detail-head .det-per {
+	width: 100%;
+	/*height: 2.0rem;*/
+}
+.det-per h3 {
+	line-height: 1.666667rem;
+	text-align: center;
+	color: #fff;
+	font-size: 0.433333rem;
+	position: relative;
+}
+.det-per h3>span {
+	display: inline-block;
+	font-size: 0.72rem;
+}
+.det-per h3>span:nth-child(3) {
+	font-size:0.333333rem;
+	position: absolute;
+	top: -0.106667rem;
+}
+.det-per p {
+	text-align: center;
+	color: #fff;
+	font-size: 0.32rem;
+	margin-top: -0.2rem;
+}
+.detail-head-dec {
+	width: calc(100% - 0.88rem);
+	margin: 0 auto;
+}
+.detail-dec-list {
+	width: 100%;	
+	padding-top: 0.593333rem;
+	margin: 0 auto 0.5rem;
+	position: relative;
+}
+.detail-dec-list li{
+	width: calc(100% / 3);
+	float: left;
+	text-align: center;
+	color: #fff;
+}
+.detail-dec-list li:nth-child(1) {
+	width: 24.83%;
+	float: left;
+}
+.detail-dec-list li:nth-child(2) {
+	width: 49.48%;
+	float: left;
+}
+.detail-dec-list li:nth-child(3) {
+	width: 24.83%;
+	float: left;
+}
+.detail-dec-list li>p {
+	font-size: 0.293333rem;
+	text-align: center;
+	line-height: 0.56rem;
+}
+.detail-dec-list li>p .rem{
+	display: inline-block;
+    width: 0.333333rem;
+    height: 0.333333rem;
+    background: url(../../images/whiteTip.png) no-repeat 0 0;
+    background-size: cover;
+    margin-left: 0.106667rem;
+    vertical-align: sub;
+}
+.detail-dec-listNew {
+	padding-top: 1.3333rem;
+}
+.detail-dec-listNew li>p:nth-child(1){
+	font-size: 0.48rem;
+}
+.detail-dec-list li>p span {
+	font-size: 0.48rem;
+	/* font-weight: 600; */
+}
+
+/*列表可恶的百分比*/
+.detail-dec-list>.det-per1 {
+	position: relative;
+}
+.det-pe1r p>span {
+	display: inline-block;
+	font-size: 0.72rem;
+}
+.det-per1 p>span:nth-child(3) {
+	font-size:0.333333rem;
+	/*position: absolute;
+	top: -0.106667rem;*/
+	font-weight: normal;
+}
+.det-per1 p>span:nth-child(3) img {
+	width: 0.293333rem !important;
+	height: 0.293333rem !important;
+}
+.detail-xi-list li>p span {
+	font-size: 0.266667rem;
+	/*font-weight: 600;*/
+}
+.detail-inv-dec {
+	width: calc(100% - 0.8rem);
+	/*margin: 0.4rem auto 0;*/
+	background: #fff;
+	padding-top: 0.8rem;
+	padding-right: 0.4rem;
+	padding-left: 0.4rem;
+} 
+.detail-inv-dec .detail-inv-pp>p {
+	line-height: 0.626667rem;
+	font-size: 0.346667rem;
+	color: #333;
+}
+.detail-inv-dec .detail-inv-pp p>span {
+	color: #a6a6a6;
+	font-size: 0.346667rem;
+	margin-left: 0.16rem;
+}
+.detail-inv-dec .detail-inv-pp p>span:nth-child(1) {
+	color: #a6a6a6;
+}
+.detail-inv-dec .detail-inv-pp p>span:nth-child(2) {
+	color: #333;
+}
+.detail-xi-list li {
+	width: 24.83%;
+	margin-bottom: 0.533333rem;
+}
+.detail-xi-list li:nth-child(2) {
+	width: 47.83%;
+}
+.detail-xi-list li:nth-child(3) {
+	width: 26%;
+}
+.detail-xi-list li p {
+	color: #333;
+	font-size: 0.266667rem;
+}
+.detail-xi-list li p:nth-child(1) {
+	font-size: 0.32rem;
+}
+.detail-xi-list li p:nth-child(2) {
+	font-size: 0.293333rem;
+}
+.detail-xi-list li p:nth-child(1) {
+	color: #f98844;
+}
+.detail-inv-end {
+	width: 100%;
+	height: 1.6rem;
+	border-top: 10px solid #f6f6f6;
+	background: #fff;
+	margin-top: -26px;
+}
+.detail-inv-end p {
+	text-align: center;
+	line-height: 1.6rem;
+	color: #333;
+	/*word-spacing: -8px;*/
+	position: relative;
+	font-size: 0.4rem;
+}
+.detail-inv-end p .detail-inv-profit {
+	color: #f84d4d;
+}
+.detail-inv-end p>a {
+	width: 0.346667rem;
+	height: 0.333333rem;
+	background: url(../../images/bule.png) no-repeat 0 0;
+	background-size: cover;
+	display: inline-block;
+	word-spacing: 0;
+	position: absolute;
+	top: 0.636667rem;
+	margin-left: 0.173333rem;
+}
+/*列表虚线*/
+.detail-dec-list .detail-dotted1 {
+	width: 1.16rem;
+	height: 2px;
+	background: url(../../images/line.png) no-repeat 0 0;
+	background-size: cover; 
+	position: absolute;
+	top: 49%;
+	left: 23%;
+	margin-top: -1px;
+}
+.detail-dec-list .detail-dotted2 {
+	width: 1.16rem;
+	height: 2px;
+	background: url(../../images/line.png) no-repeat 0 0;
+	background-size: cover; 
+	position: absolute;
+	top: 49%;
+	right: 24%;
+	margin-top: -1px;
+}
+/*拖动*/
+.detail-drag {
+	width: 100%;
+	height: 1.6rem;
+	background: #f6f6f6;
+	/*margin-bottom: 0.966667rem;*/
+}
+.detail-drag p {
+	line-height: 1.6rem;
+	text-align: center;
+	font-size: 0.32rem;
+	color: #25bcff;
+}
+.detail-drag p>span {
+	width: 2.4rem;
+	height: 1px;
+	background: #dddddd;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+.detail-drag p>span:nth-child(1) {
+	margin-right: 5px;
+}
+.detail-drag p>span:nth-child(2) {
+	margin-left: 5px;
+}
+/*投资详情页按钮样式*/
+.detail-inv-btn {
+	width: 100%;
+	height: 8%;
+	color: #fff;
+	text-align: center;
+	line-height: 1.266667rem;
+	background: #f84d4d;
+	font-size: 0.453333rem;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+
+/*控制颜色class*/
+.red-class {
+	color: #f84d4d;
+}
+/*芝麻开花详情 付息记录*/
+.detail-tab {
+
+	width: 100%;
+    height: 1.2rem;
+    color: #333;
+    background: #fff;
+    border-top: 2px solid #f6f6f6;
+    /*border-bottom: 1px solid #ddd;*/
+    position: absolute;
+    /* top: 1.6rem; */
+    /*top: 1.4rem;*/
+    z-index: 20000;
+}
+.detail-tab-list>li.detail-tab-show {
+	height: 1.16rem;
+	line-height: 1.16rem;
+	color: #f84d4d;
+	border-bottom: 2px solid #f84d4d;
+}
+.detail-tab .detail-tab-list {
+	width: 100%;
+	height: 100%;
+}
+.detail-tab-list>li {
+	width: calc(100% / 2);
+	float: left;
+	text-align: center;
+	line-height: 1.2rem;
+	font-size: 0.426667rem;
+	color: #333;
+}
+.detail-record {
+	width: 100%;
+	height: 92.5%;
+	background: #f6f6f6;
+}
+.detail-record .detail-record-list {
+	width: 100%;
+	/*background: #f6f6f6;*/
+	color: #6e6e6e;
+}
+.detail-record-list li{
+	width: calc(100% - 0.88rem);
+	padding: 0 0.44rem;
+	background: #fff;
+	border-bottom: 1px solid #efeff0;
+}
+/*.detail-record-list li:nth-child(2) {
+	color: #f84d4d;
+}*/
+.shouyi-list li:nth-child(1) {
+	background: #f6f6f6;
+	height: 0.8rem;
+}
+.detail-record-list>li p{
+	/*width: calc(100% / 3);*/
+	height: 1.2rem;
+	text-align: center;
+	line-height: 1.2rem;
+	float: left;
+	font-size: 0.346667rem;
+}
+.detail-record-list>li p img {
+	width: 0.293333rem !important;
+	height: 0.293333rem !important;
+}
+.detail-record-fuxi>.detail-record-list>li p:nth-child(2) {
+	color: #f84d4d;
+}
+.detail-record-shouyi .shouyi-list>li p{
+	width: calc(100% / 2);
+	height: 1.2rem;
+}
+.detail-record-shouyi .shouyi-dec {
+	text-align: center;
+	font-size: 0.333333rem;
+	margin: 0.8rem 0;
+}
+.shouyi-list li:nth-child(1) p {
+	height: 0.8rem;
+	line-height: 0.8rem;
+}
+/*债权记录列表*/
+.record-zq-list li {
+	/* line-height: 2.4rem; */
+	background: #fff !important;
+	border-bottom: 2px solid #efeff0;
+}
+.record-zq-list li>p {
+	float: none;
+	font-size: 0.32rem;
+}
+.record-zq-list li> p:nth-child(1) {
+	text-align: left;
+	font-size: 0.333333rem;
+	color: #333;
+	line-height: 1.006667rem;
+	height: inherit;
+	font-size: 0.373333rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+}
+.record-zq-list li>.record-zq-name p:nth-child(1) {
+	width: 40%;
+}
+.record-zq-list li>div:nth-child(3) {
+	margin-bottom: 0.4rem;
+}
+.record-zq-name p:nth-child(2) {
+	width: 60%;
+}
+.record-zq-list li>.record-zq-name p{
+	text-align: left ;
+	height: 0.506667rem ;
+	line-height: 0.506667rem;
+	font-size: 0.32rem;
+}
+.record-zq-name p, .record-zq-name span{
+	font-size: 0.32rem;
+	line-height: none;
+}
+/*控制显示隐藏*/
+.detail-record-shouyi, .detail-record-zhaiquan, .detail-record-fuxi {
+	display: none;
+}
+.detail-record-show {
+	display: block;
+}
+
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+	.detail-record {
+		width: 100%;
+		height: 91%;
+		background: #f6f6f6;
+	}
+}
+

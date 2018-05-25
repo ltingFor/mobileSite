@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<title>翼龙贷</title>
+	<link rel="stylesheet" href="css/base.css?v=0.1">
+	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="css/index.css">
+	<!-- <link rel="stylesheet" href="css/alert.css"> -->
+	<link rel="stylesheet" href="css/layer.css">
+	<script src="js/lib/flexible.js"></script>
+	
+	<style>
+		.bot-title1{text-align: center;margin-top: 0.32rem;}
+		.bot-title1 span{font-size: 0.32rem;width: 20%;display: inline-block;}
+		.announce{position: fixed;left: 51%;top: 20%;margin-left: -3.733333rem;width: 74%;text-align: center;font-size: 0;border-radius: 5px;z-index: 100000;display: none;}
+		.annouce_close{position: absolute;background: url(images/anc_close.png);width: 0.65rem!important;height: 0.65rem;right: 0;background-size: 100%;top: 0.5rem!important;}
+		.annouce_title{background: url(images/announce.png) no-repeat;width: 100%;/* height: 0.8rem; */background-size: 100%;text-align: center;padding-top: 2.04rem;position: relative;}
+		.annouce_title p#ann_title{color:#fff;font-size: 0.46rem;width: 100%;position: absolute;bottom: 0.35rem;}
+		.announce_content{background: #fff;width: 89.5%;height: 5.5rem;color: #fff;text-indent: 2em;line-height: 0.60rem;padding:7% 5%;font-size: 0.42rem;color: #333;border-bottom-left-radius:.32rem;border-bottom-right-radius:.32rem;overflow: scroll;}
+	   
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层-结束-->
+	<!-- 提示开户 -->
+	<div class="meng">
+		<div class="alert_new">
+			<button class="alert-btn-new" id="holdOn">稍后再说</button>
+			<button class="alert-btn-new goshow-new" id="toKH">去开户</button>
+		</div>
+	</div>
+	<!-- 提示开户end -->
+	<div class="announce">
+		
+		<h2 class="annouce_title">
+			<p class="annouce_close"></p>
+			<p id=ann_title>公告</p>
+		</h2>
+		<p class="announce_content"></p>
+	</div>	
+	
+	<div class="home-main">
+		<!-- 头部 -->
+	
+		
+		
+			
+			<div class="swiper-container">
+			<div class="swiper-wrapper" id="newuserlist">
+			
+				
+			</div>
+			 <!-- 如果需要分页器 -->
+           <div class="swiper-pagination"></div>
+	 		
+		</div>
+			
+			
+	
+		<!-- banner -->
+		<div class="home-ban">
+			<ul class="home-ban-list" id="bannerContent">
+			</ul>
+		</div>
+		<div class="indexBg dis_none">
+			<img src="./images/indexBg.png" alt="">
+		</div>
+		<p class="bot-title1"><span style="color: #25bcff;">手机版</span><span id="PC">电脑版</span></p>
+		<p class="bot-title dis_none">网贷有风险，出借需谨慎</p>
+	</div>
+<!-- </div> -->
+	<!-- 底部固定 -->
+	<div class="home-main-list">
+		<ul class="home-bot-list clearfix">
+			<!-- <li class="home-bot-btn" style="width: 24.8%;"><img src="./images/footer/2018/index_y.png" alt="首页" style='width: 1.333333rem;height: 0.8rem;'><p>首页</p></li> -->
+			<li class="home-bot-btn" style="width: 24.8%;"><img src="./images/footer/icon_home_y@2x.png?v=1.0" alt="首页"><p>首页</p></li>
+			<!-- <li id="investList_page" style="width: 24.8%;"><img src="./images/footer/2018/pro_n.png" alt="出借" style='width: 1.333333rem;height: 0.8rem;'><p>产品</p></li> -->
+			<li id="investList_page" style="width: 24.8%;"><img src="./images/footer/icon_money@2x.png?v=1.0" alt="出借"><p>产品</p></li>
+			<!-- <li id="transList_page" style="width: 24.8%;"><img src="./images/footer/2018/trans_n.png" alt="转让" style='width: 1.333333rem;height: 0.8rem;'><p>转让</p></li> -->
+			<li id="transList_page" style="width: 24.8%;"><img src="./images/footer/4.png?v=1.0" alt="转让"><p>转让</p></li>
+			<!-- <li id='account_page' style="width: 24.8%;"><img src="./images/footer/2018/account_n.png" alt="我的" style='width: 1.333333rem;height: 0.8rem;'><p>我的</p></li> -->
+			<li id='account_page' style="width: 24.8%;"><img src="./images/footer/icon_user@2x.png?v=1.0" alt="我的"><p>我的</p></li>
+		</ul>
+	</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_banner">
+	{{#each this}}
+		<li><a data-href="{{hrefUrl}}" class="toActivePage">
+			<img src="{{picturePath}}" alt="{{description}}">
+			</a>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_newuser">
+
+	{{#each this}}	
+	<div class="swiper-slide">
+	<div class="home-head"  id="toDetail{{@index}}">
+		<div data-pid="{{id}}" class="skip">
+				<ul class="home-h-title clearfix toDetail"  data-pid="{{id}}">
+					<li>{{title}}</li>
+					<li>新手特权</li>
+				</ul>
+				<div class="home-h-profit toDetail"  data-pid="{{id}}">
+					<p class="home-profit-t">预期年化利率</p>
+					<p class="home-profit-p"><span>{{splitStr strInterestrate 1}}</span>%<span>{{splitStr strInterestrate 2}}</span><em id="subRate" class="dis_none">+</em><img src="" alt="VIP等级" id="vipRateImg" class="vipRate dis_none" onerror="this.src='images/vip_03.png'" /></p>
+				</div>
+				<ul class="home-h-slist clearfix toDetail"  data-pid="{{id}}">
+					<li>
+						<img class="spript-bg spript-bg1" src="./images/spript1.png" />
+						<span>100</span>元起投
+					</li>
+					<li>
+						<img class="spript-bg spript-bg2" src="./images/spript2.png" />
+						产品期限<span>{{strPhases}}</span>
+					</li>
+					<li>
+						<img class="spript-bg spript-bg3" src="./images/spript3.png" />
+						出借限额<span class="phases{{format strPhases}}">2</span>万元
+					</li>
+				</ul>
+				<!-- 马上出借按钮 -->
+				{{#compare status 1 strDongTime}}
+				<div class="home-inv-btn investSub"  data-pid="{{id}}">马上出借</div>
+				{{else}}
+				<div class="home-inv-btn dis_btn">已结束</div>
+				{{/compare}}      
+			</div>
+			</div>
+			</div>
+	{{/each}}
+	
+</script>
+<script src="js/lib/jquery-1.10.1.min.js"></script>
+<script src="js/lib/swiper.jquery.min.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="js/tools/el.layer.js"></script>
+<script src="js/tools/el.tools.js"></script>
+<script src="js/mobileSet.common.js?v=3.0"></script>
+<script src="js/tools/jquery.request.js?v=3.0"></script>
+<script src="js/common/checkVip.js?v=3.0"></script>
+<script src="js/common/checkKH.js?v=3.0"></script>
+<script src="js/common/checkLogin.js?v=3.0"></script>
+<script src="js/index.js?v=3.0"></script>
+</html>

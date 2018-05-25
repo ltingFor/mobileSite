@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的翼农计划+详情</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/detail.css?v=1.2">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+
+	<style>
+		.wrapper{bottom: 0!important;top: 4.2rem;}
+		.detail-inv-end p{text-align: center!important;}
+		.position_ab{top: 1.4rem!important;z-index: 20001;}
+		.autoInvest{
+			position: relative;
+		    min-height: 1.6rem;
+		    font-size: 0.4rem;
+		    background: #fff;
+		    margin-bottom: 0.439333rem;
+		    padding-left: 0.4rem;
+		    margin-top: 0.25rem;
+		}
+		.autoContent{width: 100%;overflow: hidden;}
+		.autoInvestTitle{font-size: 0.4rem;color: #333;margin-top: 0.573333rem;margin-bottom: 0.586667rem;float: left;}
+		.autoDetail{font-size: 0.346667rem;color: #ACA7A5;line-height: 0.533333rem;padding-bottom: 0.4rem;}
+		/*仿IOS开关*/
+.al-toggle-button{
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 1.453333rem;
+    height: 0.1rem;
+    background: #dfdfdf;
+    border-radius: 0.306667rem;
+    border: 1px solid #dfdfdf;
+    outline: 0;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0.33rem;
+    top: 0.8rem;
+}
+.al-toggle-button:checked{
+    border-color: #ff4a26;
+    background-color: #ff4a26;
+}
+.al-toggle-button:before, .al-toggle-button:after{
+    content: " ";
+    position: absolute;
+    bottom: -0.28rem;
+    left: 0;
+    height: 0.56rem;
+    border-radius: 0.28rem;
+    transition: transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+}
+.al-toggle-button:before{
+    width: 1.4rem;
+    height: 0;
+    background-color: #fdfdfd;
+}
+.al-toggle-button:after{
+    width: 0.6rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.al-toggle-button:checked:before{
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.al-toggle-button:checked:after{
+    transform: translateX(0.9rem);
+    -webkit-transform: translateX(0.9rem);
+}
+/*仿IOS开关  end*/
+.detail-dec-listZ11 li{width: calc(100%/3)!important;}
+.hkjlTittle{padding:0 0.453333rem;background-color: #f6f6f6;}
+.hkjlTittle li p{float: left;width: calc(100%/3);height: 0.96rem;line-height: 0.96rem;color: #6e6e6e;text-align: center;}
+/* .hkjlTittle li p:nth-child(1){width: 2.8rem;font-size: 0.346667rem;}
+.hkjlTittle li p font,.hkjlTittle li p font font{font-size: 0.266667rem;}
+.hkjlTittle li p:nth-child(2){width: 2.093333rem;}
+.hkjlTittle li p:nth-child(3){width: 2.253333rem;}
+.hkjlTittle li p:nth-child(4){width: 1.946667rem;} */
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="detail-main detail-main11 detail-mainOnly">
+		<!-- 芝麻开花详情页头部 -->
+		<div class="detail-head">
+			<!-- <img src="./images/big-bg.png" alt=""> -->
+			<ul class="detail-h-list clearfix" style='float: left;line-height: normal;margin: 0 0.4rem;'>
+				<li id="title"></li>
+				<li style='float: left;'><span id="payWay" style='border:1px solid #fff;margin-left: 3px;'></span></li>
+				<li id="urlentry" style='float: right;'>协议</li>
+			</ul>
+			<!-- 百分比 预期年化回报率 -->
+			<div class="det-per" style='float: left;'>
+				<h3 id="rate" class="myWmpsH3"></h3>
+				<p>预期年化利率</p>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec">
+				<ul class="detail-dec-list detail-dec-listZ11 clearfix">
+					<li>
+						<p><span id="buyAmount"></span></p>
+						<p>出借本金(元)</p>
+					</li>
+					<li>
+						<p><span id="holdAmount"></span></p>
+						<p>持有本金(元)</p>
+					</li>
+					<li>
+						<p><span id="realearn"></span></p>
+						<p>已收利息(元)</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 出借说明 -->
+		<div class="detail-inv-dec">
+			<div class="detail-inv-pp">
+				<p><span>付息方式</span> &nbsp;<font id="interestMode"></font></p>
+				<p><span>发布时间</span> &nbsp;<font id="strPublisheddate"></font></p>
+				<p><span>募集期</span> &nbsp;&nbsp;&nbsp;<font id="recruitmentPeriod"></font></p>
+				<p><span>退出方式</span> &nbsp;<font id="quitTypeText"></font></p>
+				<p id="autoSwitch"><span>自动续投</span> &nbsp;<font id="autoBuyTypeText"></font></p>
+				<p><span>出借方式</span> &nbsp;<font id="buyWayText"></font></p>
+			</div>
+
+			<ul class="detail-dec-list detail-xi-list detailListZ11 clearfix">
+				<li>
+					<p>计息时间</p>
+					<p id="strFirstInterdate"></p>
+				</li>
+				<li>
+					<p>付息时间</p>
+					<p id="payTime"></p>
+				</li>
+				<li>
+					<p>到期时间</p>
+					<p id="strEnddate"></p>
+				</li>
+				<li class="detail-dotted1"></li>
+				<li class="detail-dotted2"></li>
+			</ul>
+		</div>
+		<div class="autoInvest">
+			<p class="autoInvestTitle">自动续投</p>
+			<div class="autoContent">
+				<input type="checkbox" class="al-toggle-button" value='1'>
+				<p class="autoDetail" id="autoBuyStatusText">
+					自动续投开启
+				</p>
+			</div>
+		</div>
+		<!-- 出借本金 -->
+		<div class="detail-inv-end">
+			<p>出借<span id="amount_same"></span>元,到期预计回报<span class="detail-inv-profit" id="preEarn"></span>元 <a href="javascript:void(0);" id="investTip"></a></p>
+		</div>
+		<!-- 向上拖动 -->
+		<div class="detail-drag" id="dwonToTender">
+			<p>点击查看更多</p>
+		</div>
+	</div>
+	<div class="detail-main1">
+		<div class="upArrow" id="upToViewDetail">
+			<!-- <p><span></span>点击查看产品详情记录<span></span></p> -->
+		</div>
+		<!-- 头部切换 -->
+		<div class="detail-tab detail-TabOnly">
+			<ul class="detail-tab-list clearfix">
+				<li class="detail-tab-show" id="zq">债权列表</li>
+				<li id="hk">回款记录</li>
+			</ul>
+		</div>
+		<div id="wrapper" class="wrapper wrapperOnlyWmps">
+		<div id="scroller">
+		<!-- 债券列表 -->
+		<div class="detail-record detail-record-zhaiquan detail-record-show" id="zqlb">
+			<ul class="detail-record-list record-zq-list clearfix" id="zqlb_content" style='margin-top:0.2rem;'></ul>
+		</div>
+		<!-- 回款记录列表 -->
+		<div class="detail-record detail-record-fuxi" id="hkjl">
+			<ul class="hkjlTittle">
+				<li class="clearfix">
+					<p>回款日</p>
+					<p>利息/本金</p>
+					<p>状态</p>
+				</li>
+			</ul>
+			<ul class="detail-record-list clearfix" id="hkjl_content">
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{enTenderId}}" wmpsAgreeMentHolding={{protocolURL}} data-skip={{checkTenders liubiaoStatus}}>
+			<p>{{tenderTitle}}</p>
+			<p class="checkTenders">{{{liubiaoText}}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人:<span>{{loanUserName}}</span></p>
+				<p>证件号码：<span>{{strIdcard}}</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>借款人地区:<span>{{disCityname}}</span></p>
+				<p>出借本金：<span>{{matchAmount}}</span></p>
+			</div>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_hkjl">
+	{{#each this}}
+		<li class="clearfix">
+			<p>{{checkStatus payMentStatus payMentDate payMentDatePlan}}</p>
+			<p>{{checkStatus payMentStatus payProfit payProfitPlan}}/{{checkStatus payMentStatus payPrincipal payPrincipalPlan}}</p>
+			<p>{{{payMentStatusText}}}</p>
+		</li>
+	{{/each}}
+</script>
+<style>
+.record-zq-list li> p:nth-child(1) {
+    text-align: left;
+    font-size: 0.333333rem;
+    color: #333;
+    line-height: 1.006667rem;
+    height: inherit;
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+	.record-zq-list li> p:nth-child(2) {
+    width: 45%;
+    text-align: right;
+    float: right;
+    display: inline-block;
+    position: absolute;
+    right: 0.44rem;
+}
+.detail-record-list li{padding: 0 0.44rem 0.35rem 0.44rem!important;}
+</style>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/iscroll.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.datapage.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js"></script>
+<script src="/static/mobileSite/js/wmpsPlus/myWmpsPlus_detail.js?v=0.0.4"></script>
+</html>

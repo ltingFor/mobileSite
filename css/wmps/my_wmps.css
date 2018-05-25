@@ -1,0 +1,145 @@
+html {
+	width: 100%;
+	min-height: 100%;
+}
+body {
+	width: 100%;
+	min-height: 100%;
+	background: #f6f6f6;
+}
+.plan-handle {
+	display: none;
+}
+
+.my-plan-tab {
+	width: 100%;
+	min-height: 1.2rem;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	/*margin-bottom: 0.213333rem;*/
+}
+.my-plan-tab .plan-tab {
+	width: 100%;
+	background: #fff;
+}
+.plan-tab>li {
+	width: 50%;
+	min-height: 1.2rem;
+	text-align: center;
+	line-height: 1.2rem;
+	float: left;
+	color: #333;
+	font-size: 0.426667rem;
+}
+.plan-tab>li.tab-show {
+	min-height: 1.173333rem;
+	color: #f84d4d;
+	border-bottom: 2px solid #f84d4d;
+}
+
+
+
+/*持有中的列表*/
+.plan-handle {
+	width: 100%
+}
+.plan-handle>.plan-list li {
+	width: calc(100% - 0.88rem);
+	min-height: 3.28rem;
+	padding: 0 0.44rem;
+	background: #fff;
+	margin-bottom: 0.213333rem;
+}
+.plan-list>li div>p {
+	width: 50%;
+	text-align: left;
+	/*height: 0.613333rem;*/
+	/*line-height: 0.613333rem;*/
+	float: left;
+	font-size: 0.32rem;
+	margin: 0.06rem 0;
+}
+.plan-list>li div>p span {
+	font-size: 0.32rem;
+	color: #333;
+}
+.plan-list>li div>p span img {
+	width: 0.293333rem !important;
+	height: 0.28rem !important;
+	vertical-align: middle;
+}
+.plan-list>li div>p i {
+	font-size: 0.32rem;
+}
+.plan-list>li .li-div1 {
+	height: 1.133333rem;
+}
+.li-div1 h4 {
+	width: 80%;
+	float: left;
+	font-size: 0.346667rem;
+	height: 1.133333rem;
+	line-height: 1.133333rem;
+	overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+	color: #333;
+}
+.li-div1 .strong1 {
+	width: 0.48rem;
+	height: 0.4rem;
+
+	border-radius: 0.04rem;
+	background: #f84d4d;
+
+	float: right;
+	margin-top: 0.373333rem;
+	font-size: 0.293333rem;
+	line-height: 0.4rem;
+	text-align: center;
+	color: #fff;
+}
+.li-div1 .strong2 {
+	width: 0.48rem;
+	height: 0.4rem;
+
+	border-radius: 0.04rem;
+	background: #d89d0f;
+
+	float: right;
+	margin-top: 0.373333rem;
+	line-height: 0.4rem;
+	font-size: 0.293333rem;
+	text-align: center;
+	color: #fff;
+}
+.li-div5{width: 100%;text-align: center;border-top: 1px solid #efeff0;margin-top: 0.2rem;}
+.li-div5 .title{height: 0.9rem;line-height: 0.9rem;}
+.li-div5 .title label{font-size: 0.346667rem;color: #333;font-weight: 400;}
+.li-div5 .title img{margin-left: 0.15rem;width: 0.38rem;}
+.li-div5 .jiaContent{width: 100%;padding: 0.2rem 0;overflow: hidden;border-bottom: 1px dashed #ffbbbb;}
+.up{transform:rotate(180deg);
+-ms-transform:rotate(180deg); 	/* IE 9 */
+-moz-transform:rotate(180deg); 	/* Firefox */
+-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+-o-transform:rotate(180deg); 	/* Opera */
+}
+.li-div5 .jiaContent:nth-last-child(1){border-bottom: 0px solid #333!important;}
+/* .down{
+
+} */
+/*控制显示隐藏*/
+.li-div1 .strong-show {
+	display: block;
+}
+.li-div1 .strong-hide {
+	display: none;
+}
+
+.plan-show {
+	display: block;
+}
+.plan-hide {
+	display: hide;
+}
+
+

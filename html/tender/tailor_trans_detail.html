@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<title>债权详情</title>
+	<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/base.css'/>
+	<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/tender/tender_tailor_detail.css'/>
+	<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/layer.css'/>
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+		.add_msg  table td{
+			width: 4.61rem;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+		}
+		.add_msg  table tr{
+			line-height: 0.76rem;
+		}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+<div class="alert_layer"></div>
+<div class="alert_box alert_box_yes">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container">
+		<div class="alert_btn alert_btn_know">知道了</div>
+	</div>
+</div>
+<div class="alert_box alert_box_ok">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container clearfix">
+		<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+		<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+	</div>
+</div>
+<div class='alert_auto'><span></span></div>
+<!--弹窗层---结束-->
+<!-- <div class="wrap"> -->
+<ul class="items">
+	<li class="check" data-name='program'>项目介绍</li>
+	<li data-name='records'>回款记录</li>
+</ul>
+<div class="same records dis_none">
+	<ul class="records_title">
+		<li>回款日</li>
+		<li>应收金额</li>
+		<li>回款状态</li>
+	</ul>
+	<div id="records"></div>
+</div>
+<div class="same program" id="program">
+</div>
+<script type="text/x-handlebars-template" id="recode_tpl">
+{{#each this}}
+<ul class="records_content">
+	<li>{{payMentDate}}</li>
+	<li>{{payAmount}}</li>
+	<li>{{payMentStaus}}</li>
+</ul>
+{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tender_tpl">
+	<div class="wrap">
+		<div class="title">
+			<div class="titleConent">
+				<p class="purpose">借款目的：<label>{{title}}</label></p>
+				<p class="titleDes h_48"><label style="float: left;">借款人：{{realName}}</label><span class="level" style="">{{finalLevel}}</span>&nbsp;&nbsp;{{cityName}}</p>
+				{{#if industry}}<p class="titleDes">从事行业：<label>{{industry}}</label></p>{{/if}}
+			</div>
+			<!-- <div class="titleImg"><img src="{{photo}}" alt="用户" onerror="this.src='../../images/vip-h.png'"></div> -->
+		</div>
+		<div class="content descrip add_msg person">
+			<p class="conTitle">
+				<img src="/static/mobileSite/images/xxms.png" alt=""><label>详细描述</label>
+			</p>
+			<div class="desContent">
+				借款描述：
+				{{#limitText description}}
+				<p>暂无描述</p>
+				{{else}}
+				<p>{{description}}</p>
+				{{/limitText}}
+			</div>
+			<div id="add_cont"></div>
+		</div>
+		<div class="content person">
+			<p class="conTitle"><img src="/static/mobileSite/images/grzl.png">个人资料</p>
+			<div class="personCon">
+				<div class="basicinfo">基本信息</div>
+				<table class="personText">
+					<tr>
+						{{#checkCompany borrowerType}}
+						<td class="w_47">法人：<label>{{realName}}</label></td>
+						{{else}}
+						<td class="w_47">性别：<label>{{gender}}</label></td>
+						{{/checkCompany}}
+						<td>年龄：<label>{{age}}</label></td>
+					</tr>
+					<tr>
+						<td>文化程度：<label>{{jycd}}</label></td>
+						<td>婚姻状况：<label>{{hyzk}}</label></td>
+					</tr>
+					<tr>
+						<td>户口所在地：<label>{{nativePlace}}</label></td>
+						<td>长期居住地：<label>{{isExists cqjzd}}</label></td>
+					</tr>
+				</table>
+
+				<div class="basicinfo moneyinfo">资产信息</div>
+				<table class="personText">
+					<tr>
+						<td class="w_100">年收入：<label>{{nsr}}</label></td>
+					</tr>
+					<tr>
+						<td>房产：<label>{{isExists fc}}</label></td>
+					</tr>
+				</table>
+
+				<div class="basicinfo workinfo">工作信息</div>
+				<table class="personText">
+					<tr>
+						<td class="w_47">工作年限：<label>{{isExists gznx}}</label></td>
+						<td>行业：<label>{{zy}}</label></td>
+					</tr>
+					<tr>
+						<td>社保年限：<label>{{isExists sbnx}}</label></td>
+						<td>商业保险：<label>{{isExists sybx}}</label></td>
+					</tr>
+				</table>
+
+				<div class="basicinfo creditinfo">信用信息</div>
+				<table class="personText">
+					<tr>
+						<td>贷款记录：<label>{{isExists dkjl}}</label></td>
+						<td>征信报告：<label>{{isExists zxbg}}</label></td>
+					</tr>
+					<tr>
+						<td>信用卡额度：<label>{{isExists xyked}}</label></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="content data">
+			<p class="conTitle"><img src="/static/mobileSite/images/hktj.png">还款数据统计</p>
+			<div class="dataContent">
+				<table class="dataText">
+					<tr>
+						<td class="w_60">历史成功借入：<label>{{borrowtimes}}笔</label></td>
+						<td>历史成功还款：<label>{{repaidtimes}}笔</label></td>
+					</tr>
+					<tr>
+						<td>逾期期数：<label>{{overdueunrepaytimes}}期</label></td>
+						<td>已还款期数：<label>{{alreadyRepayTimes}}期</label></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="foot"></div>
+
+	</div>
+	</script>
+	<p class="transBtn" data-cancelprod=''>转让</p>
+	 <script type="text/x-handlebars-template" id="tender_tpl_add">
+                    <div class="personCon" style="border-top: 1px dashed #ddd;">
+                        <table class="personText">
+                            <tr>
+                                <td style="font-size:0.2933rem;border-bottom: 1px dashed #ddd;">发布时间：<label style="font-size:0.2933rem;">{{prodPublishDate}}</label></td>
+                                <td style="font-size:0.2933rem;border-bottom: 1px dashed #ddd;">募集期：<label style="font-size:0.2933rem;">{{prodcollectPeriod}}</label></td>
+                            </tr>
+                            <tr class="noborder">
+                                <td colspan="2">计息时间：<label>{{prodInterRule}}</label></td>
+                            </tr>
+                        </table>
+                    </div>
+   </script>
+</body>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../../js/lib/jquery.base64.js"></script>
+	<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+	<script src="../../js/tools/el.tools.js"></script>
+	<script src="../../js/tools/el.layer.js"></script>
+	<script src="../../js/tools/jquery.request.js?v=3.0"></script>
+	<script src="/static/mobileSite/js/common/getToken.js?v=3.0"></script>
+	<script src="../../js/mobileSet.common.js?v=3.0"></script>
+	<script src="/static/mobileSite/js/tender/tender_tailor_detail.js?v=3.0"></script>
+</html>

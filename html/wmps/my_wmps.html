@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的翼农计划</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/my_wmps.css?v=1.0">
+	<link rel="stylesheet" href="/static/mobileSite/css/dropload.css">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+		#wrapper{margin-top: 1.4rem;}
+		.bottom{
+            width:20px;
+            height:20px;
+            /*position:absolute;*/
+            left:0;
+            top:0;
+            z-index: 2;/*兼容ie8-*/
+            /*border:1px solid blue;*/
+        }
+        .bottom-arrow1,.bottom-arrow2{
+            width:0;
+            height:0;
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+            z-index: 5;/*兼容ie8-*/
+            border-bottom:10px transparent dashed;
+            border-left:10px transparent dashed;
+            border-right:10px transparent dashed;
+            border-top:10px white solid;
+            overflow:hidden;
+        }
+        .bottom-arrow1{
+            top:1px;/*重要*/
+            border-top:10px blue solid;
+        }
+        .bottom-arrow2{
+            border-top:10px white solid;
+        }
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+
+	<!-- 我的翼农计划 -->
+	<div class="my-plan-tab">
+		<ul class="plan-tab clearfix" id="tabs">
+			<li class="tab-show" id="holdTab">持有中</li>
+			<li id="endTab">已结清</li>
+		</ul>
+	</div>
+	<div class="wrapper" id="wrapper">
+		<div id="scroller">
+			<!-- 持有中 -->
+			<div class="plan-handle plan-show" data="holdTab">
+				<ul class="plan-list" id="holdList"></ul>
+			</div>
+			<!-- 已结清 -->
+			<div class="plan-handle" data="endTab">
+				<ul class="plan-list" id="endList"></ul>
+			</div>
+		</div><!-- iscroll -->
+	</div><!-- wrapper -->
+</body>
+<script type="text/x-handlebars-template" id="tpl_hold">
+	{{#each this}}
+	<li id="{{id}}" data-wholeTitle='{{wholeTitle}}' data-strEnddate='{{strEnddate}}' data-effectiveamount="{{format effectiveamount 'no'}}" data-strInterestrate="{{strInterestrate}}" data-realEarn="{{realEarn}}" data-preEarn="{{preEarn}}" data-strInterdate="{{strInterdate}}" data-strEnddate="{{strEnddate}}" data-strFirstInter="{{strFirstInter}}" data-strSecInter="{{strSecInter}}" data-vipFlag="{{vipLevel}}" data-status="{{productType}}" data-strFirstInterdate="{{strFirstInterdate}}" data-code="{{urlentry.code}}" data-entryDesc="{{urlentry.entryDesc}}" data-entryName="{{urlentry.entryName}}" data-prizeid="{{prizeIdStr}}" data-rid="{{rid}}">
+		<div class="detail">
+			<div class="li-div1 clearfix">
+				<h4>{{wholeTitle}}</h4>
+				{{#checkStatus wmpsStatus}}
+				<strong class="strong2 strong-show">息</strong>
+				{{else}}
+				<strong class="strong1 strong-show">审</strong>
+				{{/checkStatus}}
+
+			</div>
+			<div class="li-div2 clearfix">
+				<p style='width: 45%;'>出借本金:&nbsp;<span>{{format effectiveamount 'no'}}元</span></p>
+				<p style='width: 55%;'>预期年化利率:&nbsp;<span>{{strFirstInter}}%{{{checkAddRate strSecInter}}}{{{checkVipRate strVipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+			</div>
+			<div class="li-div3 clearfix">
+				<p style='width: 45%;'>已收利息:&nbsp;<span>{{format realearn}}元</span></p>
+				<p style='width: 55%;'>到期利息:&nbsp;<span>{{format preEarn}}元</span></p>
+			</div>
+			<div class="li-div4 clearfix">
+				<p style='width: 45%;'>计息时间:&nbsp;<span>{{strInterdate}}</p>
+				<p style='width: 55%;'>到期时间:&nbsp;<span>{{strEnddate}}</p>
+			</div>
+		</div>
+		{{#if prizeIdStr}}
+		<div class="li-div5 clearfix">
+			<div class='title data' data-prizeid={{prizeIdStr}}><label>加息券明细</label><img src="/static/mobileSite/images/arrow.png"></div>
+			<div class="jiacontents dis_none">
+				<!-- <div class="jiaContent dis_none">
+					<div>
+						<p>加息:&nbsp;<span>0.00元</span></p>
+						<p>加息天数:&nbsp;<span>0.00元</span></p>
+					</div>
+					<p>已收利息:&nbsp;<span>0.00元</span></p>
+				</div> -->
+			</div>
+		</div>{{/if}}
+	</li>
+	{{/each}}
+</script>
+<!-- <script type="text/x-handlebars-template" id="addRate">
+	<div class="jiaContent dis_none">
+		<div>
+			<p>加息:&nbsp;<span>{{couponRate}}</span></p>
+			<p>加息天数:&nbsp;<span>{{couponPhases}}</span></p>
+		</div>
+		<p>加息日期:&nbsp;<span>{{couponCdate}}至{{couponEndDate}}</span></p>
+	</div>
+</script> -->
+<script type="text/x-handlebars-template" id="tpl_end">
+	{{#each this}}
+	<li>
+		<div class="li-div1 clearfix">
+			<h4>{{wholeTitle}}</h4>
+		</div>
+		<div class="li-div2 clearfix">
+			<p style='width: 45%;'>出借本金:&nbsp;<span>{{format effectiveamount 'no'}}元</span></p>
+			<p style='width: 55%;'>预期年化利率:&nbsp;<span>{{strFirstInter}}%{{{checkAddRate strSecInter}}}{{{checkVipRate strVipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+		</div>
+		<div class="li-div3 clearfix">
+			<p style='width: 45%;'>持有时间:&nbsp;<span>{{phases}}天</span></p>
+			<p style='width: 55%;'>实际回报:&nbsp;<span>{{format realearn}}元</span></p>
+		</div>
+		<div class="li-div4 clearfix">
+			<p style='width: 45%;'>计息时间:&nbsp;<span>{{strInterdate}}</p>
+			<p style='width: 55%;'>到期时间:&nbsp;<span>{{strEnddate}}</p>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/dropload.min.js"></script>
+<!-- <script src="../../js/lib/iscroll.js"></script> -->
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/tools/jquery.request.js?v=3.0"></script>
+<script src="../../js/tools/jquery.dropload.js"></script>
+<script src="../../js/tools/el.layer.js?v=3.0"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="../../js/wmps/my_wmps.js?v=3.0"></script>
+</html>

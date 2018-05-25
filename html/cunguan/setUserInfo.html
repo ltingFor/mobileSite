@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>开通存管账户</title>
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/cunguan/setUserInfo.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/iosSelect.css">
+	<script src="../../js/lib/flexible.js"></script>
+	<style type="text/css" media="screen">
+		.bankImg{    
+			display: block;
+		    width: 0.553333rem;
+		    float: left;
+		    margin-bottom: -0.366667rem;
+		}
+		.bankName{
+			display: block;
+		    float: left;
+		    margin-left: 0.22rem;
+		    margin-bottom: -0.366667rem;
+		    margin-top: 0.07rem;
+		}
+		.minH{min-height: 0!important;}
+		.tipLimit{    
+			padding: 0 0.44rem;
+		    color: #25bcff;
+		    line-height: 0.84rem;
+		    height: 0.84rem;
+		    font-size: 0.333333rem;
+		}
+		.tipLimit label{font-size: 0.333333rem!important;}
+		#rechargeTip{color: #f84d4d!important;}
+		#showBankSelect{float: right;}
+		.alert_box .alert_content p {
+		        font-size: 0.373333rem;
+			    line-height: 0.52rem;
+			    margin: 0 auto;
+			    text-align: left;
+		}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class="alert_box alert_box_ok">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container clearfix">
+				<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+				<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+			</div>
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<form style="display: none;" action="" method="get" id="hideForm">
+		<!-- <input type="hidden" name="" > -->
+		<input type="hidden" name="platformNo">
+		<input type="hidden" name="serviceName" >
+		<input type="hidden" name="reqData" >
+		<input type="hidden" name="keySerial" >
+		<input type="hidden" name="sign" >
+	</form>
+	<div class="cun-con cun-con1">
+		<ul class="cun-list">
+			<li class="clearfix cun-li">
+				<div class="cun-left">客户姓名</div>
+					<input type="text" class="cun-right" placeholder="请输入您的姓名" id="userName">
+				<span class="z-bankClose" id="useNameClose"></span>
+			</li>
+			<li class="clearfix cun-li">
+				<div class="cun-left">证件类型</div>
+				<div class="cun-right clearfix">
+					<ol>
+						<li class="clearfix" id="select_cer"><p class="cun-ti"  data-code="" id="show_cer"><span>请选择证件类型</span></p><i class="cun-upbtn"></i></li>
+					</ol>
+				</div>
+			</li>
+			<li class="clearfix cun-li">
+				<div class="cun-left">证件号码</div>
+					<input type="text" placeholder="请输入有效证件号码" id="cardNo" class="cun-right">					
+				<span class="z-bankClose" id="cardNoClose"></span>
+			</li>
+		</ul>
+	</div>
+	<div class="cun-con cun-con2 minH">
+		<ul class="cun-list">
+			<li class="clearfix cun-li">
+				<div class="cun-left">银行卡号</div>
+					<input type="tel" placeholder="请输入卡号" id="bankNo" class="cun-right">
+				<span class="z-bankClose" id="bankNoClose"></span>
+			</li>
+			<li class="clearfix cun-li dis_none" id='bankSelect'>
+				<div class="cun-left">开户银行</div>
+				<div class="cun-right clearfix">
+					<ol>
+						<li class="clearfix" id="select_bank"><p class="cun-ti bankType" id="show_bank"><span>请选择开户银行</span></p><i class="cun-upbtn"></i></li>
+					</ol>
+				</div>
+			</li>
+			
+			<li class="clearfix cun-li dis_none" id='bankShow'>
+				<div class="cun-left">开户银行</div>
+				<div class="cun-right clearfix"><img src='/static/mobileSite/images/bankLoad.png' class="bankImg" /><span class="bankName" data-code=''></span>
+				</div>
+			</li>
+			
+			<!-- <li class="clearfix cun-li">
+				<div class="cun-left">银行预留手机号</div>
+					<input type="tel" placeholder="请输入银行预留手机号" id="mobile" class="cun-right cun-rightCall">					
+				<span class="z-bankClose" id="mobileClose"></span>
+			</li> -->
+		</ul>
+	</div>
+	<p class="tipLimit dis_none" id="bankContent"><label id='rechargeTip'>单笔限额：5,0000元</label><label id="showBankSelect">匹配有误</label></p>
+	<p class="tipLimit dis_none" id="errorContent">列表中没有我的开户银行？</p>
+	<div class="cun-con cun-con2 minH">
+		<ul class="cun-list">
+			<li class="clearfix cun-li">
+				<div class="cun-left">银行预留手机号</div>
+					<input type="tel" placeholder="请输入银行预留手机号" id="mobile" class="cun-right cun-rightCall"><span class="z-bankClose" id="mobileClose"></span>
+			</li>
+		</ul>
+	</div>
+	<!-- 底部button -->
+	<p style="padding:0.24rem 0.44rem;font-size:0.333333rem;color:#a6a6a6;">注：该银行卡将用于充值及提现，每个用户仅可绑定一张银行卡，请选择常用银行卡绑定。</p>
+	<div class="cun-btn">
+		<button id="nextBtn" class="dis_btn">下一步</button>
+	</div>
+</body>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/lib/iscroll.js"></script>
+<script src="../../js/lib/iosSelect.js?v=3.0"></script>
+<script src="../../js/cunguan/setUserInfo.js?v=3.0"></script>
+</html>

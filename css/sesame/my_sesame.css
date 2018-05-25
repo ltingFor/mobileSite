@@ -1,0 +1,191 @@
+﻿html {
+	width: 100%;
+	min-height: 100%;
+}
+body {
+	width: 100%;
+	min-height: 100%;
+	background: #f6f6f6;
+}
+.trans-order ul li .upArrow{
+	background: url('../../images/sort_up.png') no-repeat center right;
+	background-size: 0.186667rem 0.24rem;
+}
+.trans-order ul li .downArrow{
+	background: url('../../images/sort_down.png') no-repeat center right;
+	background-size: 0.186667rem 0.24rem;
+}
+.trans-order{
+  height:0.853333rem;
+  width:100%;
+  color:#333333;
+  position: fixed;
+  top: 1.25rem;
+  z-index: 101;
+  background: #f2f2f2;
+}
+.trans-order ul li{
+  width:33.333%;
+  float: left;
+}
+.trans-order ul li p{
+  width:2.0rem;
+  box-sizing:border-box;
+  padding-right: 0.293333rem;
+  margin: 0 auto;
+  text-align:right;
+  /* font-size:0.32rem; */
+  font-size:0.293333rem;
+  line-height:0.853333rem;
+  font-weight:bold;
+  background: url('../../images/sort.png') no-repeat center right;
+  background-size: 0.186667rem 0.24rem;
+}
+.trans-order ul li p.active{
+  color:#fda633;
+}
+.trans-order ul li p.up{
+  background: url('../../images/sort_up.png') no-repeat center right;
+  background-size: 0.186667rem 0.24rem;
+}
+.trans-order ul li p.down{
+  background: url('../../images/sort_down.png') no-repeat center right;
+  background-size: 0.186667rem 0.24rem;
+}
+
+
+
+.wrapper{
+	top: 2.113333rem!important;
+}
+.plan-handle {
+	display: none;
+}
+
+.my-plan-tab {
+	width: 100%;
+	min-height: 1.2rem;
+	margin-bottom: 0.213333rem;
+}
+.my-plan-tab .plan-tab {
+	width: 100%;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+}
+.plan-tab>li {
+	width:calc(100% / 3);
+	min-height: 1.2rem;
+	text-align: center;
+	line-height: 1.2rem;
+	float: left;
+	color: #333;
+	/*border-bottom: 1px solid #efefef;*/
+}
+.plan-tab>li.tab-show {
+	min-height: 1.173333rem;
+	color: #f84d4d;
+	border-bottom: 2px solid #f84d4d;
+}
+
+
+/*持有中的列表*/
+.plan-handle {
+	width: 100%;
+}
+.plan-handle>.plan-list li {
+	width: calc(100% - 0.88rem);
+	/* min-height: 3.28rem; */
+	min-height: 2.6rem;
+	padding: 0 0.44rem;
+	background: #fff;
+	margin-bottom: 0.213333rem;
+}
+ #holdList li{min-height: 3.28rem!important;}
+.plan-list .handle-high-li {
+	/* height: 3.246667rem; */
+	/* height: 3.946667rem; */
+	/* min-height: 3.946667rem; */
+}
+.plan-list>li div>p {
+	width: 50%;
+	text-align: left;
+	height: 0.613333rem;
+	line-height: 0.613333rem;
+	float: left;
+	font-size: 0.32rem;
+}
+.plan-list>li div>p span {
+	font-size: 0.32rem;
+	color: #333;
+}
+.plan-list>li div>p span img{
+	width: 0.29rem !important;
+	height: 0.29rem !important;
+  vertical-align:baseline;
+}
+.plan-list>li div>p i {
+	font-size: 0.32rem;
+}
+.plan-list>li .li-div1 {
+	height: 1.133333rem;
+}
+.li-div1 h4 {
+	width: 50%;
+	float: left;
+	font-size: 0.333333rem;
+	height: 1.133333rem;
+	line-height: 1.133333rem;
+	color: #333;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.li-div1 .sesame-time {
+	width: initial;
+	float: right;
+	height: 1.133333rem;
+	line-height: 1.133333rem;
+	font-size: 0.293333rem;
+	color: #6e6e6e;
+	text-align: right;
+}
+.sesame-time span {
+	font-size: 0.293333rem;
+}
+.li-div1 strong {
+	height: 0.426667rem;
+	line-height: 0.426667rem;
+	border-radius: 0.04rem;
+	float: right;
+	font-size: 0.293333rem;
+	text-align: center;
+	color: #fff;
+	margin-top: 0.373333rem;
+	padding: 0 0.093333rem;
+}
+.li-div1 .strong1 {
+	background: #f84d4d;
+}
+.li-div1 .strong2 {
+	background: #d89d0f;
+}
+
+/*控制显示隐藏*/
+.li-div1 .strong-show {
+	display: block;
+}
+.li-div1 .strong-hide {
+	display: none;
+}
+
+.plan-show {
+	display: block;
+}
+.plan-hide {
+	display: hide;
+}
+
+

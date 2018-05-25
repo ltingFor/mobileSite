@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="format-detection" content="email=no">
+      <meta itemprop="image" content="http://mstatic.eloancn.com/report/03/images/logo.png"/>
+      <title>转让</title>
+      <link rel="stylesheet" type="text/css" href="/static/mobileSite/css/base.css" />
+      <link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+      <link rel="stylesheet" type="text/css" href="/static/mobileSite/css/transfer/transfer.css" />
+      <link type="text/css" rel="stylesheet" href="../../css/jquery.nstSlider.css">
+    </head>
+    <style>
+      .buy-header .inf-box li:nth-child(1){
+        width:36.4%!important;
+        text-align:center;
+      }
+      .buy-header .inf-box li:nth-child(2){
+        width:27.86%!important;
+        text-align:center!important;
+      }
+      .buy-header .inf-box li:nth-child(3){
+        width:35.73%!important;
+        text-align:center!important;
+      }
+    </style>
+    <body style='background: #f6f6f6;'>
+    <!--弹窗层---开始-->
+    <div class="alert_layer"></div>
+    <div class="alert_box alert_box_yes">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container">
+        <div class="alert_btn alert_btn_know">知道了</div>
+      </div>
+    </div>
+    <div class="alert_box alert_box_ok">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container clearfix">
+        <div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+        <div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+      </div>
+    </div>
+    <div class='alert_auto'><span></span></div>
+    <div class="transfer_miji" style="display: none">
+      <div class="miji_banner"></div>
+      <div class="miji_cont">
+        <table>
+          <thead>
+            <tr>
+              <th>浮动比例</th>
+              <th>转让成功率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span>等于-1%</span></td>
+              <td><em>98%</em>以上</td>
+            </tr>
+            <tr>
+              <td><span>等于0%</span></td>
+              <td><em>80%</em>以上</td>
+            </tr>
+            <tr>
+              <td><span>大于0%</span></td>
+              <td><em>5%</em>以下</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>建议：转让本金在<i>1111~12344</i>元之间</h2>
+        <p>以上数据由翼龙贷大数据分析平台提供</p>
+      </div>
+    </div>
+  <!--弹窗层---结束-->
+      <div class="buy-wrap">
+        <div class="buy-header">
+          <h3 class="title"><label id="tenderName"></label></h3>
+          <ul class="inf-box clearfix"">
+           <!--  <li>
+              <p><label id="minRate">-</label>~<label id="maxRate">-</label><em>%</em><em id="secRate" class=""></em></p>
+              <span>预期年化利率</span>
+            </li> -->
+            <li>
+              <p id="holdAmount">0</p>
+              <span>转让本金(元)</span>
+            </li>
+            <li>
+              <p id="dfInterest">0.00</p>
+              <span>当期未收利息(元)</span>
+            </li>
+            <li>
+              <p id='realpayAmt'>0.00</p>
+              <span>转让后实收(元)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="buy-cent">
+          <ul class="clearfix">
+            <li>
+              <p style='width:25%;'>浮动比例：</p>
+<style>
+
+input[type=range]:focus {
+    outline: none;
+}
+.range{ /*设置滑块下面那条线的样式*/
+    outline: none; /*去掉点击时出现的外边框*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /*这三个是去掉那条线原有的默认样式，划重点！！*/
+    width: 100%;
+    height: 0.10rem;
+    border-radius: 0.133333rem;
+    background: -webkit-linear-gradient(#fd7b7b, #fd7b7b) no-repeat, #e2e2e2;
+    background: linear-gradient(#fd7b7b, #fd7b7b) no-repeat, #e2e2e2;
+  background-size: 0% 100%;/*设置左右宽度比例*/
+  border: 0px solid red;
+    /*这三个是设置滑块下面那条线的样式*/
+}
+input[type="range"].start::-webkit-slider-thumb {
+    /*::-webkit-slider-thumb是代表给滑块的样式进行变更*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /*//这三个是去掉滑块原有的默认样式，划重点！！*/
+    -webkit-box-shadow:0 0 0 ; /*设置滑块的阴影*/
+    width: 0.8rem;
+    height:0.8rem;
+    background: url("../../images/start.png") no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 0px solid red;
+}
+input[type="range"].sub::-webkit-slider-thumb{
+     /*::-webkit-slider-thumb是代表给滑块的样式进行变更*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /*//这三个是去掉滑块原有的默认样式，划重点！！*/
+    -webkit-box-shadow:0 0 0 ; /*设置滑块的阴影*/
+    width: 0.8rem;
+    height:0.8rem;
+    background: url("../../images/sub_01.png") no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 0px solid red;
+}
+input[type="range"].add::-webkit-slider-thumb{
+     /*::-webkit-slider-thumb是代表给滑块的样式进行变更*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /*//这三个是去掉滑块原有的默认样式，划重点！！*/
+    -webkit-box-shadow:0 0 0 ; /*设置滑块的阴影*/
+    width: 0.8rem;
+    height:0.8rem;
+    background: url("../../images/slider_04.png") no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 0px solid red;
+}
+.sliderContent{position: relative;width: 96%;float: left;margin-left: 2%;}
+.scale {position: absolute;list-style: none;width: 100%;top: 0.8rem;margin: 0 auto;border:0px solid green;left:0;}
+ul.scale > li.per_scale {
+      float: left;
+      position: relative;
+      width: 5%;
+      min-height: 1px;
+      border-left: 0px solid #e2e2e2;
+      font-size: 0.32rem;
+  }
+  .middle{position: relative;}
+  .scale > .per_scale > a {
+      display: block;
+      position: absolute;
+      height: 5px;
+      top: -4px;
+      left: -2px;
+      color: #333;
+      font-size: 0.32rem;
+      text-decoration: none;
+  }
+  .percent{
+  background: url(../../images/startTip.png) no-repeat center;
+  background-size: 100%;
+  color: #fff;
+  text-align: center;
+  width: 0.933333rem;height: 0.533333rem;line-height: 0.533333rem; position: absolute;top: -0.35rem;left: -5%;font-size: 0.266667rem;}
+</style>
+              <div class="sliderContent">
+                <span class="percent zqtip" style="left: 95%;">0%</span>
+                <input type="range" class="slider-block range zqrange start" value="0" min="-1" max="1" step="0.1" data="zqrange" style='background: #dcdcdc'>
+                <ul class="scale">
+                      <li class="per_scale middle"><a href="#" id="floatMin">-1%</a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale middle"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale middle"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale middle"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <li class="per_scale"><a href="#"></a></li>
+                      <!-- <li class="per_scale"><a href="#"></a></li>   -->
+                      <li class="per_scale middle"><a href="#" style='right: -0.1rem!important;' id="floatMax">+1%</a></li>
+                  </ul>
+              </div>
+            </li>
+            <li style="padding-top:1.52rem;">
+              <p>浮动金额：</p>
+              <p><labe id="rebateAmt">0</labe>元</p>
+            </li>
+            <!-- <li>
+              <p>转让债权：</p>
+              <p><label id="transferAmt">0</label>个</p>
+            </li>
+            <li>
+              <p>当期未收利息：</p>
+              <p><labe id="dfInterest">0</labe>元</p>
+            </li>
+            <li>
+              <p>转让后实收:</p>
+              <p class="red-txt"><label id='realpayAmt'>0</label>元</p>
+            </li> -->
+          </ul>
+        </div>
+        <div class="chzhi_my">
+          <p class="look">请选择转让的债权<img class="dis_none" id="miji-btn" src="../../images/mijiicon.png" style="width: 0.8rem;margin-left: 0.12rem;vertical-align: middle;"></p>
+          <style>
+            .tenders{width: 100%;border-top: 1px solid #f2f2f2;}
+            .tenders li{display: block;width: 100%;overflow: hidden;padding-bottom: 0.25rem;padding: 0 0.45333rem 0.25rem;margin-bottom: 0.133333rem;box-sizing: border-box;background-color: #fff;}
+            .tenders .tenderTitle{line-height: 0.9rem;text-align: left;font-size: 0.346667rem;color:#333;position: relative;}
+            .tenders .tenderBj,.tenders .fdje{text-align: left;font-size: 0.32rem;color: #6e6e6e;line-height: 0.7rem;width: 50%;float: left;}
+            .tenders .fdje{width: 49%!important;text-align: right;}
+            .tenders .choose{width: 0.48rem;height: 0.48rem;position: absolute;right: 0;top: 0.2rem;}
+          </style>
+          <a  href="javascript:void(0);" class="chzhi-arrow">全选<img src="../../images/check_n.png" class="ch-all"></a>
+          <div class="tenders">
+            <ul id="tpl_contents">
+              <!-- <li>
+                <p class="tenderTitle"><span>用于出借8只羊</span><img src="../../images/checkyes.png" class="choose"></p>
+                <p class="tenderBj">转让本金:<span>1000.00</span>元</p>
+                <p class="fdje">浮动金额：<span>+1</span></p>
+              </li>
+              <li>
+                <p class="tenderTitle"><span>用于出借8只羊</span><img src="../../images/checkno.png" class="choose"></p>
+                <p class="tenderBj">转让本金:<span>1000.00</span>元</p>
+                <p class="fdje">浮动金额：<span>+1</span></p>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="touzi">
+          <a href="javascript:void(0)" class="buy-btn dis_btn">确认转让</a>
+          <p class="my">提示：已过滤不满足转让条件的债权，转让申请提交成功后10分钟内不可取消</p>
+        </div>
+      </div>
+    <script src='/static/mobileSite/js/lib/flexible.js'></script>
+    </body>
+<script type="text/x-handlebars-template" id="tpl_zqlb">
+  {{#each this}}
+    {{#checkshow isCanTransfer}}
+    <li>
+      <p class="tenderTitle"><span>{{tenderTitle}}</span><img src="../../images/checkno.png" class="choose" data-choosed='true' data-floatAmount={{floatAmount}} data-unPayInterest={{unPayInterest}} data-transRealAmount={{transRealAmount}} data-prodStr={{cessionCancelValue}} data-transamount={{holdAmount}} data-ecpectInterest={{ecpectInterest}} data-amount={{amount}}></p>
+      <p class="tenderBj">转让本金:<span>{{format holdAmount}}</span>元</p>
+      <p class="fdje">浮动金额：<span class="setfd">{{format floatAmount}}</span>元</p>
+    </li>
+    {{/checkshow}}
+  {{/each}}
+</script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/jquery.base64.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<!-- <script src="../../js/tools/jquery.nstSlider.min.js"></script> -->
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/cms/html/zhimaTransfer/js/floatAmount.js?v=3.0"></script>
+<script src="../../js/transfer/sesame_transfer.js?v=3.0"></script>
+</html>

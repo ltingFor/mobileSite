@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>注册</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/alert.css">
+	<link rel="stylesheet" href="../css/layer.css">
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<script src="../js/lib/flexible.js"></script>
+	<script src="../js/lib/flexible.debug.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class="alert_auto"><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 短信验证码弹窗 -->
+	<div class="meng">
+		<div class="msg-alert">
+			<h3>请选择获取验证码方式</h3>
+			<div class="msg-tu">
+				<input type="text" class="m-msg-pas" placeholder="请输入图片验证码" id="imgCode">
+				<a href="javascript:;" class="m-msg-a" id="imgCodeBtn">
+					<img src="../images/icode.png" alt="图形验证码" id="imgCodeImg">
+				</a>
+			</div>
+			<div class="msg-btn">
+				<a href="javascript:;" id="textCodeBtn_Pop">短信验证码</a>
+				<a href="javascript:;" id='voiceCode'>语音验证码</a>
+				<a href="javascript:;" id="cancel_Pop">取消</a>
+			</div>
+		</div>
+	</div>
+	<!-- 头部 -->
+	<!-- 登录 -->
+	<div class="login-inp reg-inp">
+		<label class="tel">
+			<input type="text" class="inp-tel" placeholder="请输入您的手机号码" id="account">
+			<span class="reg-clo-tel dis_none" id="close"></span>
+		</label>
+		<label class="msg">
+			<input type="num" class="inp-tel" placeholder="请输入短信验证码" id="textCode">
+			<span class="z-addClose" id="textCodeClose"></span>
+			<span class="reg-msg-tel" id="textCodeBtn">获取验证码</span>
+		</label>
+		<label class="pas">
+			<input type="password" class="inp-pas" placeholder="请输入6~16位数字,字母或符号组合密码" id="password">
+			<span class="z-addClose z-addClose2" id="ZpasClose"></span>
+			<span class="clo-pas" id="changePsd"><img src="../images/log3-1.png"></span>
+		</label>
+		<label class="yaoqing">
+			<input type="text" class="dis_none" placeholder="请输入邀请码" id="yqCode" style="width:100%;border-bottom:2px solid #f6f6f6;">
+			<span class="z-addClose" id="zYaoqingClose"></span>
+			<a href="javascript:void(0);" class="yaoqing-a" id="yqCodeBtn">我有邀请码</a>
+			<a href="javascript:void(0);" class="yaoqing-a dis_none" id="hideYqCodeBtn">隐藏邀请码</a>
+		</label>
+		<!-- 登录按钮 -->
+		<div>
+			<button class="login-button dis_btn" id="regBtn">注册</button>
+			<!-- <p class="xieyi"><input type="checkbox">已同意并阅读<a href="javascript:;">《翼龙贷注册协议》</a></p> -->
+			<p class="xieyi"><img class="checkbox" src="../images/check_n.png" id="checkBox"/>已同意并阅读<a id="xieyi" href="http://mstatic.eloancn.com/protocol/reg.html?v=1.0">《翼龙贷注册协议》</a></p>
+		</div>
+
+		<div class="go-reg" id="goToLogin">
+			<a href="javascript:;">已有账号，去登录</a>
+		</div>
+	</div>
+	<div class="footer footer-zAdd">
+		<p></p>
+		<!-- <p class="title-footer">网贷有风险，出借需谨慎</p> -->
+	</div>
+	<script src="../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../js/lib/tripledes.js"></script>
+	<script src="../js/lib/mode-ecb-min.js"></script>
+	<script src="../js/tools/jquery.request.js?v=3.0"></script>
+	<script src="../js/tools/el.layer.js"></script>
+	<script src="../js/tools/el.tools.js?v=1.0"></script>
+	<script src="../js/mobileSet.common.js?v=3.0"></script>
+
+	<script src="../js/login/regist.js?v=3.0"></script>
+</body>
+</html>

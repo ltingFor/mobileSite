@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="format-detection" content="email=no">
+      <meta itemprop="image" content="http://mstatic.eloancn.com/report/03/images/logo.png"/>
+      <title>我的私人定制</title>
+      <link rel="stylesheet" href="../../css/base.css">
+      <link rel="stylesheet" href="../../css/transfer/transfer.css" />
+      <link rel="stylesheet" href="../../css/layer.css">
+      <link rel="stylesheet" href="../../css/tailor/my_tailor.css">
+      <link rel="stylesheet" href="../../css/dropload.css?v=0.1">
+      <script src="../../js/lib/flexible.js"></script>
+      <style>
+        .wrapper{margin-top: 2.853333rem!important;}
+      </style>
+    </head>
+    <body>
+    <!--弹窗层---开始-->
+    <div class="alert_layer"></div>
+    <div class="alert_box alert_box_yes">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container">
+        <div class="alert_btn alert_btn_know">知道了</div>
+      </div>
+    </div>
+    <div class='alert_auto'><span></span></div>
+    <!--弹窗层---结束-->
+      <div class="myper-wrap">
+      <!-- 头部切换 -->
+        <div class="myper-headertab">
+          <ul class="clearfix">
+            <li class="active" data='first'>私人订单</li>
+            <li data='second'>私人转让</li>
+          </ul>
+        </div>
+        <div class="myper-statetab" id="firstTrans">
+          <ul class="clearfix">
+            <li class="active" data="holdTab">持有中</li>
+            <li data="transferTab">转让中</li>
+            <li data="endTab">已结清</li>
+          </ul>
+        </div>
+        <div class="myper-statetab dis_none" id='secondTrans'>
+          <ul class="clearfix">
+            <li class="active" data="sec_holdTab">持有中</li>
+            <li data="sec_transferTab">转让中</li>
+            <li data="sec_endTab">已结清</li>
+          </ul>
+        </div>
+        <div class="myper-ordertab">
+          <ul class="clearfix first">
+            <li data-name='time' class="active down_p"><p>出借时间</p></li>
+            <li data-name='benjin'><p>出借本金</p></li>
+          </ul>
+          <ul class="clearfix second dis_none">
+            <li class="" data-name='time'><p>出借时间</p></li>
+            <li data-name='benjin'><p>出借本金</p></li>
+            <li data-name='enddate'><p>到期时间</p></li>
+          </ul>
+        </div>
+        <!-- <div class="myper-ordertab dis_none" id='secondSort'>
+          <ul class="clearfix">
+            <li class="active up" data-k="t" data-v="2" data=''><p>出借时间</p></li>
+            <li data-k="a" data-v="0"><p>出借本金</p></li>
+          </ul>
+        </div> -->
+      </div>
+
+    <!-- 头部切换 -->
+    <div class="wrapper" id="wrapper">
+      <div id="scroller">
+        <!-- plan-show 是控制选项卡显示隐藏的类 -->
+        <div class="listConents first_contents">
+          
+          <!--一手 持有中 -->
+          <div class="plan-handle plan-show" data="holdTab">
+            <ul class="plan-list" id="holdList"></ul>
+          </div>
+          <!--一手 转让中 -->
+          <div class="plan-handle" data="transferTab">
+            <ul class="plan-list" id="transferList"></ul>
+          </div>
+          <!--一手 已结清 -->
+          <div class="plan-handle" data="endTab">
+            <ul class="plan-list" id="endList"></ul>
+          </div>
+        </div>
+        <div class="listConents second_contents dis_none">
+          <!--二手 持有中 -->
+          <div class="plan-handle plan-show" data="sec_holdTab">
+            <ul class="plan-list" id="sec_holdList"></ul>
+          </div>
+          <!--二手 转让中 -->
+          <div class="plan-handle" data="sec_transferTab">
+            <ul class="plan-list" id="sec_transferList"></ul>
+          </div>
+          <!--二手 已结清 -->
+          <div class="plan-handle" data="sec_endTab">
+            <ul class="plan-list" id="sec_endList"></ul>
+          </div>
+        </div>
+      </div><!-- iscroll -->
+    </div>
+  </body>
+  <script type="text/x-handlebars-template" id="tpl_hold">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail" id="{{myProExtend}}" data-accId="">
+    <div class="li-div1 clearfix">
+      <h4>{{productMap.name}}</h4>
+      <p class="fwxy"><a href="{{urlentry.entryDesc}}">{{urlentry.entryName}}</a></p>   
+    </div>
+    <div class="li-div2 clearfix" id="{{myProExtend}}" data-accId="">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format productMap.amount 'no'}}元</span></p>
+      <p>出借时间:&nbsp;<span>{{productMap.proBuyTime}}</span></p>
+    </div>
+    <div class="li-div2 clearfix" id="{{myProExtend}}" data-accId="">
+      <p>已收利息:&nbsp;<span>{{format productMap.proceedsHas}}元</span></p>
+      <p>到期总利息:&nbsp;<span>{{format productMap.proceeds}}元</span></p>
+    </div>
+    <div class="li-div2 clearfix" id="{{myProExtend}}" data-accId="">
+      <p>匹配债权:&nbsp;<span>{{productMap.matchNum}}个{{checkTransNum productMap.transferableCount}}</span></p>
+    </div>
+  </li>
+  
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_sec_hold">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail" tid="{{tenderIdEpt}}" tenderext='{{tenderPaymentExt}}' style='min-height: 3.946667rem;' data-proddetail='{{prodDetail}}' data-xieyiUrl='{{protocolURL}}'>
+    <div class="li-div1 clearfix">
+      <h4>{{name}}</h4>
+      {{#checkCloseTime closePeriodCountDown}}
+        <p class="fwxy">封闭期：<span data-lasttime='{{closePeriodCountDown}}' class="enddate">{{closePeriodCountDown}}</span></p>  
+      {{else}} 
+      {{/checkCloseTime}}
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format amoutStr 'no'}}元</span></p>
+      <p>还款方式:&nbsp;<span>{{loanRepaymentWayStr}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>实付金额:&nbsp;<span>{{format realPayMoney 'y'}}元</span></p>
+      <p>预期年化利率:&nbsp;<span>{{{formatVip rateAllStr vipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>已收利息:&nbsp;<span>{{curPaidInter}}元</span></p>
+      <p>到期利息:&nbsp;<span>{{expirePaidInter}}元</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借时间:&nbsp;<span>{{buyTime}}</span></p>
+      <p>到期时间:&nbsp;<span>{{expireDateStr}}</span></p>
+    </div>
+  </li>
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_trans">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail" tid="{{tenderIdEpt}}" tenderext='{{tenderPaymentExt}}' style='min-height: 3.946667rem;' proddetail='{{prodDetail}}' data-xieyiUrl='{{protocolURL}}'>
+    <div class="li-div1 clearfix">
+      <h4>{{name}}</h4>
+      <p class="fwxy">转让倒计时：<span data-lasttime='{{transferCountDown}}' class="enddate">{{transferCountDown}}</span></p>   
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format amoutStr 'no'}}元</span></p>
+      <p>还款方式:&nbsp;<span>{{loanRepaymentWayStr}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>转让后实收:&nbsp;<span>{{format transRealAmount 'y'}}元</span></p>
+      <p>预期年化利率:&nbsp;<span>{{{formatVip rateAllStr vipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>已收利息:&nbsp;<span>{{curPaidInter}}元</span></p>
+      <p>到期利息:&nbsp;<span>{{expirePaidInter}}元</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借时间:&nbsp;<span>{{buyTime}}</span></p>
+      <p>到期时间:&nbsp;<span>{{expireDateStr}}</span></p>
+    </div>
+    {{#checkJiaxiStatus prizeIdStr}}
+    <div class="li-div5 clearfix">
+      <div class="title" data-tenderPrizeExt="{{tenderPrizeExt}}"><label>加息券明细</label><img src="/static/mobileSite/images/arrow.png"></div>
+      <div class="jiacontents dis_none">
+      </div>
+    </div>
+    {{/checkJiaxiStatus}}
+  </li>
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_sec_trans">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail"  tid="{{tenderIdEpt}}" tenderext='{{tenderPaymentExt}}' data-proddetail='{{prodDetail}}' style='min-height: 3.946667rem;' data-xieyiUrl='{{protocolURL}}'>
+    <div class="li-div1 clearfix">
+      <h4>{{name}}</h4>
+      <p class="fwxy">转让倒计时：<span data-lasttime='{{transferCountDown}}' class="enddate">{{transferCountDown}}</span></p>   
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format amoutStr 'no'}}元</span></p>
+      <p>还款方式:&nbsp;<span>{{loanRepaymentWayStr}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>转让后实收:&nbsp;<span>{{format transRealAmount 'y'}}元</span></p>
+      <p>预期年化利率:&nbsp;<span>{{{formatVip rateAllStr vipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>已收利息:&nbsp;<span>{{curPaidInter}}元</span></p>
+      <p>到期利息:&nbsp;<span>{{expirePaidInter}}元</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借时间:&nbsp;<span>{{buyTime}}</span></p>
+      <p>到期时间:&nbsp;<span>{{expireDateStr}}元</span></p>
+    </div>
+  </li>
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_end">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail"  id="{{myProExtend}}" >
+    <div class="li-div1 clearfix">
+      <h4>{{productMap.name}}</h4>
+      <p class="fwxy dis_none"><a href="{{urlentry.entryDesc}}">{{urlentry.entryName}}</a></p>    
+    </div>
+    <div class="li-div2 clearfix" id="{{myProExtend}}" data-accId="">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format productMap.amount 'no'}}元</span></p>
+      <p>出借时间:&nbsp;<span>{{productMap.proBuyTime}}</span></p>
+    </div>
+    <div class="li-div2 clearfix" id="{{myProExtend}}" data-accId="">
+      <p>已收利息:&nbsp;<span>{{format productMap.proceedsHas}}元</span></p>
+     <p>匹配债权:&nbsp;<span>{{productMap.matchNum}}个</span></p>
+    </div>
+  </li>
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_sec_end">
+  {{#each this}}
+  <li class="handle-high-li mySesame-detail" tid="{{tenderIdEpt}}" tenderext='{{tenderPaymentExt}}' data-proddetail='{{prodDetail}}' style='min-height: 3.946667rem;' data-xieyiUrl='{{protocolURL}}'>
+    <div class="li-div1 clearfix">
+      <h4>{{name}}</h4>
+      <!-- <p class="fwxy">转让倒计时：<span lasttime='{{transferCountDown}}'>{{transferCountDown}}</span></p>    -->
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借本金:&nbsp;<span style='color:#f84d4d;'>{{format amoutStr 'no'}}元</span></p>
+      <p>还款方式:&nbsp;<span>{{loanRepaymentWayStr}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>持有时间:&nbsp;<span>{{holdDays}}天</span></p>
+      <p>预期年化利率:&nbsp;<span>{{{formatVip rateAllStr vipRate}}}{{{checkAddrate prizeIdStr}}}</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>已收利息:&nbsp;<span>{{curPaidInter}}元</span></p>
+      <p>实际回报:&nbsp;<span>{{curRealPaidInter}}元</span></p>
+    </div>
+    <div class="li-div2 clearfix">
+      <p>出借时间:&nbsp;<span>{{buyTime}}</span></p>
+      <p>到期时间:&nbsp;<span>{{expireDateStr}}元</span></p>
+    </div>
+  </li>
+  {{/each}}
+</script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/iscroll.js"></script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/lib/dropload.min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/jquery.dropload.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/tailor/my_transfer.js?v=3.0"></script>
+</html>

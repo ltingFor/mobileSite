@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>提现</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/myaccount/recharge.css?v=0918">
+	<script src="../../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	
+	<div class="current-show showCard">
+		<section class="no-card">
+			<div class="clearfix">
+				<p class="bank-left">账户余额(元)</p>
+				<p class="bank-right mon-red" id="userBalance">--</p>
+			</div>
+			<div class="bank-line clearfix">
+				<p class="bank-left">提现金额(元)</p>
+				<p class="bank-right"><input type="number" class="mon-inp" placeholder="提现金额大于等于3元" id="txje"></p>
+				<!-- <p class="bank-right"><input type="number" class="mon-inp" placeholder="提现金额大于等于3元" id="txje" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"></p> -->
+				<span class="z-monClose" id="z-monClose"></span>
+			</div>	
+		</section>
+		<section class="bank-head has-drawal-head clearfix" id="bankDetail">
+			<p class="bank-logo"><img src="/static/mobileSite/images/bankLoad.png" alt="银行图标" id="bankIconUrl"></p>
+			<div class="bank-style">			
+				<p id="bankname">-</p>
+				<p class="dis_none" id="bankCode"></p>
+				<p>尾号<span id="account">-</span></p>
+			</div>
+			<strong class="bank-choose" id="delBank"></strong>
+		</section>
+		<!-- <section class="no-card no-cardTixian">
+			<p class="bank-balance" id="tx_tip">本卡可提金额<span id="userBalanceTo">--</span>元<i class="balance-mon"></i></p>
+		</section> -->
+		<!-- 充值 -->
+		<section class="no-card" id="withdrawalmethod">
+			<div class="clearfix withdrawalmethod">
+				<label class="checked">普通提现（T+1）</label>
+				<P id="t1Desc">本次提现免费，限免额度300000元</p>
+			</div>
+			<div class="bank-line clearfix withdrawalmethod">
+			     <label class="">快速提现（T+0）</label>
+				<P  id="t0Desc">单笔限额5万元，手续费2元</p>
+				
+			</div>	
+		</section>
+	
+		
+		<section class="has-card">
+			<p class="has-recard" id="txTip"></p>
+			<!-- <p class="has-recard">提现费用<span id="feiy">0.00</span>元，免提现手续费额度<span id="quota">0</span>元，本月还可免费提现<span id="countWithDrawFee">0</span>次。</p> -->
+			<p class="errorTip dis_none"></p>
+		</section>
+		<!-- <section class="bank-head has-drawal-head clearfix" id="bankDetail">
+			<p class="bank-logo"><img src="" alt="银行图标" id="bankIconUrl"></p>
+			<div class="bank-style">			
+				<p id="bankname">-</p>
+				<p class="dis_none" id="bankCode"></p>
+				<p>尾号<span id="account">-</span></p>
+			</div>
+			<strong class="bank-choose" id="delBank"></strong>
+		</section>
+		<section class="no-card no-cardTixian">
+			<p class="bank-balance" id="tx_tip">本卡可提金额<span id="userBalanceTo">--</span>元<i class="balance-mon"></i></p>
+		</section> -->
+		<section class="recharge-btn withDrawal-btn" id="tixianContain">
+			<p id="tixian" class="dis_btn">提现</p>
+			<div>
+				<!--<p class="withDrawal-time">预计1-2个工作日内到账</p>-->
+				<p class="withDrawal-help" id="help">提现说明</p>
+			</div>
+		</section>
+		
+	</div>
+	<div class="dis_none addCard">
+		<!-- 银行卡列表 -->
+		<div class="recharge-addCard">
+			<p>还未添加提现银行卡，请先添加！</p>
+			<p id="addCardBtn">添加提现银行卡</p>
+		</div>
+	</div>
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.123"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/app/js/calculateFee.js?v=3.0"></script>
+<script src="/static/mobileSite/js/myaccount/withdrawCash.js?v=3.123"></script>
+</html>

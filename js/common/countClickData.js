@@ -1,0 +1,6 @@
+
+var CountClickData = (function(){
+	return {
+		
+	}
+});

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="format-detection" content="email=no">
+      <meta itemprop="image" content="http://mstatic.eloancn.com/report/03/images/logo.png"/>
+      <title>私人转让详情</title>
+      <link rel="stylesheet" type="text/css" href="/static/mobileSite/css/base.css" />
+      <link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+      <link rel="stylesheet" type="text/css" href="/static/mobileSite/css/transfer/transfer.css" />
+    </head>
+    <body>
+    <!--弹窗层---开始-->
+    <div class="alert_layer"></div>
+    <div class="alert_box alert_box_yes">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container">
+        <div class="alert_btn alert_btn_know">知道了</div>
+      </div>
+    </div>
+    <div class="alert_box alert_box_ok">
+      <p class="alert_title">提示</p>
+      <p class="alert_content alert_content_center"></p>
+      <p class="alert_attention"></p>
+      <div class="alert_btn_container clearfix">
+        <div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+        <div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+      </div>
+    </div>
+    <div class='alert_auto'><span></span></div>
+  <!--弹窗层---结束-->
+      <div class="perdetail_wrap">
+        <!-- 头部说明 -->
+        <div class="perdetail_header">
+          <p class="header-txt"><label id='tenderName' style='font-size: 0.346667rem;'></label><span class="enddate" style='float: right;font-size: 0.293333rem'></span></p>
+          <ul class="cent-txt clearfix">
+            <li>
+              <p><label id="preRate"></label><span>%</span></p>
+              <span>预期年化利率</span>
+            </li>
+            <li>
+              <p id="transferAmt">-</p>
+              <span>转让本金(元)</span>
+            </li>
+          </ul>
+          <ul class="bot-txt clearfix">
+            <li>
+              <p id="rebateAmt"></p>
+              <span>浮动金额(元)</span>
+            </li>
+            <li>
+              <p id="dfInterest"></p>
+              <span>垫付利息(元)</span>
+            </li>
+            <li>
+              <p id="realpayAmt"></p>
+              <span>实付金额(元)<a href="#" class="rem"></a></span>
+            </li>
+          </ul>
+        </div>
+        <!-- 出借说明 -->
+        <div class="perdetail-inv-dec">
+          <div class="detail-inv-pp">
+            <p><span>封闭期</span> <span id="closePeroid"></span>天</p>
+            <p><span>剩余时间</span> <span id="surplusDays"></span>天</p>
+            <p><span>还款方式</span> <span id="repayWayCN"></span></p>
+            <p><span>付息方式</span> <span id="repayWay"></span></p>
+            <p><span>转让规则</span> <span id="transferRule"></span></p>
+            <p><span>转让限制</span> <span id="transferLimitTip"></span></p>
+            <p><span>到期时间</span> <span id="endDate">2017-11-08</span></p>
+          </div>
+          <ul class="perdetail-dec-list clearfix">
+            <li>
+              <p>计息时间</p>
+              <p id="carryInterTip">出借后当天</p>
+            </li>
+            <li>
+              <p>付息时间</p>
+              <p id="payDate">每月5日</p>
+            </li>
+            <li>
+              <p>封闭期结束</p>
+              <p id="closeEndDate">2017年07月06日</p>
+            </li>
+            <li class="detail-dotted1"></li>
+            <li class="detail-dotted2"></li>
+          </ul>
+        </div>
+        <!-- 出借回报 -->
+        <div class="detail-inv-end">
+          <p>出借<span id="amount_same">-</span>元,到期预计回报<span class="detail-inv-profit" id="futureEarn">-</span>元 <a href="javascript:void(0);" id="investTip"></a></p>
+        </div>
+        <!-- 拖动查看更多 -->
+        <div class="detail-drag" id="dwonToTender">
+          <p>点击查看债权详情</p>
+        </div>
+        <!-- 出借按钮 -->
+        <div class="detail-inv-btn">马上出借</div>
+      </div>
+
+      <script src='/static/mobileSite/js/lib/flexible.js'></script>
+    </body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/jquery.base64.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/json_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/calculate_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/date_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/map_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/calc/transf_1.0.0.js?v=2"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/getToken.js?v=3.0"></script>
+    <script src='/static/mobileSite/js/transfer/tailor_transfer_detail.js?v=3.1'></script>
+</html>

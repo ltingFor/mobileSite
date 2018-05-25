@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+
+	<title>产品</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css?v=0.1">
+	<link rel="stylesheet" href="/static/mobileSite/css/list.css?v=0.0.3">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/dropload.css?v=0.1">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<script src="../js/lib/jquery-1.10.1.min.js"></script>
+	<style>
+	.animated {
+          animation-duration: 1.5s;
+          -webkit-animation-duration: 1.5s;
+          animation-fill-mode: both;
+          -webkit-animation-fill-mode: both;
+        }
+
+        .animated.infinite {
+          animation-iteration-count: infinite;
+          -webkit-animation-iteration-count: infinite;
+        }
+        .bounce {
+          animation-name: bounce;
+          -webkit-animation-name: bounce;
+          transform-origin: center bottom;
+          -webkit-transform-origin: center bottom;
+        }
+		@-webkit-keyframes bounce{
+			0%, 15%, 47%, 73%,89%,100% {
+            animation-timing-function: ease-out;
+            -webkit-animation-timing-function: ease-out;
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0);
+          }
+
+          30%, 32% {
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function: ease-in;
+            transform: translate3d(0, -0.4rem, 0);
+            -webkit-transform: translate3d(0, -0.4rem, 0);
+          }
+
+          60% {
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function: ease-in;
+            transform: translate3d(0, -0.266667rem, 0);
+            -webkit-transform: translate3d(0, -0.266667rem, 0);
+          }
+
+          82% {
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function: ease-in;
+            transform: translate3d(0, -0.133333rem, 0);
+            -webkit-transform: translate3d(0, -0.133333rem, 0);
+          }
+
+          94% {
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function:ease-in;
+            transform: translate3d(0,-0.04rem,0);
+            -webkit-transform: translate3d(0,-0.04rem,0);
+          }
+		}
+        @keyframes bounce {
+          0%, 15%, 47%, 73%,89%,100% {
+            animation-timing-function: ease-out;
+            transform: translate3d(0,0,0);
+          }
+
+          30%, 32% {
+            animation-timing-function: ease-in;
+            transform: translate3d(0, -0.4rem, 0);
+          }
+
+          60% {
+            animation-timing-function: ease-in;
+            transform: translate3d(0, -0.266667rem, 0);
+          }
+
+          82% {
+            animation-timing-function: ease-in;
+            transform: translate3d(0, -0.133333rem, 0);
+          }
+
+          94% {
+            animation-timing-function: ease-in;
+            transform: translate3d(0,-0.04rem,0);
+          }
+        }
+		#scroller{margin-bottom: 1.3rem;margin-top: 1.3rem;}
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<div class="meng">
+		<div class="alert_new">
+			<button class="alert-btn-new" id="holdOn">稍后再说</button>
+			<button class="alert-btn-new goshow-new" id="toKH">去开户</button>
+		</div>
+	</div>
+	<!--弹窗层-结束-->
+	<ul class="mana-head clearfix">
+		<!-- class   mana-h-show是用来控制li下划线的 -->
+		<li class="mana-h-show" data-tab="#wamps" style='width: 25%;'>翼农计划</li>
+		<li data-tab="#wampsPlus" style='width: 25%;'>翼农计划+</li>
+		<li data-tab="#sesame" style='width: 25%;'>芝麻开花</li>
+		<li data-tab="#tailor" style='width: 25%;'>私人定制</li>
+		<!-- <li data-tab="#transfer">转让专区</li> -->
+	</ul>
+	<div class="mana-main" id="scroller">
+		<!-- 翼农计划理财详情 -->
+		<div class="mana-detail mana-plan-detail mana-show" id="wamps">
+			<ul class="mana-detail-list" id="wamps_content"></ul>
+		</div>
+		<!-- 翼农计划理财详情 -->
+		<div class="mana-detail mana-plan-detail mana-show" id="wampsPlus">
+			<ul class="mana-detail-list" id="wampsPlus_content"></ul>
+		</div>
+		<!-- 芝麻开花理财详情 -->
+		<div class="mana-detail mana-sesame-detail" id="sesame">
+			<ul class="mana-detail-list" id="sesame_content"></ul>
+		</div>
+		<!-- 私人定制理财详情 -->
+		<div class="mana-detail mana-sesame-detail" id="tailor">
+			<ul class="mana-detail-list" id="tailor_content"></ul>
+			<div class="fc">
+				<p id="dzjh"><img src="../images/tailor-dzjh.png"></p>
+				<p id="gwc"><img src="../images/tailor-gwc.png"><span class="num">0</span><span class="timer enddate" id="enddate">05:00</span></p>
+			</div>
+			<div class="dzjhtjLayer"></div>
+			<div class="dzjhtj">
+				<ul>
+					<li><label>出借本金</label><span class="tip">可用余额：<label id='userMoney'>--</label>元</span></li>
+					<li><div class="ipt"><span class="icon">¥</span><input type="text" placeholder="最低100，最高10万"/></div></li>
+					<li>
+						<label class="block pz_title">债权个数</label>
+						<span class="block range_ ">0</span>
+						<div class="sliderContent">
+							<span class="percent zqtip">0个</span>
+							<input type="range" class="slider-block range zqrange" value="0" >
+						</div>
+						<span class="block range_ f_r">10</span>
+					</li>
+					<li>
+						<label class="block pz_title">预期年化利率</label>
+						<span class="block range_">0</span>
+						<div class="sliderContent">
+							<span class="percent sytip">0%</span>
+							<input type="range" class="slider-block range syrange" value="0" >
+						</div>
+						<span class="block range_ f_r">18</span>
+					</li>
+					<li>
+						<label class="block pz_title">借款期限</label>
+						<span class="block">0</span>
+						<div class="sliderContent">
+							<span class="percent jktip">0个月</span>
+							<input type="range" class="slider-block range jkrange" value="0" >
+						</div>
+						<span class="block">36</span>
+					</li>
+					<!-- <li>
+						<label class="block pz_title">还款方式</label>
+						<span class="block">0</span>
+						<div class="sliderContent">
+							<span class="percent">0%</span>
+							<input type="range" class="slider-block" id="slider" value="0" >
+						</div>
+						<span class="block">10</span>
+					</li> -->
+					<li>
+						<label class="block pz_title" id="syfs">还款方式</label>
+						<div id="syfsContents"></div>
+						<!-- <div class="syfs checked s1" data-v="1"><div>等额本金</div><span></span></div>
+						<div class="syfs checked s2" data-v="1"><div>等额本息</div><span></span></div>
+						<div class="syfs checked s3" data-v="1"><div>还本付息</div><span></span></div> -->
+					</li>
+					<li class="btnbar"><div class="btn gb">重置</div><div class="btn qd">确定</div></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 转让专区理财详情 -->
+
+		<div class="mana-detail mana-transfer-detail" id="transfer">
+
+			<ul class="mana-detail-list" id="transfer_content"></ul>
+			<!-- <p class="mana-qin pulldown"></p> -->
+		</div>
+	</div>
+	<!-- </div> -->
+	<!-- </div>  wrapper -->
+	<!-- 底部固定 -->
+
+	<!-- home-bot-btn是控制当前显示的class  -->
+	<div class="home-main-list">
+		<ul class="home-bot-list clearfix">
+			<!-- <li id="home_page" style="width: 24.8%;"><img src="../images/footer/icon_home@2x.png" alt="首页"><p>首页</p></li>
+			<li id="investList_page"  class="home-bot-btn" style="width: 24.8%;"><img src="../images/footer/icon_money_y@2x.png" alt="产品"><p>产品</p></li>
+			<li id="transList_page" style="width: 24.8%;"><img src="../images/footer/4.png" alt="转让"><p>转让</p></li>
+			<li id='account_page' style="width: 24.8%;"><img src="../images/footer/icon_user@2x.png" alt="我的"><p>我的</p></li> -->
+			<li id="home_page"><img src="../images/footer/2018/index_n.png" alt="首页" style='width: 1.333333rem;height: 0.8rem;'><p>首页</p></li>
+			<li id="investList_page"  class="home-bot-btn"><img src="../images/footer/2018/pro_y.png" alt="出借" style='width: 1.333333rem;height: 0.8rem;'><p>产品</p></li>
+			<li id="transList_page"><img src="../images/footer/2018/trans_n.png" alt="转让" style='width: 1.333333rem;height: 0.8rem;'><p>转让</p></li>
+			<li id='account_page'><img src="../images/footer/2018/account_n.png" alt="我的" style='width: 1.333333rem;height: 0.8rem;'><p>我的</p></li>
+		</ul>
+	</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_wmpsPlus">
+	{{#each this}}
+	{{#checkStatus status "wmps"}}
+	<li class="mana-child-li delay" data-jump="{{prodDetail}}">
+		<a alt="跳转详情页" href='{{jump id "wmpsplus" "" "" "" prodDetail}}'>
+		<div class="mana-list-t clearfix">
+			<p>{{#checkAddRateImg icon}}<img src="{{icon}}" style="width: 0.5rem">{{/checkAddRateImg}}{{title}}<span class="syfslist" style='top:0;'>{{payWay}}</span></p>
+			<p>剩余可投:<span>{{restAmount1 maxAmount amount}}</span>万元</p>
+		</div>
+		<div class="mana-buy-list">
+			<ol class="mana-list-ol clearfix">
+				<li style='width: 36%;'>
+					<p class="mana-color-red"><span class="mana-ol-num1">{{rate}}</span><span class="mana-ol-num2">%{{checkAdd addRate}}{{{checkVipRate status "wmps"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li style='width: 32%;'>
+					<p class="mana-color-black"><span class="mana-ol-num1">{{phases}}</span></p>
+					<p>产品期限（{{phasesType}}）</p>
+				</li>
+				<li class="clearfix" style='width: 32%;'>
+					<p class="mana-buy-btn wmps-sub" style='margin-top: 0.32rem;'>出借</p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{else}}
+	<li class="mana-over-li delay" data-jump="{{prodDetail}}">
+		<a alt="跳转详情页" href='{{jump id "wmpsplus" "" "" "" prodDetail}}'>
+		<div class="mana-over-t clearfix">
+			<p>{{#checkAddRateImg icon}}<img src="{{icon}}" style="width: 0.5rem">{{/checkAddRateImg}}{{title}}<span class="syfslist" style='top:0;'>{{payWay}}</span></p>
+		</div>
+		<div class="mana-buy-over">
+			<ol class="mana-over-ol clearfix">
+				<li style='width: 36%;'>
+					<p class="mana-over-red"><span class="mana-over-num1">{{rate}}</span><span class='mana-over-num2'>%{{checkAdd addRate}}{{{checkVipRate status "wmps"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li style='width: 32%;'>
+					<p class="mana-over-black"><span class="mana-over-num1">{{format phases}}</span></p>
+					<p>产品期限（{{phasesType}}）</p>
+				</li>
+				<li class="clearfix" style='width: 32%;'>
+					<p class="mana-over-btn"></p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{/checkStatus}}
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_wmps">
+	{{#each this}}
+	{{#checkStatus status "wmps"}}
+	<li class="mana-child-li delay" data-jump="{{id}}">
+		<a alt="跳转详情页" href='{{jump id "wmps"}}'>
+		<div class="mana-list-t clearfix">
+			<p>{{#checkAddRateImg icon}}<img src="{{icon}}" style="width: 0.5rem">{{/checkAddRateImg}}{{wholeTitle}}</p>
+			<p>剩余可投:<span>{{restAmount maxAmount amount}}</span>万元</p>
+		</div>
+		<div class="mana-buy-list">
+			<ol class="mana-list-ol clearfix">
+				<li>
+					<p class="mana-color-red"><span class="mana-ol-num1">{{splitStr strInterestrate 1}}</span><span class="mana-ol-num2">{{splitStr strInterestrate 2}}{{{checkVipRate status "wmps"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-color-black"><span class="mana-ol-num1">{{format strPhases}}</span></p>
+					<p>产品期限（天）</p>
+				</li>
+				<li class="clearfix">
+					<p class="mana-buy-btn wmps-sub" style='margin-top: 0.32rem;'>出借</p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{else}}
+	<li class="mana-over-li delay" data-jump="{{id}}">
+		<a alt="跳转详情页" href='{{jump id "wmps"}}'>
+		<div class="mana-over-t clearfix">
+			<p>{{wholeTitle}}</p>
+		</div>
+		<div class="mana-buy-over">
+			<ol class="mana-over-ol clearfix">
+				<li>
+					<p class="mana-over-red"><span class="mana-over-num1">{{splitStr strInterestrate 1}}</span><span class='mana-over-num2'>{{splitStr strInterestrate 2}}{{{checkVipRate status "wmps"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-over-black"><span class="mana-over-num1">{{format strPhases}}</span></p>
+					<p>产品期限（天）</p>
+				</li>
+				<li class="clearfix">
+					<p class="mana-over-btn"></p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{/checkStatus}}
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_tailor">
+	{{#each this}}
+	<li class="mana-over-li delay" data-jump="{{id}}" data-lock="{{lockExt}}">
+		<a alt="跳转详情页" href='{{jump tenderIdEpt "zqxq"}}'>
+		<div class="mana-over-t clearfix" style="">
+			<p class="title">
+				<label style='color:#333;'>{{creditImg}}&nbsp;</label>
+				<i class="txt">{{tenderName}}</i>
+				<span class="syfslist">{{repayWayStr}}</span>
+				<span class="syfslist" style='width: 1.25rem;'>封 {{closePeriod}}天</span>
+			</p>
+			<p class="rjkje">
+				<span class="jkje">借：{{restAmount borrowAmountStr amount}}万元<i class="arrow"></i></span>
+			</p>
+		</div>
+		</a>
+		<div class="mana-buy-list mana-buyListOnly tailor">
+			<ol class="mana-list-ol clearfix">
+				<li style="width: 36%;">
+					<p class="mana-color-red"><span class="mana-ol-num1">{{borrowRate}}</span><span class="mana-over-num2">%</span><span class="mana-ol-num2">{{{checkVipRate status "tailor"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-color-black"><span class="mana-ol-num1">{{restAmount surplusAmount amount}}</span></p>
+					<p>剩余可投(万元)</p>
+				</li>
+				<li>
+					<p class="mana-color-black" style="padding-right: 0.652rem;"><span class="mana-ol-num1">{{loanTimeLimit}}</span></p>
+					<p>借款期限(月)</p>
+				</li>
+			</ol>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_tailor_end">
+	{{#each this}}
+	<li class="mana-over-li delay" data-jump="{{id}}" data-lock="{{lockExt}}">
+		<a alt="跳转详情页" href='{{jump tenderIdEpt "zqxq"}}'>
+		<div class="mana-over-t clearfix" style="">
+			<p class="title">
+				<label class="overBlack">{{creditImg}}&nbsp;</label>
+				<i class="txt overBlack">{{tenderName}}</i>
+				<span class="syfslist">{{repayWayStr}}</span>
+
+			</p>
+			<p class="rjkje">
+				<span class="jkje overBlack">借：{{restAmount borrowAmountStr amount}}万元<i class="arrow"></i></span>
+			</p>
+		</div>
+		</a>
+		<div class="mana-buy-list mana-buyListOnly tailor tailor_end">
+			<ol class="mana-list-ol clearfix">
+				<li style="width: 36%;">
+					<p class="mana-color-red overRed"><span class="mana-ol-num1">{{borrowRate}}</span><span class="mana-over-num2">%</span><span class="mana-ol-num2">{{{checkVipRate status "tailor"}}}</span></p>
+					<p class="overdes">预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-color-black overBlack"><span class="mana-ol-num1">{{restAmount surplusAmount amount}}</span></p>
+					<p class="overdes">剩余可投(万元)</p>
+				</li>
+				<li>
+					<p class="mana-color-black overBlack" style="padding-right: 0.652rem;"><span class="mana-ol-num1">{{loanTimeLimit}}</span></p>
+					<p class="overdes">借款期限(月)</p>
+				</li>
+			</ol>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_sesame">
+	{{#each this}}
+	{{#checkStatus productStatus "sesame"}}
+	<li class="mana-child-li" data-jump="{{prodDetail}}">
+		<a alt="跳转详情页" href="{{jump prodDetail 'sesame'}}">
+		<div class="mana-list-t clearfix">
+			<p>{{title}}</p>
+			<p>剩余可投:<span>{{restAmount maxAmount totalAmount}}</span>万元</p>
+		</div>
+		<div class="mana-buy-list mana-buyListOnly">
+			<ol class="mana-list-ol clearfix">
+				<li>
+					<p class="mana-color-red"><span class="mana-ol-num1">{{ minRate }}~{{ maxRate }}</span><span class="mana-over-num2" style="font-size:0.32rem;">%{{splitStr addRate 5}}</span><span class="mana-ol-num2">{{{checkVipRate productStatus "sesame"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-color-black"><span class="mana-ol-num1">{{closedPeriod}}</span></p>
+					<p>封闭期(天)</p>
+				</li>
+				<li class="clearfix">
+					<p class="mana-buy-btn sesame-sub" style='margin-top: 0.32rem;'>出借</p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{else}}
+	<li class="mana-over-li" data-jump="{{prodDetail}}">
+		<a alt="跳转详情页" href="{{jump prodDetail 'sesame'}}">
+		<div class="mana-over-t clearfix">
+			<p>{{title}}</p>
+		</div>
+		<div class="mana-buy-over mana-buyListOnly">
+			<ol class="mana-over-ol clearfix">
+				<li>
+					<p class="mana-over-red"><span class="mana-over-num1">{{minRate}}~{{maxRate}}</span><span class="mana-over-num2">%{{splitStr addRate 5}}</span><span class="mana-over-num2">{{{checkVipRate productStatus "sesame"}}}</span></p>
+					<p>预期年化利率</p>
+				</li>
+				<li>
+					<p class="mana-over-black"><span class="mana-over-num1">{{closedPeriod}}</span></p>
+					<p>封闭期(天)</p>
+				</li>
+				<li class="clearfix">
+					<p class="mana-over-btn"></p>
+				</li>
+			</ol>
+		</div>
+		</a>
+	</li>
+	{{/checkStatus}}
+	{{/each}}
+</script>
+<script src="../js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/lib/dropload.min.js"></script>
+<script src="../js/tools/el.layer.js"></script>
+<script src="../js/tools/el.tools.js"></script>
+<script src="../js/mobileSet.common.js?v=3.0"></script>
+<script src="../js/tools/jquery.request.js?v=3.0"></script>
+<script src="/static/mobileSite/js/tools/jquery.dropload.js?v=0.0.1"></script>
+<script src="../js/tools/el.amountinput.js?v=0.0.1"></script>
+<script src="../js/common/checkVip.js?v=3.0"></script>
+<script src="../js/common/checkKH.js?v=3.0"></script>
+<script src="../js/common/checkLogin.js?v=3.0"></script>
+<script src="../js/invest_list.js?v=3.0"></script>
+<script src="../js/tailor/invest_tailor.js?v=3.0"></script>
+</html>

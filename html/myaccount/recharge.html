@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>充值</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/myaccount/recharge.css">
+	<script src="../../js/lib/flexible.js"></script>
+	<style type="text/css">
+		.tongdao{display: block;text-align: left;}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 充值 -->
+	<section class="no-card">
+		<div class="clearfix">
+			<p class="bank-left">账户余额(元)</p>
+			<p class="bank-right mon-red" id="userBalance">--</p>
+		</div>
+		<div class="bank-line clearfix">
+			<p class="bank-left">充值金额(元)</p>
+			<p class="bank-right"><input type="number" class="mon-inp" placeholder="充值金额最少为3元" id="czje" ></p>
+			<span class="z-monClose"></span>
+		</div>
+	</section>
+
+	<section class="bank-head clearfix">
+		<p class="bank-logo"><img src="/static/mobileSite/images/bankLoad.png" alt="银行卡图标" id="bankIconUrl"></p>
+		<p class="dis_none" id="bankId"></p>
+		<p class="dis_none" id="bankCode"></p>
+		<p class="dis_none" id="accountHide"></p>
+		<div class="bank-style">			
+			<p id="bankname">-</p>
+			<p>尾号<span id="account">-</span></p>
+		</div>
+		<strong class="bank-jie" id="delBank"></strong>
+	</section>
+	<section class="tipRecharge dis_none" id='tipRecharge' style="margin-bottom: 0.2rem;">
+	  	<p class="bold">提示：</p>
+	  	<p id="tipOther"></p>
+	</section>
+	<section class="overRecharge dis_none">
+	  	<p class="bold">当前支付通道：<label class="bold" id="channelName"></label></p>
+	  	<p class="rechargeDetail">
+			<span>单笔&nbsp;<label class="red" id="onceLimit"></label></span>
+			<span>单日&nbsp;<label class="red" id="dayLimit"></label>/<label id="dayLimitMax"></label></span>
+			<span>单月&nbsp;<label class="red" id="monthLimit"></label>/<label id="monthLimitMax"></label></span>
+	 	</p>
+	 	<p class="rechargeDetail" id="rechargeErrorTip"></p>
+	</section>
+	<section class="has-card-single">
+		<p class="bank-single-mon errorTip dis_none"></p>
+		<!-- <p class="bank-single-mon errorTip dis_none">单笔限额<span>5万</span>元；单日限额<span>5万</span>元</p> -->
+	</section>
+	<section class="noCard" id="noCardZ">
+		<p class="noCardTxt">还未添加银行卡，请先添加</p>
+	</section>
+	<section class="recharge-btn">
+		<p id="recharge" class="dis_btn">立即充值</p>
+		<!-- <p class="recharge-help"><a href="javascript:;">充值帮助</a></p> -->
+	</section>
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.123"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js?v=3.123"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/myaccount/recharge.js?v=3.123"></script>
+</html>

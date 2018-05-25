@@ -1,0 +1,44 @@
+
+		.same{margin: 1.25rem 0;}
+		.wrap{background-color: #f2f2f2;width: 100%;color: #333;padding-bottom: 0.533333rem;}
+		.level{background:url(../../images/level.png) no-repeat center;background-size: 100% 100%;color: #fff;font-size:0.34rem;width: 0.72rem;height: 0.346667rem;line-height: 0.346667rem;margin-top:0.05rem;float: left;margin-left: 0.2rem;font-size: 0.232533rem;text-align: center;}
+		.title{width:92%;padding: 0.72rem 4% 0.72rem 4%;margin-bottom: 0.133333rem;background-color: #fff;overflow: hidden;}
+		.title .titleConent{float: left;width: 76%;}
+		.title .titleImg{float: right;width:1.866667rem;height: 1.866667rem;text-align: right;}
+		.title .titleImg img{width: 100%;}
+		.titleConent .purpose{height: .85rem;line-height: .85rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.titleConent .purpose,.title .purpose label{font-size: 0.4rem;color: #333;}
+		.title .titleConent .titleDes,.title .titleConent .titleDes label{font-size: 0.346667rem;line-height: 0.533333rem;color: #6e6e6e;}
+		.h_48{height: 0.64rem!important;line-height: 0.64rem!important;}
+
+		.content{width: 100%;margin-bottom: 0.133333rem;background-color: #fff;}
+		.content .conTitle{height:1.12rem;line-height: 1.12rem;border-bottom: 2px solid #f2f2f2;}
+		.content .conTitle img{margin-right: 0.2rem;vertical-align: middle;margin-left: 4%;width: 5%;}
+		.content .conTitle label{vertical-align: middle;font-size: .4rem;color: #333;}
+
+		.descrip .desContent{line-height: 0.533333rem;font-size: 0.346667rem;margin: 2% 4% 0.133333rem 4%;padding-bottom: 4%;color: #333;}
+		.descrip .desContent p{font-size: 0.346667rem;overflow: hidden;}
+		.person .personCon,.data .dataContent{margin: 0 4%;padding-bottom: 4%;}
+		.person .personCon .basicinfo{width: 2.0rem;border-radius: 0.3rem;background-color: #fab8bc;color: #fff;margin: 0.613333rem 0 0.373333rem 0;height: 0.466667rem;line-height: 0.48rem;text-align: center;font-size: 0.346667rem;}
+		.data .dataContent{padding-top: 0.533333rem;}
+		.person .personCon .moneyinfo{background-color: #dcc8e0!important;}
+		.person .personCon .workinfo{background-color: #fcd7b2!important;}
+		.person .personCon .creditinfo{background-color: #bcddf5!important;}
+		.person .personCon .personText td,.data .dataContent .dataText td{line-height: 0.666667rem;font-size: 0.293333rem;text-align: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #6e6e6e;}
+		.person .personCon .personText td label,.data .dataContent .dataText td label{font-size: 0.293333rem;color: #6e6e6e;}
+		.foot{text-align: right;margin: 4%;}
+		.foot label{color:#25bcff;}
+
+		.w_47{width: 50%;}
+		.w_60{width: 60%;}
+		.w_100{width: 100%;}
+		.transBtn{width: 100%;background: #f84d4d;height: 1.2rem;line-height: 1.2rem;color: #fff;text-align: center;font-size: 0.46rem;position: fixed;bottom: 0;}
+	.items{width: 100%;line-height: 1.2rem;text-align: center;background: #fff;font-size: 0.4rem;overflow: hidden;position: fixed;top: 0;}
+	.items li{width: calc(100%/2);float: left;}
+	.check{border-bottom: 1px solid #f84d4d;color: #f84d4d!important;}
+	.records{overflow: hidden;background: #fff;}
+	.records .records_title{height: 0.933333rem;line-height: 0.933333rem;font-size: 0.346667rem;color: #333;text-align: center;background-color: #eee;width: 90%;overflow: hidden;padding: 0 5%;}
+	.records .records_title li{width: calc(100%/3);float: left;}
+
+	.records_content{width: 90%;margin: 0 auto;overflow: hidden;height: 0.933333rem;line-height: 0.933333rem;font-size: 0.346667rem;background: #fff;}
+	.records_content li{float: left;width: calc(100%/3);text-align: center;}

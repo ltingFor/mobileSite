@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>匹配债权</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/tender.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	
+
+	<style type="text/css">
+		.btn_active{background:#f84d4d;}
+	</style>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="invest-main">
+		<div class="invest-head">
+			<dl class="march-h clearfix">
+				<dt>
+				 	<p>匹配债权: <span id="tender_number">0</span>个</p>
+					<p>出借本金: <span id="invest_amount">00000.00</span>元</p>
+				</dt>
+				<dt>
+					<!-- <p class="march-again-invest">重新出借</p> -->
+					<strong class="march-change-btn">换一批</strong>
+				</dt>
+			</dl>
+		</div>
+		<!-- <div class="investRed clearfix">
+			<p class="investRedP">红包</p>
+			<p class="investRedP clearfix"><em>100元</em> <span class="chooseRed"></span></p>
+		</div> -->
+		<ul class="march-men" id="tenders">
+			<!-- <li>
+				<h4 class="march-men-t">用于生意资金周转</h4>
+				<div class="march-name clearfix">
+					<p>借款人姓名：<span>张先生</span></p>
+					<p>身份证号：<span>3212851985********</span> </p>
+				</div>
+				<div class="march-name march-pos clearfix">
+					<p>借款人地区：<span>秦州</span></p>
+					<p>借款总额：<span>40,0000.00</span></p>
+				</div>
+				<p class="march-money">出借本金: <span>0000.00</span>元</p>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 马上出借按钮 -->
+	<div class="inv-go-btn" id="btn">
+		<p>确认 <span class="enddate end" id="enddate"></span></p>
+	</div>
+</body>
+<script type="text/x-handlebars-template" id="tender_tpl">
+	{{#each this}}
+		<li id="{{tid}}" class="tenders_li">
+			<h4 class="march-men-t">{{title}}</h4>
+			<div class="march-name clearfix">
+				<p>借款人：<span>{{realname}}</span></p>
+				<p>证件号码：<span>{{idcard}}</span> </p>
+			</div>
+			<div class="march-name march-pos clearfix">
+				<p>借款人地区：<span>{{disCityname}}</span></p>
+				<p>借款总额：<span>{{amount}}</span></p>
+			</div>
+			<p class="march-money">出借本金: <span>{{matchMoney}}</span>元</p>
+		</li>
+	{{/each}}
+</script>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/newpro/tender.js?v=3.123"></script>
+</html>

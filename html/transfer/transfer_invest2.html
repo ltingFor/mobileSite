@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>出借</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/sesame/invest.css">
+
+
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+
+
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/sesame/invest.css">
+
+
+	<script src="../../js/lib/flexible.js"></script>
+	<style>
+		#supRate{font-size: 0.32rem;}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="invest-main">
+		<!-- 出借标题 -->
+		<div class="invest-head">
+			<ul class="invest-title-list clearfix">
+				<li id="title"></li>
+				<li>剩余天数：<span id="surplusDays">-</span></li>
+			</ul>
+			<ul class="invest-h-list clearfix">
+				<li><p><i id="minRate"></i>-<i id="maxRate"></i>%<i id="supRate"></i></p>预计年化回报</li>
+				<li><p><i id="term"></i></p>封闭期限</li>
+				<li><p><i id="amount"></i></p>转让本金</li>
+			</ul>		
+		</div>
+		<!-- 出借账户 -->
+		<div class="invest-con">
+			<div class="transfer-mon">
+				<p id="realPayAmount">-</p>
+				<p id="money_tip"><i id="amount_hide" class="dis_none"></i>实付金额(元)<span></span></p>
+			</div>
+			<div class="inv-pr inv-plan-mon">
+				<p>预计回报(不等同于实际回报): <span><i id="expirePayIn">00.00</i>元</span></p>
+			</div>
+			<div class="inv-yu clearfix">
+				<p>可用余额:<span id="userAmount"></span>元</p>			
+			</div>
+		</div>
+		<!-- 可用红包变现金额 -->
+		<!-- <div class="invest-packet investPacket">
+			<p id="rbText">目前您可以变现的红包金额</p>
+			<ul class="invest-p-list clearfix" id="redbagContent"></ul>			
+		</div> -->
+		<!-- 充值按钮 -->
+		<div class="rechange"><span id="recharge">充值</span></div>
+		<!-- 马上出借按钮 -->
+		<div class="inv-go-btn" id="invest_btn">
+			同意协议并出借
+		</div>
+		<!-- 同意协议并出借 -->
+		<div class="invest-xieyi">
+			<a href="javascript:;" id="protocolUrl"></a>
+		</div>
+		<p class="touzi_tip">网贷有风险，出借需谨慎</p>
+	</div>
+	
+</body>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/lib/tripledes.js"></script>
+<script src="../../js/lib/mode-ecb-min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/json_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/calculate_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/date_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/map_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/calc/invest_pre_1.0.1.js?v=2"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="../../js/transfer/transfer_invest.js?v=3.0"></script>
+</html>

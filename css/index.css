@@ -1,0 +1,165 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	background: #f2f2f2;
+}
+.home-main {
+	width: 100%;
+	height: 93%;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.home-head {
+	width: calc(100% - 0.586667rem); 
+	border-top: 1px solid #e2e2e2;
+	background: #fff;
+	padding: 0 0.293333rem 1.06667rem;
+}
+.home-head .skip .home-h-title {
+	width: 100%;
+	height: 0.573333rem;
+	margin: 0.426667rem 0;
+}
+.home-h-title li{
+	font-size: 0.373333rem;
+	line-height: 0.573333rem;
+}
+.home-h-title li:nth-child(1) {
+	float: left;
+	/*padding: 0 0.306667rem;*/
+	color: #333;
+	font-size: 0.4rem;
+	
+}
+.home-h-title li:nth-child(2) {
+	float: right;
+	color: #fff;
+	background: #ff7a51;
+	border-radius:0.06rem;
+	font-size: 0.346667rem;
+	height:0.5rem;
+	line-height:0.5rem;
+	width:1.64rem;
+	text-align:center;
+	margin-top:0.03rem;
+}
+.home-h-profit {
+	width: 100%;
+	height: 2.24rem;
+	margin-bottom: 0.56rem;
+	font-size: 0.346667rem;
+}
+.home-h-profit .home-profit-t {
+	width: 100%;
+	height: 0.706667rem;
+	text-align: center;
+	line-height: 0.706667rem;
+	color: #333;
+	font-size: 0.32rem;
+}
+.home-h-profit .home-profit-p {
+	width: 100%;
+	height: 1.533333rem;
+	line-height: 1.533333rem;
+	text-align: center;
+	color: #f84d4d;
+	font-size: 0.453333rem;
+	
+}
+.home-profit-p>span {
+	font-size: 1.266667rem;
+	font-size: 1.306667rem;
+	margin: 0 0.1rem;
+}
+.home-profit-p>em {
+	font-size: 0.533333rem;
+	margin: 0 0.1rem;
+}
+.home-profit-p>.vipRate{width: 0.293333rem;height: 0.293333rem;border: none;margin-left: 0.08rem;}
+.home-h-slist {
+	width: 100%;
+	margin: 0 auto 0.5rem;
+}
+.home-h-slist li {
+	/*width: calc(100% / 3);*/
+	/*padding: 0 0.266667rem 0 0.8rem;*/
+	height: 0.453333rem;
+	float: left;
+	position: relative;
+	font-size: 0.346667rem;
+	text-align: center;
+	line-height: 0.453333rem;
+}
+.home-h-slist li>span {font-size: 0.346667rem;}
+.home-h-slist li:nth-child(1) {
+	width: 29%;
+	/*padding-right: 0.233333rem;*/
+}
+.home-h-slist li:nth-child(2) {
+	width: 35%;
+	/*text-align: right;*/
+	/*padding-right: 0.433333rem;*/
+}
+.home-h-slist li:nth-child(3) {
+	width: 35%;
+	/*padding-right: 0.133333rem;*/
+}
+.home-h-slist li:nth-child(1), .home-h-slist li:nth-child(2) {
+	/*border-right: 1px solid #333;*/
+}
+.home-h-slist li>.spript-bg {
+	width: 0.453333rem;
+	height: 0.453333rem;
+	margin-bottom: -0.12rem;
+}
+
+
+/*头部投资按钮*/
+.home-head .home-inv-btn {
+	width: 63.444%;
+	height: 0.92rem;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 0.92rem;
+	background: #f84d4d;
+	border-radius: 0.4rem;
+	color: #fff;
+	font-size: 0.48rem;
+	margin: 0 auto;
+	font-family: PINGFANG-REGULAR, Arial, Helvetica, "苹方常规", sans-serif;
+}
+/*banner*/
+.home-ban {
+	width: calc(100% - 0.586667rem);
+	padding: 0 0.293333rem;
+	background: #fff;
+	margin-top: 0.173333rem;
+}
+.indexBg {
+	width: 100%;
+	/*height: 0.426667rem;*/
+	text-align: center;
+	margin-top: 0.533333rem;
+}
+.indexBg>img{
+	width: 60%;
+
+}
+.home-ban-list {
+	border-top: 1px solid #fff;
+}
+.home-ban-list li {
+	width: 100%;
+	margin-top: 0.333333rem;
+}
+.home-ban-list li:last-child {
+	padding-bottom: 0.333333rem;
+}
+.home-ban-list li>a>img {
+	width: 100%;
+}
+/*底部固定*/

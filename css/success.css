@@ -1,0 +1,93 @@
+* {
+	font-size: 0.373333rem;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	/*background: #f2f2f2;*/
+}
+/*控制显示隐藏*/
+.current-show {
+	display: block;
+}
+.page-yes {
+	width: 100%;
+	height: 100%;
+}
+.page-yes .page-head {
+	width: 100%;
+	height: 5.333333rem;
+	background: #f84d4d;
+	text-align: center;
+	position: relative;
+}
+.page-head>.yes-img {
+	width: 1.946667rem;
+	height: 1.92rem;
+	text-align: center;
+	margin-top: 1.2rem;
+	margin-bottom: 0.626667rem;
+}
+.page-head>p {
+	color: #fff;
+	font-size: 0.466667rem;
+}
+.page-head>i {
+	width: 0.266667rem;
+	height: 0.133333rem;
+	background: url(../images/trans1.png) no-repeat 0 0;
+	background-size: cover;
+	position: absolute;
+	left: center;
+	bottom: -0.103333rem;
+}
+.page-con {
+	text-align: center;
+	margin-top: 1.066667rem;
+}
+.page-con>.elo-logo {
+	width: 3.36rem;
+	height: 3.68rem;
+} 
+.page-con>.check-me {
+    height: 0.96rem;
+    text-align: center;
+    line-height: 0.96rem;
+    color: #f84d4d;
+    position: absolute;
+    width: 100%;
+    bottom: 1.7rem;
+}
+
+.page-con>.check-me>.btn{
+	display: inline-block;
+    width: 40%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    margin: 5% auto;
+    border-radius: 5px;
+    border: 1px solid #ea4343;
+    color: #ea4343;
+    font-size: 0.45rem;
+    background: #fff;
+}
+.newusermsg{
+	font-size: 0.373333rem;
+   color: #333;
+   width: 6.8rem;
+   display:none;
+   position: absolute;
+   left: 0.7rem;
+   bottom: 2.8rem;
+   line-height: 0.533333rem;
+   padding: 0.306667rem  0.613333rem 0.306667rem 1.2rem;
+   background:#fff6e5 url('../images/icn_bulb@3x.png') no-repeat 0.253333rem 0.3rem;
+   text-align:left;
+   background-size: 0.5333rem;	
+}
+

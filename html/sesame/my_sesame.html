@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>我的芝麻开花</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/sesame/my_sesame.css">
+	<link rel="stylesheet" href="../../css/dropload.css?v=0.1">
+	<script src="../../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<div class="my-plan-tab">
+		<ul class="plan-tab clearfix" id="tabs">
+			<li class="tab-show" id="holdTab">持有中</li>
+			<li id="transferTab">转让中</li>
+			<li id="endTab">已结清</li>
+		</ul>
+	</div>
+	<dvi class="trans-order">
+        <ul class="clearfix">
+	        <li data-sorttype="gmsj" class="sortLi" data-name='holdTab' data-sortname='1'>
+	           	<p class="downArrow active">出借时间</p>
+	        </li>
+	        <li data-sorttype="gmbj" class="sortLi" data-name='holdTab' data-sortname='2'>
+	          	<p>出借本金</p>
+	        </li>
+	        <li data-sorttype="dqsj" class="sortLi" data-name='holdTab' data-sortname='3'>
+	           	<p>到期时间</p>
+	        </li>
+        </ul>
+    </dvi>
+	<div class="wrapper" id="wrapper">
+	<div id="scroller">
+	<!-- plan-show 是控制选项卡显示隐藏的类 -->
+	<!-- 持有中 -->
+	<div class="plan-handle plan-show" data="holdTab">
+		<ul class="plan-list" id="holdList"></ul>
+		<div class="pulldown"></div>
+	</div>
+	<!-- 转让中 -->
+	<div class="plan-handle" data="transferTab">
+		<ul class="plan-list" id="transferList" id="transferList"></ul>
+		<div class="pulldown"></div>
+	</div>
+	<!-- 已结清 -->
+	<div class="plan-handle" data="endTab">
+		<ul class="plan-list" id="endList"></ul>
+		<div class="pulldown"></div>
+	</div>
+	</div><!-- iscroll -->
+	</div><!-- wrapper -->
+</body>
+<script type="text/x-handlebars-template" id="tpl_hold">
+	{{#each this}}
+	<li class="handle-high-li mySesame-detail" data-proDetailExt="{{proDetailExt}}" data-skip='hold'>
+		<div class="li-div1 clearfix">
+			<h4>{{title}}</h4>
+			<p class="sesame-time">{{{checkDown closedCountDown proStatus}}}</p>
+		</div>
+		<div class="li-div2 clearfix">
+			<p style='width: 43%;'>出借本金:&nbsp;<span>{{format amount 'no'}}元{{{checkImg amount holdAmount}}}</span></p>
+			<p style='width: 57%;'>预期年化利率:&nbsp;<span>{{curPaidInRate}}~{{expirePaidInRate}}{{{checkSubRate addRate vipRate}}}</span></p>
+		</div>
+		<div class="li-div2 clearfix">
+			<p style='width: 43%;'>已收利息:&nbsp;<span>{{format curPaidInterest 'yes'}}元</span></p>
+			<p style='width: 57%;'>到期利息:&nbsp;<span>{{format expirePaidInterest}}元</span></p>
+		</div>
+		<!-- <div class="li-div2 clearfix">
+			<p>当前实收利率:&nbsp;<span><i>{{curPaidInRate}}{{{checkSubRate addRate vipRate}}}</i></span></p>
+			<p>到期实收利率:&nbsp;<span>{{expirePaidInRate}}{{{checkSubRate addRate vipRate}}}</span></p>
+		</div> -->
+		<div class="li-div2 clearfix">
+			<p style='width: 43%;'>计息时间:&nbsp;<span>{{startInterTime}}</span></p>
+			<p style='width: 57%;'>到期时间:&nbsp;<span>{{expireTime}}</span></p>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_transfer">
+	{{#each this}}
+	<li class="handle-high-li mySesame-detail" data-proDetailExt={{proDetailExt}} data-skip='transfer'>
+		<div class="li-div1 clearfix">
+			<h4>{{title}}</h4>
+			<p class="sesame-time">{{{checkTransferDown surplus24Hs status statusCN}}}</p>
+		</div>
+		<div class="li-div2 clearfix">
+			<p>转让本金:&nbsp;<span>{{format transferAmt 'no'}}元</span></p>
+			<p>转让后实收:&nbsp;<span>{{format transRealAmount 'yes'}}元</span></p>
+		</div>
+		<div class="li-div2 clearfix">
+			<p>计息时间:&nbsp;<span>{{startInterTime}}</span></p>
+			<p>到期时间:&nbsp;<span>{{expireTime}}</span></p>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_end">
+	{{#each this}}
+	<li class="mySesame-detail" data-skip='end'  data-proDetailExt={{proDetailExt}}>
+		<div class="li-div1 clearfix">
+			<h4>{{title}}</h4>
+		</div>
+		<div class="li-div2 clearfix">
+			<p>出借本金:&nbsp;<span>{{format amount 'no'}}元</span></p>
+			<p>实际回报:&nbsp;<span>{{format expirePaidInterest 'yes'}}元</span></p>
+		</div>
+		<!-- <div class="li-div2 clearfix">
+			<p>持有时间:&nbsp;<span>{{hadHoldDays}}天</span></p>
+			<p>实收利率:&nbsp;<span>{{expirePaidInRate}}{{{checkSubRate addRate vipRate}}}</nospan></p>
+		</div> -->
+		<div class="li-div2 clearfix">
+			<p>计息时间:&nbsp;<span>{{startInterTime}}</span></p>
+			<p>到期时间:&nbsp;<span>{{expireTime}}</span></p>
+		</div>
+	</li>
+	{{/each}}
+</script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/iscroll.js"></script>
+<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+<script src="../../js/lib/dropload.min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/jquery.dropload.js"></script>
+<!-- <script src="../../js/tools/jquery.datapage.js"></script> -->
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/sesame/my_sesame.v2.js?v=3.0"></script>
+</html>

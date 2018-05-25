@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>债权详情</title>
+<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/base.css'/>  
+<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/layer.css'/>  
+<link rel="stylesheet" type="text/css" href='/static/mobileSite/css/tender/tender_detail.css'/>  
+
+
+<style>
+	img{max-width:100%;}
+</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+<div class="alert_layer"></div>
+<div class="alert_box alert_box_yes">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container">
+		<div class="alert_btn alert_btn_know">知道了</div>
+	</div>
+</div>
+<div class="alert_box alert_box_ok">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container clearfix">
+		<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+		<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+	</div>
+</div>
+<div class='alert_auto'><span></span></div>
+<!--弹窗层---结束-->
+	<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../../js/lib/handlebars-v3.0.1.js"></script>
+	<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+	<script src="../../js/tools/el.tools.js"></script>
+	<script src="../../js/tools/jquery.request.js"></script>
+	<script src="../../js/mobileSet.common.js"></script>
+	<script type="text/x-handlebars-template" id="tender_tpl">
+		<div class="content" id="content">
+			<div class="lendingBox clearfix">
+				<div class="lendingBox clearfix">
+					<div style="width:75%;float:left;">
+						<div class="ldTit">
+							<h1>{{title}}</h1>
+						</div>
+						<div class="ldArea">
+							<span class="person">借款人：{{realName}}</span>
+							<span class="city">地区：{{cityName}}</span>
+						</div>
+					</div>
+					<div style="margin-left:3%;width:20%;float:left;">
+						<img style="border-radius:50%;" src="{{photo}}" alt="借贷人上传头像"/>
+					</div>
+				</div>
+
+			</div>
+			<div class="lendingDetail">
+				<ul class="tabTit">
+					<li>项目介绍</li>
+				</ul>
+				<div class="tabCont">
+					<div class="detailList tabContList">
+						<h2><i></i>基本信息</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="width:35px;"><span class="line color8">性别</span></td>
+								<td><span>{{gender}}</span></td>
+								<!-- <td style="width:60px;"><span class="line color8">借款类型</span></td>
+								<td style="width:110px;"><span>{{jklx}}</span></td> -->
+								<td style="width:60px;"><span class="line color8">婚姻状况</span></td>
+								<td style="width:110px;"><span>{{hyzk}}</span></td>
+							</tr>
+							<tr>
+								<td><span class="line color8">年龄</span></td>
+								<td><span>{{age}}</span></td>
+								<td><span class="line color8">文化程度</span></td>
+								<td><span>{{jycd}}</span></td>
+								
+							</tr>
+							<tr>
+								<td><span class="line color8">户籍</span></td>
+								<td><span>{{nativePlace}}</span></td>
+								<td><span class="line color8"></span></td>
+								<td><span></span></td>
+							</tr>
+							<tr>
+								<td colspan="4" class="last">
+								<span class="color8">借款描述</span>
+								{{#limitText description}}
+								<div style="text-align:center;">暂无描述</div>
+								{{else}}
+								<span class="des">{{description}}</span>
+								{{/limitText}}
+								</td>
+							</tr>
+						</table>
+						<h2><i></i>个人资料</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">工作年限</span></td>
+									<td class="wd76"><span>{{isExists gznx}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">商业保险</span></td>
+									<td class="wd76"><span>{{isExists sybx}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">职称</span></td>
+									<td class="wd76"><span>{{isExists zc}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">社保年限</span></td>
+									<td class="wd76"><span>{{isExists sbnx}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">房产</span></td>
+									<td class="wd76"><span>{{isExists fc}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">长期居住地</span></td>
+									<td class="wd76"><span>{{isExists cqjzd}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">年收入</span></td>
+									<td class="wd76"><span>{{nsr}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">婚姻状况</span></td>
+									<td class="wd76"><span>{{hyzk}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">教育程度</span></td>
+									<td class="wd76"><span>{{jycd}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">职业</span></td>
+									<td class="wd76"><span>{{zy}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">贷款记录</span></td>
+									<td class="wd76"><span>{{isExists dkjl}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">信用卡额度</span></td>
+									<td class="wd76"><span>{{isExists xyked}}</span></td>
+								</tr>
+								<tr>
+									<td style="width:70px;" class="wd76"><span class="line color8">征信报告</span></td>
+									<td class="wd76"><span>{{isExists zxbg}}</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<h2><i></i>担保/增额</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="wd30"><span class="line color8">项目名称</span></td>
+								<td class="wd20">有/无</td>
+								<td class="wd30"><span class="line color8">人担保</span></td>
+								<td class="wd20">{{isExists peopleGuarantee}}</td>
+							</tr>
+							<tr>
+								<td><span class="line color8">车担保增额</span></td>
+								<td>{{isExists carGuarantee}}</td>
+								<td><span class="line color8">房担保增额</span></td>
+								<td>{{isExists houseGuarantee}}</td>
+							</tr>
+						</table>
+						<h2><i></i>数据统计</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="wd30"><span class="line color8">成功借款</span></td>
+								<td class="wd20">{{borrowtimes}}笔</td>
+								<td class="wd30"><span class="line color8">已还借款</span></td>
+								<td class="wd20">{{repaidtimes}}笔</td>
+							</tr>
+							<tr>
+								<td><span class="line color8">本笔借款金额</span></td>
+								<td>{{amount}}元</td>
+								<td><span class="line color8">已还款期数</span></td>
+								<td>{{alreadyRepayTimes}}期</td>
+							</tr>
+							<tr>
+								<td><span class="line color8">逾期金额</span></td>
+								<td>{{overdueunrepayamounts}}元</td>
+								<td><span class="line color8">逾期期数</span></td>
+								<td>{{overdueunrepaytimes}}期</td>
+							</tr>
+						</table>
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/x-handlebars-template" id="material_tpl">
+		{{#each this}}
+			<img alt="借贷人上传材料信息" style="width:90%;margin:5px 5%;" src="http://img.eloancn.com/{{this}}"/>
+		{{/each}}
+	</script>
+	
+	<script>
+		(function(w,jq,h,r,t){
+			var param_obj = t.getParams();
+			var tid = decodeURIComponent(param_obj.tid),//tenderid
+				xieyiUrl = param_obj.wmpsAgreeMentHolding;
+				xieyiUrl = xieyiUrl ? decodeURIComponent(xieyiUrl) : '';
+			h.registerHelper('isExists',function(status){
+				console.log(status);
+				if(status == '0' || !status){
+					return '无';
+				}else if(status == '1'){
+					return '有';
+				}else{
+					return status;
+				}
+			});
+			h.registerHelper('limitText',function(des,options){
+				if(!des || !des.length){
+					return options.fn(this);
+				} else {
+					return options.inverse(this);
+				}
+			});
+			h.registerHelper('isEmpty',function(arr,options){
+				if(!arr || !arr.length){
+					return options.fn(this);
+				} else {
+					return options.inverse(this);
+				}
+			});
+			var	body = jq('body'),
+				tenderTpl = h.compile(jq('#tender_tpl').html()),
+				materialTpl = h.compile(jq('#material_tpl').html());
+				console.log(CONFIG.COMMON_TenderDetail_URL);
+			var sendData = {
+				requesturl : CONFIG.COMMON_TenderDetail_URL,
+				id : tid,
+				url : xieyiUrl
+			};
+			if(xieyiUrl){
+				sendData.url = xieyiUrl;
+			}
+			r.postLayer({
+				url : PUBLIC.URL_FWD_COMMON,
+				data : sendData,
+				success : function(data){
+					console.log(data);
+					if(data.data){
+						var response_data = data.data || {};
+						var d = (response_data || {});
+						var html = tenderTpl(d);
+						body.append(html);
+						var xieyiO = response_data.urlentry || {};
+						if(xieyiO.code == '0'){
+							$(".detailList").append('<h2 id="xieyi"><i></i>'+xieyiO.entryName+'</h2>');
+							$('#xieyi').bind('click',function(){
+								window.location.href = xieyiO.entryDesc;
+							});
+						}
+					}else{
+						//alert(1);
+						body.html('<p style="text-align: center;margin-top: 150px;"><span class="no_data">暂无数据</span></p>')
+					}
+				}
+				});
+		}(window,$,Handlebars,requestUtil,Tools));
+	</script>
+</body>
+</html>

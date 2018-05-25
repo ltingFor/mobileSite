@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的奖励</title>
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/myaccount/packet.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/dropload.css">
+	<script src="../../js/lib/flexible.js"></script>
+	<style>
+		.duihuan{position: fixed;right: 0.5rem;width: 1.5rem;bottom: 1.5rem;z-index: 1000;}
+		.duihuan img{width: 100%;}
+		.input_{width: 98%;height: 1.0rem;line-height: 1.0rem;border: #dcdcdc 1px solid;border-radius: 5px;padding-left: 2%;}
+		.Info{width: 0.45rem;vertical-align: middle;}
+		#errorTip{vertical-align: middle;margin-left: 0.05rem;}
+		.wrap{position: fixed;background: #f9f9f9;width: 82%;top: 30%;left: 9%;z-index: 100000;text-align: center;border-radius: 0.133333rem;}
+		.wrap_title{font-weight: normal;height: 1.5rem;line-height: 1rem;font-size: 0.48rem;padding-top: 0.066667rem;width: 100%!important;}
+		.wrap_content{line-height: 0.693333rem;font-size: 0.4rem;text-align: left;padding-top: 0;color: #6e6e6e;width: 90%;padding: 2% 5%;}
+		.wrap_attention{font-size: 0.32rem;color: #6e6e6e;text-align: left;text-align: justify;margin: 5%!important;}
+		.wrap_btn{width: 100%;height: 1.2rem;border-top: 1px solid #efefef;line-height: 1.2rem;font-size: 0.32rem;margin-top: 8px;}
+		.btn_cancel,.btn_ok{float: left;width: 50%;box-sizing: border-box;}
+		.btn_ok{border-left: 1px solid #efefef;color: #f84d4d;}
+		.wrap_close{width: 0.435897rem;height: 0.435897rem;position: absolute;top: 2.0rem;right: 0.6rem;background: url(../../images/cha.png) no-repeat 0 0;background-size: cover;display: none;}
+		.wrap_success{display: block;text-align: center;font-size: 0.45rem;line-height: 1.55rem;}
+		.w_1{width: 1.0rem!important;margin-right: 0.2rem;}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!--红包兑换弹窗 -->
+	<div class='wrap dis_none' id="getRedbag">
+		<p class='wrap_title'>兑换奖励</p>
+		<p class="wrap_content">
+			<input type="text" placeholder="请输入您的兑换码" class="input_"><br/>
+			<span class="wrap_close" id="wrap_close" style="display: inline;"></span>
+			<span style="width:98%;" class="dis_none" id="duiTip">
+				<img src="/static/mobileSite/images/info.png" class="Info">
+				<label id="errorTip" style="color:#f84d4d">兑换码不存在</label>
+			</span>
+		</p>
+		<p class="wrap_attention"></p>
+		<div class="wrap_btn">
+			<div class="btn_cancel">取消</div>
+			<div class="btn_ok" id="ok">确定</div>
+		</div>
+	</div>
+	<div class='wrap dis_none' id="success">
+		<p class='wrap_title'>兑换红包</p>
+		<p class="wrap_content">
+			<span class="wrap_success">
+				<img src="/static/mobileSite/images/ok.png" alt="success" class="Info w_1">兑换成功 ！
+			</span>
+		</p>
+		<p class="wrap_attention"></p>
+		<div class="wrap_btn">
+			<div class="btn_ok" style="width:100%;" id='iKnow'>我知道了</div>
+		</div>
+	</div>
+	<!--红包兑换弹窗 end -->
+	<!-- 红包页面 -->
+	<div class="packet-head">
+		<ul class="pac-h-list clearfix">
+			<li class="pacli-active">红包</li>
+			<li>加息券</li>
+			<li >体验金</li>
+		</ul>
+	</div>
+	<!-- 红包状态 -->
+	<!-- pac-tab是切换显示隐藏的 -->
+	<div class="packet-state pac-tab" data-lock="false">
+		<ul class="state-list pac-fot" id="redBag">
+		</ul>
+		<!-- 没有可用红包了 -->
+	</div>
+	<!-- 没有可用红包了 -->
+	<p class="pac-footer dis_none" id="pac-footer">没有可用红包了| <a href="javascript:;">查看失效红包 》</a></p>
+	<!-- 加息券 -->
+	<div class="packet-state ">
+		<ul class="state-list" id="deductionTicket">
+		</ul>
+		
+	</div>
+	<!-- 没有可用加息券了 -->
+	<p class="pac-footer dis_none" id="jiaxi-footer">没有可用加息券了| <a href="javascript:;">查看失效加息券 》</a></p>
+	<!-- 体验金 -->
+	<div class="packet-state">
+		<ul class="state-list" id="tasteMoney">
+		</ul>
+	</div>
+	<div class="duihuan"><img src="/static/mobileSite/images/duihuan.png?v=1.0" alt="兑红包"/></div>
+
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.0"></script>
+<script src="../../js/lib/dropload.min.js"></script>
+<script src="../../js/myaccount/myhd.js?v=3.0"></script>
+</body>
+</html>

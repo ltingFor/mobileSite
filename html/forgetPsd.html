@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>忘记密码</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/layer.css">
+	<script src="../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+		<div class="alert_layer"></div>
+		<div class="alert_box alert_box_yes">
+			<p class="alert_title">提示</p>
+			<p class="alert_content alert_content_center"></p>
+			<p class="alert_attention"></p>
+			<div class="alert_btn_container">
+				<div class="alert_btn alert_btn_know">知道了</div>
+			</div>
+		</div>
+		<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<body>
+	<!-- 头部 -->
+	<!-- 登录 -->
+	<div class="login-inp forget-m1" id="step1">
+		<label class="tel">
+			<input type="tel" class="inp-tel forget-m1-tel" placeholder="请输入手机号" id="account" value="">
+			<span class="clo-tel" id="zhcloseImg"></span>
+		</label>
+		<label class="tu">
+			<input type="text" class="inp-pas" placeholder="请输入图片验证码" id="imgCode">
+			<span class="z-forClose" id="zimgClose"></span>
+			<a href="javascript:;" class="tu-a forget-m1-tua">
+				<img src="../images/icon_.png" alt="图形验证码" id="imgCodeImg">
+			</a>
+		</label>
+		<!-- 登录按钮 -->
+		<button class="login-button dis_btn" id="nextBtn">下一步</button>
+	</div>
+	<div class="login-inp forget-m1 dis_none" id="step2">
+		<div class="forget-m2-title">
+			<p>短信验证码将发送至</p>
+			<!-- <p class="title-tel" id="phoneNum">159****9464</p> -->
+			<p class="title-tel" id="phoneNum"></p>
+		</div>
+		<label class="tel">
+			<input type="tel" class="inp-tel forget-m1-tel" placeholder="请输入短信验证码" id="textCode">
+			<span class="z-forTel2" id="zMsgClose"></span>
+			<span class="clo-tel forget-m2-tel rotateChartPar" id="countDown">
+				<div class="holdp"></div>
+				<div class="hold hold1">
+				  <div class="pie pie1"></div>
+				</div>
+				<div class="hold hold2">
+				  <div class="pie pie2"></div>
+				</div>
+				<div class="bg"></div>
+				<div class="time"><i></i></div>
+			</span>
+			<span class="clo-tel forget-m2-wait dis_none" id="wait_code">重新获取</span>
+		</label>
+		<label class="tu">
+			<input type="text" class="inp-pas forget-m2-pas" placeholder="请设置6~16位数字,字母或符号组合密码" id="psd">
+			<span class="z-forClose z-forClose2" id="zPasClose"></span>
+			<span class="forget-m2-tua" id="eyeImg">
+				<img src="../images/log3.png"/>
+			</span>
+		</label>
+		<!-- 登录按钮 -->
+		<button  class="login-button dis_btn" id="subBtn">提交</a>
+	</div>
+	<script src="../js/lib/jquery-1.10.1.min.js"></script>
+	<script src="../js/lib/tripledes.js"></script>
+	<script src="../js/lib/mode-ecb-min.js"></script>
+	<script src="../js/tools/jquery.request.js?v=3.0"></script>
+	<script src="../js/tools/el.layer.js"></script>
+	<script src="../js/tools/el.tools.js?v=3.0"></script>
+	<script src="../js/mobileSet.common.js?v=3.0"></script>
+	<script src="../js/login/forgetPsd.js?v=3.0"></script>
+</body>
+</html>

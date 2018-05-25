@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>翼农计划+详情</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/wmps/detail.css?v=0.0.6">
+	<link rel="stylesheet" href="/static/mobileSite/css/cal.css?v=0.0.3">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+		.detailOnlyNone li:nth-child(1) {
+		    display: block!important;
+		    background: #f6f6f6!important;
+		    height: 0.8rem!important;
+    		line-height: 0.8rem!important;
+		}
+		.detailOnlyNone li:nth-child(1) p{
+			height: 0.8rem!important;
+			line-height: 0.8rem!important;
+		}
+		.payway{border: 1px solid #fff;margin-left: 0.15rem;font-size: 0.346667rem;}
+		
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+<div class="alert_layer"></div>
+<div class="alert_box alert_box_yes">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container">
+		<div class="alert_btn alert_btn_know">知道了</div>
+	</div>
+</div>
+<div class="alert_box alert_box_ok">
+	<p class="alert_title">提示</p>
+	<p class="alert_content alert_content_center"></p>
+	<p class="alert_attention"></p>
+	<div class="alert_btn_container clearfix">
+		<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+		<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+	</div>
+</div>
+<div class='alert_auto'><span></span></div>
+<!--弹窗层---结束-->
+	<div class="cal">
+		<span class="cal_close"></span>
+		<p class="cal_title">回报计算器</p>
+		<div class="calShow">
+			<div class="inputContent">
+				<!-- <input type="text" class="wmpsInput calInput"> -->
+				<p class="cursor wmpsInput calInput">
+					<span style="color: #aaa;font-size: 0.48rem;">￥</span>
+					<span class="val amount"></span>
+					<span class="cursor-blink">|</span>
+				</p>
+				<span class="wmpsSpan intrest"></span>
+			</div>
+			<p class="outputContent"><span>出借<label class="calDay"></label>月，到期后预计回报（元）</span><span for="" class="output"></span></p>
+		</div>
+		<div class="calkeyboard">
+			<p class="calTip">实际年化利率以交易为准</p>
+			<table>
+				<tr>
+					<td class="key">1</td>
+					<td class="key">2</td>
+					<td class="key">3</td>
+				</tr>
+				<tr>
+					<td class="key">4</td>
+					<td class="key">5</td>
+					<td class="key">6</td>
+				</tr>
+				<tr>
+					<td class="key">7</td>
+					<td class="key">8</td>
+					<td class="key">9</td>
+				</tr>
+				<tr>
+					<td class="dott">C</td>
+					<td class="key">0</td>
+					<td class="del"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="detail-main">
+		<!-- 芝麻开花详情页头部 -->
+		<div class="detail-head">
+			<!-- <img src="./images/big-bg.png" alt=""> -->
+			<ul class="detail-h-list clearfix">
+				<li id="title"></li>
+				<li class="enddate">00时00分00秒</li>
+			</ul>
+			<!-- 百分比 预期年化回报率 -->
+			<div class="det-per" style='float: left;padding-bottom: 0.45rem;'>
+				<h3 id="interests" class="myWmpsH3">-<span>%+-</span></h3>
+				<p>预期年化利率</p>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec">
+				<ul class="detail-dec-list clearfix">
+					<li>
+						<p id="totalAmount"></p>
+						<p>募集总额(万)</p>
+					</li>
+					<li>
+						<p id="restAmount"></p>
+						<p>剩余可投(万)</p>
+					</li>
+					<li>
+						<p id="strPhases"></p>
+						<p>产品期限(<i id="strPhasesType"></i>)</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 出借说明 -->
+		<div class="detail-inv-dec">
+			<div class="detail-inv-pp">
+				<p><span>起投金额</span> &nbsp;<font id="startInvestAmt"></font></p>
+				<p><span>付息方式</span> &nbsp;<font id="interestPayWay"></font></p>
+				<p><span>发布时间</span> &nbsp;<font id="strPublisheddate"></font></p>
+				<p><span>募集期</span> &nbsp;&nbsp;&nbsp;<font id="recruitmentPeriod"></font></p>
+				<p><span>出借人数</span> &nbsp;<font id="useNumDesc"></font></p>
+				<p><span>退出方式</span> &nbsp;<font id="withdrawingDesc"></font></p>
+				<p class="autoBuySwitch"><span>自动续投</span> &nbsp;<font id="autoBuyDesc"></font></p>
+			</div>
+
+			<ul class="detail-dec-list detail-xi-list clearfix">
+				<li>
+					<p>计息时间</p>
+					<p id="strInterdate"></p>
+				</li>
+				<li>
+					<p>付息时间</p>
+					<p id="interdatePayDate"></p>
+				</li>
+				<li>
+					<p>到期时间</p>
+					<p id="outDate"></p>
+				</li>
+				<li class="detail-dotted1"></li>
+				<li class="detail-dotted2"></li>
+			</ul>
+		</div>
+		<!-- 出借本金 -->
+		<div class="detail-inv-end">
+			<p>出借<span>10000</span>元,到期预计回报<span class="detail-inv-profit">--.--</span>元
+				<span class="calImg"></span>
+			</p>
+		</div>
+		<!-- 向上拖动 -->
+		<div class="detail-drag" id="dwonToTender">
+			<p>点击查看更多</p>
+		</div>
+	</div>
+
+	<div class="detail-main1">
+	<!-- 向上拖动 -->
+		<div class="upArrow" id="upToViewDetail">
+			<!-- <p><span></span>点击查看产品详情记录<span></span></p> -->
+		</div>
+
+		<!-- 头部切换 -->
+		<div class="detail-tab" id="tenderHeight">
+			<ul class="detail-tab-list clearfix">
+				<li class="detail-tab-show" id="zq">债权列表</li>
+				<li id="tz">出借记录</li>
+			</ul>
+		</div>
+		<div id="wrapper" class="wrapper">
+		<div id="scroller">
+		<!-- 债券列表 -->
+		<div class="detail-record detail-record-zhaiquan detail-record-show" id="zqlb">
+			<ul class="detail-record-list record-zq-list clearfix" id="zqlb_content"></ul>
+			<div class="pulldown"></div>
+		</div>
+		<!-- 出借记录列表 -->
+		<div class="detail-record detail-record-fuxi" id="tzlb">
+			<ul class="detail-record-list detail-recordLlist detailOnlyNone clearfix" id="tzlb_content">
+				
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+	<!-- 马上出借按钮 -->
+	<div class="detail-inv-btn">马上出借</div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{tenderId}}">
+			<p>{{title}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人:<span>{{loanUserName}}</span></p>
+				<p>证件号码：<span>{{idcard}}</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>借款人地区:<span>{{cityname}}</span></p>
+				<p>债权金额：<span>{{amount}}</span></p>
+			</div>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_tzlb">
+	{{#each this}}
+		{{#compareIndexEnd @index}}
+			<li class="clearfix">
+				<p>出借人</p>
+				<p>出借本金</p>
+				<p>出借方式</p>
+				<p>加入时间</p>
+			</li>
+		{{/compareIndexEnd}}
+		<li class="clearfix">
+			<p >{{userName}}</p>
+			<p>{{buyAmount}}元</p>
+			<p>{{buyType}}</p>
+			<p>{{buyTime}}</p>
+		</li>
+	{{/each}}
+</script>
+<style>
+	.detail-recordLlist>li p:nth-child(1){width: 15%!important;}
+	.detail-recordLlist>li p:nth-child(2){width: 25%!important;text-align: center!important;}
+	.detail-recordLlist>li p:nth-child(3){width: 22%!important;text-align: center!important;}
+	.detail-recordLlist>li p:nth-child(4){width: 38%!important;}
+	
+</style>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/iscroll.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.datapage.js?v=0.0.2"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=0.1"></script>
+<script src="/static/mobileSite/js/common/checkKH.js"></script>
+<script src="/static/mobileSite/js/common/checkVip.js"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js"></script>
+<script src="/static/mobileSite/js/wmpsPlus/plusDetail.js?v=0.1"></script>
+<script src="/static/mobileSite/js/cal.js?v=0.0.3"></script>
+<script src="/static/mobile/act/reckon/jsq.js?v=1.9"></script>
+</html>

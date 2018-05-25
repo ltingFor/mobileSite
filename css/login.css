@@ -1,0 +1,597 @@
+﻿html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+}
+/*头部*/
+.login-h {
+	width: 100%;
+	height: 1.153846rem;
+	background: #262626;
+	color: #fff;
+	font-size: 0.410256rem;
+	position: relative;
+}
+
+.login-h .login-t {
+	width: 100%;
+	text-align: center;
+	line-height: 1.153846rem;
+}
+.login-h .back-h {
+	width: 0.217949rem;
+	height: 0.435897rem;
+	background: url(../images/back.png) no-repeat 0 0 ;
+	background-size: cover;
+	position: absolute;
+	top: 0.384615rem;
+	/*margin-top: 0.384615rem;*/
+	left: 0.435897rem;
+}
+
+.login-inp {
+	width: calc(100% - 0.871795rem);
+	padding: 0 0.435897rem;
+	
+}
+.login-inp label:first-child{border-top: 2px solid #f6f6f6;}
+.login-inp label {
+	position: relative;
+	display: block;
+	border-bottom: 2px solid #f6f6f6;
+}
+.login-inp input {
+	width: calc(100% - 3rem);
+	/*width: calc(100% - 0.897436rem);*/
+	height: 0.453333rem;
+	line-height: 0.453333rem;
+	color: #333;
+	font-size: 0.373333rem;
+	padding: 0.573333rem 0;
+	padding-left: 0.897436rem;
+	border: none;
+	/*border-bottom: 2px solid #f6f6f6;*/
+}
+.login-inp .inpImgInp {
+	width: 100%;
+	padding-left: 0;
+	text-indent: 7px;
+}
+.login-inp .tu input[type="text"] {
+	width: 90%;
+	padding-left: 0;
+}
+
+
+.login-inp span {
+	position: absolute;
+}
+.tel span:nth-child(1) {
+	width: 0.410256rem;
+	height: 0.576923rem;
+	top: 0.474359rem;
+	left: 0.128205rem;
+	background: url(../images/call.png) no-repeat 0 0;
+	background-size: cover;
+}
+.tel .clo-tel {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 0.27949rem;
+	background: none;
+	/*background-size: contain;*/
+	display: none;
+}
+#zhcloseImg {
+	background-image: url(../images/cha.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#z-accClose0 {
+	background-image: url(../images/cha.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+/*忘记密码页面输入框叉叉*/
+.tel .z-forClo-tel {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 0.217949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+	display: none;
+}
+/*输入验证码叉叉*/
+.tel .z-forTel2 {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 0.217949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+
+	display: none;
+}
+#zMsgClose {
+	right: 2.217949rem;
+}
+/*输入密码叉叉*/
+.pas .z-addClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 1.217949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+}
+.pas span:nth-child(1) {
+	width: 0.512821rem;
+	height: 0.564103rem;
+	top: 0.457179rem;
+	left: 0.128205rem;
+	background: url(../images/log2.png) no-repeat 0 0;
+	background-size: cover;
+}
+/*密码叉叉*/
+.pas .z-addClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 1.27949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+
+	display: none;
+}
+.pas .z-addClose2 {
+	right: 1.217949rem;
+	/*right: 0.217949rem;*/
+}
+/*邀请码叉叉*/
+.yaoqing .z-addClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 0.217949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+
+	display: none;
+}
+/*忘记密码叉叉*/
+.tu .z-forClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 2.0rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+
+	display: none;
+}
+.tu .z-forClose2 {
+	right: 1.207949rem;
+}
+/*图片验证码叉叉*/
+.tu .imgClose12 {
+	width: 0.435897rem;
+    height: 0.435897rem;
+    top: 0.564103rem;
+    right: 2.17949rem;
+    background: url(../images/cha.png) no-repeat 0 0;
+    background-size: contain;
+    display: none;
+}
+/*发送短信叉叉*/
+
+.pas .clo-pas {
+	/*width: 0.448718rem;
+	height: 0.230769rem;
+	top: 0.541026rem;*/
+	width: 0.648718rem;
+	height: 0.330769rem;
+	top: 0.6rem;
+	right: 0.217949rem;
+	/*background: url(../images/log3-1.png) no-repeat 0 0;*/
+	/*background-size: cover;*/
+}
+.pas .clo-pas >img{width: 100%;height: 100%;}
+.tu .tu-a,.tu .tu-span {
+	width: 1.6rem;
+	height: 0.666667rem;
+	/*padding: 0.128205rem 0.25641rem;*/
+	position: absolute;
+	top: 0.4478718rem;
+	right: 0.217946rem;
+	/*border: 1px solid #3fc4ff;*/
+	text-align: center;
+}
+.tu .tu-span{width: 2.4rem;border: none;color: #f84d4d;top: .55rem}
+.tu-a img {
+	width: 100%;
+	height: 100%;
+}
+.login-button {
+	width: 8.397436rem;
+	height: 1.102564rem;
+	line-height: 1.102564rem;
+	text-align: center;
+	background: #f84d4d;
+	border: none;
+	color: #fff;
+	border-radius: 0.133333rem;
+	font-size: 0.453333rem;
+	margin: 1.476923rem auto 0;
+	display: block;
+}
+.go-log {
+	margin-top: 0.512821rem;
+	text-align: center;
+
+}
+.go-log a:nth-child(1) {
+	padding: 0 0.435897rem;
+	border-right: 2px solid #eaeaea;
+	color: #6e6e6e;
+	font-size: 0.373333rem;
+}
+.go-log a:nth-child(2) {
+	padding: 0 0.435897rem;
+	color: #25bcff;
+	font-size: 0.373333rem;
+}
+.footer {
+	width: 100%;
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	/*left: 0;*/
+	margin-top: 2.3rem;
+	/*margin-top: 6.0rem;*/
+}
+.footer-zAdd {
+	margin-top: 0.35rem;
+}
+.footer p:nth-child(1) {
+	width: calc(100% - 0.512821rem);
+	height: 1.897436rem;
+	margin: 0 auto;
+	position: relative;
+}
+.footer p:nth-child(1) .clo-ban {
+	width: 0.358974rem;
+	height: 0.371795rem;
+	background: url(../images/ban-clo.png) no-repeat 0 0;
+	background-size: cover;
+	position: absolute;
+	right: 0.384615rem;
+	top: 0.769231rem;
+}
+.footer .ban-img {
+	width: 100%;
+}
+.footer p:nth-child(2) {
+	width: 100%;
+	line-height: 1.025641rem;
+	color: #a6a6a6;
+	font-size: 0.320513rem;
+	text-align: center;
+}
+/*注册相关样式*/
+.tel .reg-clo-tel {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.564103rem;
+	right: 0.217949rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+}
+.msg .z-addClose {
+	width: 0.435897rem;
+	height: 0.435897rem;
+	top: 0.524103rem;
+	/*right: 2.217949rem;*/
+	right: 2.7rem;
+	background: url(../images/cha.png) no-repeat 0 0;
+	background-size: contain;
+
+	display: none;
+}
+.reg-inp input {
+	width: 85%;
+	padding-left: 0;
+}
+.msg input {
+	position: relative;
+}
+.msg  .reg-msg-tel {
+	position: absolute;
+	/*top: 0.541026rem;*/
+	top: 0;
+	right: 0;
+	color: #f84d4d;
+	width: 2.5rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 0.373333rem;
+	text-align: right;
+}
+
+.footer .title-footer {
+	width: 100%;
+	height: 1.025641rem;
+	text-align: center;
+	line-height: 1.025641rem;
+}
+.yaoqing {
+	width: 100%;
+	height: 1.538462rem;
+	line-height: 1.538462rem;
+	text-align: left;
+	border-bottom: none!important;
+
+}
+.yaoqing .yaoqing-a {
+	font-size: 0.373333rem;
+	float: right;
+	/*text-decoration: underline;*/
+}
+.go-reg {
+	width: 100%;
+	height: 0.769231rem;
+	margin-top: 1.474359rem;
+	text-align: center;
+}
+.go-reg a {
+	color: #25bcff;
+}
+.reg-button {
+	width: 8.397436rem;
+	height: 1.102564rem;
+	background: url(../images/reg1.png) no-repeat 0 0;
+	background-size: cover;
+	margin: 0.641026rem auto 0;
+	display: block;
+}
+.xieyi {
+	line-height: 1.24rem;
+	border-top: 1px solid #fff;
+	border-color: rgba(255,255,255,0);
+	font-size: 0.346667rem;
+}
+.xieyi .checkbox{
+/*.xieyi input[type="checkbox"]{*/
+	width: 0.410256rem;
+	height: 0.410256rem;
+	margin-left: 0.435897rem;
+	margin-bottom: -0.07205rem;
+	margin-right: 0.2rem;
+}
+.xieyi a {
+	color: #40c4ff;
+	font-size: 0.346667rem;
+}
+.yaoqing .inp-yaoqing {
+	display: none;
+}
+/*密码叉叉*/
+
+
+
+/*蒙版*/
+.meng {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,.5);
+}
+.meng .m-inp-tu {
+	width: 80%;
+	height: 30%;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	margin-left: -40%;
+}
+.m-inp-tu .m-tu-a {
+	width: 1.051282rem;
+	height: 0.461538rem;
+	/*padding: 0.128205rem 0.25641rem;*/
+	position: absolute;
+	top: 0.448718rem;
+	right: 0.384615rem;
+	border: 1px solid #3fc4ff;
+	text-align: center;
+}
+.m-tu-a img {
+	width: 100%;
+	height: 100%;
+}
+.meng input {
+	width: calc(100% - 0.897436rem);
+	height: 1.538462rem;
+	color: #333;
+	font-size: 0.45641rem;
+	padding-left: 0.897436rem;
+	border: none;
+	border-bottom: 1px solid #e9e9e9;
+}
+
+
+
+/*忘记密码1*/
+.forget-m1 .forget-m1-tel {
+	padding-left: 0;
+	width: 100%;
+}
+.forget-m1 .forget-m1-tua {
+	border:none;
+}
+.forget-m1 .forget-m-btn {
+	width: 87.333%;
+	height: 1.102564rem;
+	color: #fff;
+	font-size: 0.448718rem;
+
+	line-height: 1.102564rem;
+	text-align: center;
+	/* background: url(../images/btn-bg.png) no-repeat 0 0;
+	background-size: cover; */
+	display: inline-block;
+	border-radius: 5px;
+	margin: 2.24359rem  0  0 0.641026rem;
+}
+/*忘记密码2*/
+.forget-m2-title {
+	width: 100%;
+	height: 2.948718rem;
+	text-align: center;
+	border-top: 1px solid #fff;
+	border-color: rgba(255,255,255,0);
+}
+.forget-m2-title>p:nth-child(1) {
+	line-height: 0.769231rem;
+	color: #6e6e6e;
+	margin-top: 0.641026rem;
+	font-size: 0.4rem;
+}
+.forget-m2-title>p:nth-child(2) {
+	color: #333;
+	font-size: 0.453333rem;
+}
+.forget-m2-tua {
+	/*width: 0.533333rem;
+	height: 0.333333rem;*/
+/*	background: url(../images/log3.png) no-repeat 0 0;
+	background-size: cover;*/
+	width: 0.648718rem;
+	height: 0.330769rem;
+	position: absolute;
+	top: 0.58718rem;
+	right: 0.26568rem;
+}
+.forget-m2-tua>img {
+	width: 100%;
+	height: 100%;
+}
+.tel .forget-m2-tel {
+	/*width: 0.628205rem;*/
+	width: 2.28205rem!important;
+	height: 0.628205rem;
+	text-align: right;
+	line-height: 0.628205rem;
+	background: none;
+	/*background-size: cover;*/
+	font-size:0.346667rem;
+	top: 0.5103rem;
+	right: 0;
+}
+.tel .forget-m2-wait {
+	width: 1.828205rem!important;
+	height: 0.628205rem;
+	text-align: center;
+	line-height: 0.628205rem;
+	/*background: #f84d4d!important;*/
+	color: #f84d4d;
+	font-size: 0.373333rem;
+}
+.tu .forget-m2-pas {
+	padding-left: 0;
+	width: 100%;
+}
+/* 圆环倒计时 */
+
+.rotateChartPar{
+    position: relative;
+    width:0.666667rem;
+    height:0.666667rem;
+  }
+  .holdp{
+      width:0.613333rem;
+      height:0.613333rem;
+      position: absolute;
+      left:50%;
+      top:50%;
+      border-radius: 50%;
+      margin-left: -0.306667rem;
+      margin-top: -0.306667rem;
+      background-color: #fff;
+      z-index: 9;
+    }
+    .hold{
+      width:0.666667rem;
+      height:0.666667rem;
+      position: absolute;
+      left:50%;
+      top:50%;
+      border-radius: 50%;
+      margin-left: -0.333333rem;
+      margin-top: -0.333333rem;
+      clip:rect(0,0.666667rem,0.666667rem,0.333333rem);
+    }
+    .hold1{
+      clip:rect(0px,0.666667rem,0.666667rem,0.333333rem);
+    }
+    .hold2{
+      clip:rect(0,0.333333rem,0.666667rem,0);
+    }
+    .pie{
+      width:0.666667rem;
+      height:0.666667rem;
+      background-color: blue;
+      border-radius: 50%; /*实现原型*/
+      position: absolute;
+    }
+    .pie1{
+      clip:rect(0,0.666667rem,0.666667rem,0.333333rem); /*裁切绝对定位元素 参数00点开始，上右下左*/
+      -o-transform:rotate(0deg);
+      -moz-transform:rotate(0deg);
+      -webkit-transform:rotate(0deg);
+      background:-moz-radial-gradient(20% 50% 0deg, #333, #f84d4d);
+      background:-webkit-gradient(radial, 100 100, 0, 100 100, 110, from(#000), to(#f84d4d));
+    }
+    .pie2{
+      clip:rect(0,0.333333rem,0.666667rem,0); /*裁切绝对定位元素 参数00点开始，上右下左*/
+      -o-transform:rotate(0deg);
+      -moz-transform:rotate(0deg);
+      -webkit-transform:rotate(0deg);
+      background:-moz-radial-gradient(80% 50% 0deg, #333, #f84d4d);
+      background:-webkit-gradient(radial, 100 100, 0, 100 100, 110, from(#000), to(#f84d4d));
+    }
+  .time {
+    width:0.586667rem;
+    height:0.586667rem;
+    margin:-0.293333rem 0 0 -0.293333rem;
+    background-color:#fff;
+    border-radius:50%;
+    position:absolute;
+     z-index:10;
+     text-align:center;
+     line-height:0.586667rem;
+     font-family:"Book Antiqua", Palatino, serif;
+     font-size:0.266667rem;
+     font-weight:bold;
+     left:50%;
+     top:50%;
+   }
+
+input::-webkit-input-placeholder {
+  /*-webkit-input-placeholder:#f00 !important;*/
+  color: #a6a6a6;
+}
+
+   /*兼容iphone4*/
+@media  screen and (max-width:320px) {
+	.footer {
+		width: 100%;
+		margin-top: 5.0rem !important;
+	}
+}

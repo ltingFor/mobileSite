@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>上传证件</title>
+	<link rel="shortcut icon" href="http://www.eloancn.com/images/favicon.ico">
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/cunguan/setUserInfo.css">
+	<link rel="stylesheet" href="../../css/layer.css">
+	<link rel="stylesheet" href="../../css/iosSelect.css">
+	<script src="../../js/lib/flexible.js"></script>
+</head>
+<body>
+	<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+	<!--弹窗层---结束-->
+	<!-- 照片图层 -->
+	<!-- <div class="imgLayer dis_none" id="imgLayer">
+		<ul class="type">
+			<li class="takePic" id="takePic" data-type="">拍照</li>
+			<li class="imgFile" id="imgFile" data-type="">从相册选择</li>
+		</ul>
+		<span class="cancle" id="cancelBtn">取消</span>
+	</div> -->
+	<div class="cun2-con">
+		<p>应厦门银行存管平台要求，请上传手持证件照片。</p>
+		<form action="" method="post" enctype="multipart/form-data" id="zfForm" class="dis_none">
+			<input type="file" accept="image/*" id="zFile" name="files"  onchange='PreviewImage(this,"zImg")'>
+			<input type="file" accept="image/*" id="fFile" name="files"  onchange='PreviewImage(this,"fImg")'>
+		</form>
+		<div class="cun-card cun-card1">
+			<img src="../../images/card2.png" alt="正面照" id="zImg" onerror="this.src='../../images/card2.png'" name="files">
+		</div>
+		<div class="cun-card cun-card2" id="card2">
+			<img src="../../images/card1.png" alt="反面照" id="fImg" onerror="this.src='../../images/card1.png'" name="files">
+		</div>
+		
+		<div class="cun-card3">
+			<img src="../../images/card3.png" alt="规格说明">
+		</div>
+		<!-- 底部button -->
+		<div class="cun-btn">
+			<button id="subBtn" class="dis_btn">提交审核</button>
+		</div>
+	</div>
+	
+</body>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../../js/lib/jquery-1.10.1.min.js"></script>
+<script src="../../js/lib/share.js?v=2.6.1"></script>
+<script src="../../js/lib/jquery-form.js"></script>
+<script src="../../js/tools/jquery.request.js"></script>
+<script src="../../js/tools/el.layer.js"></script>
+<script src="../../js/tools/el.tools.js"></script>
+<script src="../../js/mobileSet.common.js?v=3.1"></script>
+<script src="../../js/cunguan/uploadImg.js?v=3.1"></script>
+</html>

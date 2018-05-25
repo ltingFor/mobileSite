@@ -1,0 +1,198 @@
+html {
+	width: 100%;
+	min-height: 100%;
+}
+body {
+	width: 100%;
+	min-height: 100%;
+	background: #f6f6f6;
+}
+.wrapper{
+}
+.plan-handle {
+	display: none;
+}
+
+.my-plan-tab {
+	width: 100%;
+	min-height: 1.2rem;
+	margin-bottom: 0.213333rem;
+}
+.my-plan-tab .plan-tab {
+	width: 100%;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+}
+.plan-tab>li {
+	width:calc(100% / 3);
+	min-height: 1.2rem;
+	text-align: center;
+	line-height: 1.2rem;
+	float: left;
+	color: #333;
+	/*border-bottom: 1px solid #efefef;*/
+}
+.plan-tab>li.tab-show {
+	min-height: 1.173333rem;
+	color: #f84d4d;
+	border-bottom: 2px solid #f84d4d;
+}
+
+.transBtn{position: fixed;width: 100%;height: 1.253333rem;line-height: 1.253333rem;color: #f84d4d;background: #fff;bottom: 0;text-align: center;font-size: 0.48rem;z-index: 1004;}
+
+/*³ÖÓÐÖÐµÄÁÐ±í*/
+.plan-handle {
+	width: 100%;
+}
+.plan-handle>.plan-list li {
+	width: calc(100% - 0.88rem);
+	min-height: 3.28rem;
+	padding: 0 0.44rem;
+	background: #fff;
+	margin-bottom: 0.213333rem;
+	height: auto;
+    padding-bottom: 0.2rem;
+}
+.plan-list .handle-high-li {
+	height: 3.946667rem;
+	min-height: 3.946667rem;
+}
+.plan-list>li div>p {
+	/*width: 50%;*/
+	text-align: left;
+	height: 0.613333rem;
+	line-height: 0.613333rem;
+	float: left;
+	font-size: 0.32rem;
+}
+.plan-list>li div>p:nth-child(1){width: 40%!important;}
+.plan-list>li div>p:nth-child(2){width: 60%!important;}
+.plan-list>li div>p span {
+	font-size: 0.32rem;
+	color: #333;
+}
+.plan-list>li div>p span img{
+	width: 0.293333rem !important;
+	height: 0.293333rem !important;
+}
+.plan-list>li div>p i {
+	font-size: 0.32rem;
+}
+.plan-list>li .li-div1 {
+	height: 1.133333rem;
+	position: relative;
+}
+.countDown{font-size: 0.32rem;
+    position: absolute;
+    width: 60%;
+    right: 0;
+    text-align: right;
+    line-height: 1.133333rem;
+}
+.countDown label{color: #fff;
+    border-radius: 5px;
+    font-size: 0.293333rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    padding: 0.1rem;}
+.li-div1 h4 {
+	width: 45%;
+	float: left;
+	font-size: 0.373333rem;
+	height: 1.133333rem;
+	line-height: 1.133333rem;
+    color: #333333;
+    overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+}
+.img{
+    position: relative;
+    top: 0.16rem;
+    float: left;
+    width: 0.8rem;
+}
+.li-div1 .fwxy {
+	width: initial;
+	float: right;
+	height: 1.133333rem;
+	line-height: 1.133333rem;
+	font-size: 0.293333rem;
+/* 	color: #a6a6a6 !important; */
+	text-align: right;
+}
+.fwxy a {
+	font-size: 0.323333rem;
+	color: #a6a6a6 !important;
+}
+.li-div1 strong {
+	height: 0.426667rem;
+	line-height: 0.426667rem;
+	border-radius: 0.04rem;
+	float: right;
+	font-size: 0.293333rem;
+	text-align: center;
+	color: #fff;
+	margin-top: 0.373333rem;
+	padding: 0 0.093333rem;
+}
+.li-div1 .strong1 {	
+	background: #f84d4d;	
+}
+.li-div1 .strong2 {
+	background: #d89d0f;
+}
+
+/*¿ØÖÆÏÔÊ¾Òþ²Ø*/
+.li-div1 .strong-show {
+	display: block;
+}
+.li-div1 .strong-hide {
+	display: none;
+}
+
+.plan-show {
+	display: block;
+}
+.plan-hide {
+	display: hide;
+}
+
+.sort{
+	text-align: center;
+    padding-top: 0.3rem;
+    padding-bottom: 0.4rem;
+}
+
+.sort span{
+    padding: 0rem 1rem;
+}
+.sort span img{
+	    width: 0.27rem;
+    margin-left: 0.1rem;
+    float: right;
+    position: absolute;
+    top: 0.37rem;
+}
+
+.dropload-down {
+	display: none;
+}
+
+.li-div5{width: 100%;text-align: center;border-top: 1px solid #efeff0;margin-top: 0.2rem;}
+.li-div5 .title{height: 0.9rem;line-height: 0.9rem;}
+.li-div5 .title label{font-size: 0.346667rem;color: #333;font-weight: 400;}
+.li-div5 .title img{margin-left: 0.15rem;width: 0.38rem;}
+.li-div5 .jiaContent{width: 100%;padding: 0.2rem 0;overflow: hidden;border-bottom: 1px dashed #ffbbbb;}
+.up{transform:rotate(180deg);
+-ms-transform:rotate(180deg); 	/* IE 9 */
+-moz-transform:rotate(180deg); 	/* Firefox */
+-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+-o-transform:rotate(180deg); 	/* Opera */
+}
+.li-div5 .jiaContent:nth-last-child(1){border-bottom: 0px solid #333!important;}
+
+.li-div1 span{color: #fff;border-radius: 5px;display: block;float: right;font-size: 0.293333rem;text-align: center;margin-top: 0.3rem;padding: 0.1rem;}
+.plan-list>li div.jieqing span{background: #d89d0f;}
+.plan-list>li div.zhuanrang span{background: #f84d4d;}
+.plan-list>li div.liubiao span{background: #d5d5d5;}

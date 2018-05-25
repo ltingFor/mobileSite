@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>跳转</title>
+	<meta name="keywords" content="翼农计划、p2p理财产品、短期理财、闲钱如何理财" />
+	<meta name="description" content="翼农计划是翼龙贷推出的p2p短期投资理财产品，具有资金灵活、每日付息的特点，是闲钱理财的最佳选择。" />
+</head>
+<body style="background: #eee;">
+<img src="../../images/loadingjump.gif" style="width:100%;">
+</body>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/jquery.base64.js"></script>
+<script>
+
+            function getParamsByName(name){
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]);			
+		    }
+
+		//加密可以加密N次，对应解密N次就可以获取明文  
+		function decodeBase64(mi,times){  
+			var mingwen="";  
+			var num=1;  
+			if(typeof times=='undefined'||times==null||times==""){  
+			   num=1;  
+			}else{  
+			   var vt=times+"";  
+			   num=parseInt(vt);  
+			}  
+		  
+		  
+			if(typeof mi=='undefined'||mi==null||mi==""){  
+		  
+			}else{  
+			   $.base64.utf8encode = true;  
+			   mingwen=mi;  
+			   for(var i=0;i<num;i++){  
+				   mingwen=$.base64.atob(mingwen);  
+			   }  
+			}  
+			return mingwen;  
+		}  
+
+	window.onload = function(){	
+		var str = '<form style="display: none;" action="" method="post" id="hideForm">';
+		str += '</form>';
+		$("body").append(str);			
+		$("#hideForm").attr('action',getParamsByName('url')+"?"+decodeBase64(getParamsByName('context')));				
+		$("#hideForm").submit();
+		
+	}
+</script>
+</html>

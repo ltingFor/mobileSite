@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="format-detection" content="email=no">
+      <meta itemprop="image" content="http://mstatic.eloancn.com/report/03/images/logo.png"/>
+      <title>转让专区</title>
+      <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+      <link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+      <link rel="stylesheet" type="text/css" href="../../css/transfer/transfer.css?v=1.0" />
+      <link rel="stylesheet" type="text/css" href="../../css/list.css?v=1.1" />
+      <style>
+      .mana-buy-list{border-top: 1px solid #f0f0f0;padding-top: 0.44rem!important;}
+        #scroller{padding-bottom: 1.5rem;margin-top: 2.093333rem;}
+        .dropload-noData{text-align: center!important;}
+        .dropload-refresh{text-align: center!important;}
+      </style>
+    </head>
+    <body>
+    <!--弹窗层---开始-->
+  <div class="alert_layer"></div>
+  <div class="alert_box alert_box_yes">
+    <p class="alert_title">提示</p>
+    <p class="alert_content alert_content_center"></p>
+    <p class="alert_attention"></p>
+    <div class="alert_btn_container">
+      <div class="alert_btn alert_btn_know">知道了</div>
+    </div>
+  </div>
+  <div class="alert_box alert_box_ok">
+    <p class="alert_title">提示</p>
+    <p class="alert_content alert_content_center"></p>
+    <p class="alert_attention"></p>
+    <div class="alert_btn_container clearfix">
+      <div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+      <div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+    </div>
+  </div>
+  <div class='alert_auto'><span></span></div>
+  <!--弹窗层---结束-->
+      <!-- 切换 start-->
+      <div class="trans-tab">
+        <ul class="clearfix">
+          <li id="sesame_tansfer" class="active">
+            <p>芝麻转让</p>
+            <span></span>
+          </li>
+          <li id="tailor_tansfer">
+            <p>私人转让</p>
+            <span></span>
+          </li>
+        </ul>
+      </div>
+      <!-- 切换 start-->
+      <!-- 排序 start -->
+      <dvi class="trans-order">
+        <ul class="clearfix">
+          <li data-sorttype='yqsy' class="sortLi" data-sortName='1'>
+            <p class="">预期回报</p>
+          </li>
+          <li data-sorttype='zrje' class="sortLi" data-sortName='5'>
+            <p>转让本金</p>
+          </li>
+          <li data-sorttype='syts' class="sortLi" data-sortName='2'>
+            <p>剩余时间</p>
+          </li>
+          <li data-sorttype='fdje' class="sortLi" data-sortName='6'>
+            <p>浮动金额</p>
+          </li>
+        </ul>
+      </dvi>
+      <!-- 排序 end -->
+      <!-- 转让债权列表 start -->
+        <div class="mana-main" id="scroller">
+          <div class="mana-detail mana-transfer-detail mana-show" id="sesame_content" style='margin-top:0;'>
+            <ul class="mana-detail-list" id="sesame_ul"></ul>
+          </div>
+          <div class="trans-list-cont dis_none" id="tailor_content">
+            <ul class="person-transfer" id="tailor_ul"></ul>
+          </div>
+        </div>
+      <div class="home-main-list">
+        <ul class="home-bot-list clearfix">
+          <!-- <li id="home_page"><img src="../../images/footer/icon_home@2x.png" alt="首页"><p>首页</p></li>
+          <li id="investList_page"><img src="../../images/footer/icon_money@2x.png" alt="产品"><p>产品</p></li>
+          <li id="transList_page" class="home-bot-btn"><img src="../../images/footer/3.png" alt="转让"><p>转让</p></li>
+          <li id='account_page'><img src="../../images/footer/icon_user@2x.png" alt="我的"><p>我的</p></li> -->
+          <li id="home_page"><img src="../../images/footer/2018/index_n.png" alt="首页" style='width: 1.333333rem;height: 0.8rem;'><p>首页</p></li>
+          <li id="investList_page"><img src="../../images/footer/2018/pro_n.png" alt="出借" style='width: 1.333333rem;height: 0.8rem;'><p>产品</p></li>
+          <li id="transList_page" class="home-bot-btn"><img src="../../images/footer/2018/trans_y.png" alt="转让" style='width: 1.333333rem;height: 0.8rem;'><p>转让</p></li>
+          <li id='account_page'><img src="../../images/footer/2018/account_n.png" alt="我的" style='width: 1.333333rem;height: 0.8rem;'><p>我的</p></li>
+        </ul>
+      </div>
+      <!-- 转让债权列表 end -->
+    <script src='.../../../../js/lib/flexible.js'></script>
+    </body>
+<script type="text/x-handlebars-template" id="tpl_tailor_tansfer">
+  {{#each this}}
+  {{#checkStatus status "tailor_transfer"}}
+    <li class="trans-list" data-exp='{{tenderIdEpt}}'>
+      <a href="{{jump 1 'tailorTrans' transCreditId}}">
+        <div class="trans-title">
+          <h3>{{tenderName}}</h3>
+          <p>{{repayWayCN}}</p>
+        </div>
+        <div class="trans-cont">
+          <div class="yq">
+            <p>{{splitStr preRate 1}}<span>%</span>{{#checkAddRate secRate}}<em>+{{secRate}}</em>{{/checkAddRate}}{{{checkVipRate status "tailor"}}}</p>
+            <span>预期年化利率</span>
+          </div>
+          <div class="zr">
+            <p>{{format1 transferAmt}}</p>
+            <span>转让本金(元)</span>
+          </div>
+          <div class="sf">
+            <p>{{format1 rebateAmt 'yes'}}</p>
+            <span>浮动金额(元)</span>
+          </div>
+        </div>
+        <div class="trans-bot">
+          <p>剩余时间{{surplusDays}}天</p>
+          {{#checkStatus status "tailor_transfer"}}
+          <span class="buy-btn buy-btn-tailor" data-transcreditid='{{transCreditId}}' data-prodDetail='{{prodDetail}}' data-status={{status}}>{{checkBtnStatus status}}</span>
+          {{else}}
+          <span class="buy-btn dis_btn" data-transcreditid='{{transCreditId}}' data-prodDetail='{{prodDetail}}'></span>
+          {{/checkStatus}}
+        </div>
+      </a>
+    </li>
+  {{else}}
+    <li class="trans-list over" data-exp='{{tenderIdEpt}}'>
+      <a href="{{jump 1 'tailorTrans' transCreditId}}">
+        <div class="trans-title">
+          <h3 style='color:#6e6e6e;'>{{tenderName}}</h3>
+          <p style='color:rgba(254, 166, 30,0.55);border: 1px solid rgba(254, 166, 30,0.55);'>{{repayWayCN}}</p>
+        </div>
+        <div class="trans-cont">
+          <div class="yq">
+            <p style='color:#fa8b8b;'>{{splitStr preRate 1}}<span>%</span>{{#checkAddRate secRate}}<em>+{{secRate}}</em>{{/checkAddRate}}{{{checkVipRate status "tailor"}}}</p>
+            <span style='color:rgba(110, 110, 110,0.55);'>预期年化利率</span>
+          </div>
+          <div class="zr">
+            <p style='color:rgba(110, 110, 110,0.55);'>{{format1 transferAmt}}</p>
+            <span style='color:rgba(110, 110, 110,0.55);'>转让本金(元)</span>
+          </div>
+          <div class="sf">
+            <p style='color:rgba(110, 110, 110,0.55);'>{{format1 rebateAmt 'yes'}}</p>
+            <span style='color:rgba(110, 110, 110,0.55);'>浮动金额(元)</span>
+          </div>
+        </div>
+        <div class="trans-bot">
+          <p style='color:rgba(110, 110, 110,0.55);'>剩余时间{{surplusDays}}天</p>
+          {{#checkStatus status "tailor_transfer"}}
+          <span class="buy-btn" data-transcreditid='{{transCreditId}}' data-prodDetail='{{prodDetail}}' data-status={{status}}>{{checkBtnStatus status}}</span>
+          {{else}}
+          <span class="buy-btn dis_btn" data-transcreditid='{{transCreditId}}' data-prodDetail='{{prodDetail}}'></span>
+          {{/checkStatus}}
+        </div>
+      </a>
+    </li>
+  {{/checkStatus}}
+  {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_sesame_transfer">
+ {{#each this}}
+  {{#checkStatus status "transfer"}}
+  <li class="mana-child-li" data-serviceParam="{{proDetailExt}}">
+    <a alt="跳转详情页" href={{jump proDetailExt 'sesameTrans' '' accId recordId userId}}>
+    <div class="mana-list-t clearfix">
+      <p style='width: 100%;'>{{title}}</p>
+    </div>
+    <div class="mana-buy-list mana-buyListOnly">
+      <ol class="mana-list-ol clearfix">
+        <li>
+          <p class="mana-color-red"><span class="mana-ol-num1">{{minRate}}~{{maxRate}}</span><span class="mana-ol-num2">%</span><span class="mana-ol-num2">{{{checkVipRate status "transfer"}}}</span></p>
+          <p>预期年化利率</p>
+        </li>
+        <li>
+          <p><span class="mana-ol-num1">{{format1 transferAmt}}</span></p>
+          <p>转让本金(元)</p>
+        </li>
+        <li class="clearfix">
+          <!-- <p class="mana-buy-btn transfer-sub" data-recordId={{recordId}} data-accId={{accId}} data-userId={{userId}} data-status={{status}} >{{checkBtnStatus status}}</p> -->
+
+          <p class="mana-over-black" style='text-align: center;'><span class="mana-over-num1">{{format1 rebateAmt 'yes'}}</span></p>
+          <p style='text-align: center;'>浮动金额(元)</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mana-plus clearfix">
+      <p>剩余时间：<span style='font-size: 0.34rem;'>{{surplusDays}}</span>天</p>
+      <!-- <p style='margin-left: 0.5rem;'>封闭期：<span style='font-size: 0.34rem;'>{{closedPeriodDays}}</span>天</p> -->
+      <span class="buy-btn buy-btn-sesame" data-transcreditid="" data-proDetailExt={{proDetailExt}} data-status={{status}}>{{checkBtnname status}}</span>
+    </div>
+    </a>
+  </li>
+  {{else}}
+  <li class="mana-over-li" data-serviceParam="{{proDetailExt}}">
+    <a alt="跳转详情页" href={{jump proDetailExt 'sesameTrans' '' accId recordId userId}}>
+    <div class="mana-over-t clearfix">
+      <p style='width: 100%;'>{{title}}</p>
+    </div>
+    <div class="mana-buy-over mana-buyListOnly">
+      <ol class="mana-over-ol clearfix">
+        <li>
+          <p class="mana-over-red"><span class="mana-over-num1">{{minRate}}~{{maxRate}}</span><span class="mana-over-num2">%</span><span class="mana-over-num2">{{{checkVipRate status "transfer"}}}</span></p>
+          <p>预期年化利率</p>
+        </li>
+        <li>
+          <p class="mana-over-black"><span class="mana-over-num1">{{format1 transferAmt}}</span></p>
+          <p>转让本金(元)</p>
+        </li>
+        <li class="clearfix">
+          <!-- <p class="mana-over-transfer"></p> -->
+          <p class="mana-over-black" style='text-align: center;'><span class="mana-over-num1">{{format1 rebateAmt 'yes'}}</span></p>
+          <p style='text-align: center;'>浮动金额(元)</p>
+          <span class="buy-btn buy-btn-sesame"></span>
+        </li>
+      </ol>
+    </div>
+    <div class="mana-over clearfix">
+      <p style='width: 30%;'>剩余时间：<span style='font-size: 0.34rem;'>{{surplusDays}}</span>天</p>
+      <!-- <p style='margin-left: 0.4rem;width: 25%;'>封闭期：<span style='font-size: 0.34rem;'>{{closedPeriodDays}}</span>天</p> -->
+      <span class="buy-btn dis_btn"></span>
+    </div>
+    </a>
+  </li>
+  {{/checkStatus}}
+  {{/each}}
+</script>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/lib/jquery.base64.js"></script>
+<script src="/static/mobileSite/js/lib/dropload.min.js"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js?v=3.0"></script>
+<script src="/static/mobileSite/js/tools/jquery.dropload.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/tools/el.amountinput.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/getToken.js?v=3.0"></script>
+<script src="/static/mobileSite/js/transfer/transfer_list.v2.js?v=3.0"></script>
+</html>

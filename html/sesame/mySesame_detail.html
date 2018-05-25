@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>我的芝麻开花详情</title>
+	<link rel="stylesheet" href="/static/mobileSite/css/base.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/layer.css">
+	<link rel="stylesheet" href="/static/mobileSite/css/sesame/sesame.css?v=1.2">
+	<script src="/static/mobileSite/js/lib/flexible.js"></script>
+	<style>
+		.transferTitle{font-size: 0.433333rem;line-height: 1.666667rem;width: 90%;margin: 0 auto;overflow: hidden;font-family: font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;}
+		.transferTitle li{float: left;text-align: center;width: 50%;}
+		.transferTitle li p{width: 100%;font-size: 0.32rem;}
+		.transferTitle li .trans_rate{line-height: 1.666667rem;position: relative;}
+		.transferTitle li .trans_rate .smallS{font-size: 0.48rem;}
+		.transferTitle li .trans_rate .bigS{font-size: 0.72rem;}
+		.trans_detai{line-height: 0.56rem;}
+		.m_t_30{margin-top: 0.4rem}
+		.trans_detai .rem{
+			display: inline-block;
+		    width: 0.333333rem;
+		    height: 0.333333rem;
+		    background: url(../../images/whiteTip.png) no-repeat 0 0;
+		    background-size: cover;
+		    margin-left: 0.106667rem;
+		    vertical-align: sub;
+		}
+		.no{text-align: center;height: 1.2rem;line-height: 1.2rem;font-size: 0.346667rem;background: #f6f6f6;}
+		.detail-h-list li:nth-child(1){
+			float: left;
+			font-size: 0.346667rem;
+			width: initial;
+			/*display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;*/
+		}
+		.detail-h-list li#downTime{
+			float: left;
+			font-size: 0.293333rem;
+		}
+		.detail-h-list li:nth-child(3){
+			float: right;
+			font-size: 0.293333rem;
+		}
+	</style>
+</head>
+<body>
+<!--弹窗层---开始-->
+	<div class="alert_layer"></div>
+	<div class="alert_box alert_box_yes">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container">
+			<div class="alert_btn alert_btn_know">知道了</div>
+		</div>
+	</div>
+	<div class="alert_box alert_box_ok">
+		<p class="alert_title">提示</p>
+		<p class="alert_content alert_content_center"></p>
+		<p class="alert_attention"></p>
+		<div class="alert_btn_container clearfix">
+			<div class="alert_btn alert_btn1 alert_btn_cancel">取消</div>
+			<div class="alert_btn alert_btn1 alert_btn_ok">确定</div>
+		</div>
+	</div>
+	<div class='alert_auto'><span></span></div>
+<!--弹窗层---结束-->
+
+	<div class="detail-main">
+		<!-- 芝麻开花详情页头部 -->
+		<div class="detail-head">
+			<ul class="detail-h-list clearfix">
+				<li id="title"></li>
+				<li id="downTime"></li>
+				<li id="desc">协议</li>
+			</ul>
+			<!-- 百分比 预期年化利率率 -->
+			<div class="det-per dis_none amountClass">
+				<h3>
+					<span class="curPaidInRate">-</span> ~
+					<span class="expirePaidInRate">-</span>%
+					<span class="vipDom"></span>
+				</h3>
+				<p>预期年化利率</p>
+			</div>
+			<div class="det-per dis_none holdAmountClass clearfix">
+				<div class="h3_2" style='width: 56%;'>
+					<h3>
+						<span class="curPaidInRate">-</span> ~
+						<span class="expirePaidInRate">-</span>%
+						<span class="vipDom"></span>
+					</h3>
+					<p class="h3_2 clearfix" style='width: 100%;'>预期年化利率</p>
+				</div>
+				<div class="h3_2" style='width: 44%;'>
+					<h3>
+						<span id="holdAmount"></span>
+					</h3>
+					<p  class="h3_2 clearfix" style='width: 100%;'>持有本金(元)</p>
+				</div>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec hold dis_none">
+				<ul class="detail-dec-list detailBigOnly mySeameDetail clearfix">
+					<li>
+						<p><span id="amount">-</span></p>
+						<p>出借本金(元)</p>
+					</li>
+					<li>
+						<p><span id="hadHoldDays">-</span></p>
+						<p>已持有时间(天)</p>
+					</li>
+					<li>
+						<p><span id="hadPaidInterest">-</span></p>
+						<p>已收利息(元)</p>
+					</li>
+				</ul>
+			</div>
+			<!-- 百分比 预期年化利率率 -->
+			<div class="det-per transfer dis_none">
+				<ul class="transferTitle">
+					<li>
+						<p class="trans_rate">
+							<span class="smallS curPaidInRate">-</span>&nbsp;~&nbsp;<span class="bigS expirePaidInRate">-</span>%
+							<em id="intrest"></em>
+						</p>
+						<p class="trans_detai">预期年化利率</p>
+					</li>
+					<li>
+						<p class="trans_rate">
+							<span class="bigS" id="transferAmt">-</span>
+						</p>
+						<p class="trans_detai">转让本金（元）</p>
+					</li>
+				</ul>
+			</div>
+			<!-- 头部描述 -->
+			<div class="detail-head-dec transfer dis_none">
+				<ul class="detail-dec-list detailBigOnly mySeameDetail clearfix">
+					<li>
+						<p><span id="floatAmount">-</span></p>
+						<p>浮动金额（元）</p>
+					</li>
+					<li>
+						<p><span id="transRealAmount">-</span></p>
+						<p>转让后实收（元）</p>
+					</li>
+					<li>
+						<p><span id="unPayInterest">-</span></p>
+						<p>当期未收利息（元）</p>
+					</li>
+				</ul>
+			</div>
+
+			<!-- 百分比 预期年化利率率 -->
+			<div class="det-per end dis_none">
+				<ul class="transferTitle m_t_30">
+					<li>
+						<p class="trans_rate">
+							<span class="bigS" id="investAmount">-</span>
+						</p>
+						<p class="trans_detai">出借本金（元）</p>
+					</li>
+					<li>
+						<p class="trans_rate">
+							<span class="bigS sslx"></span>
+						</p>
+						<p class="trans_detai" id="getTip">实际回报（元）<a href="#" title="tip" class="rem"></a></p>
+					</li>
+				</ul>
+			</div>
+			<!-- 头部描述 -->
+		</div>
+		<!-- 出借说明 -->
+		<div class="detail-inv-dec">
+			<div class="detail-inv-pp">
+				<p><span>封闭期</span> &nbsp;<label id="closePeriod"></label>天</p>
+				<p><span>付息方式</span> &nbsp;<label id="interestModeStr"></label></p>
+				<p id="effectDate" class="dis_none"><span>发布时间</span> &nbsp;<label></label></p>
+				<p id="collectPeriod" class="dis_none"><span>募集期</span> &nbsp;&nbsp;<label></label></p>
+				<p><span>转让规则</span> &nbsp;<label>封闭期结束后即可转让</label></p>
+				<p><span>转让限制</span> &nbsp;<label>付息日及前1天不可转让</label></p>
+			</div>
+			<ul class="detail-dec-list detail-xi-list clearfix">
+				<li>
+					<p>计息时间</p>
+					<p id="interstTimeStr"></p>
+				</li>
+				<li>
+					<p>付息时间</p>
+					<p id="payInterstTimeStr"></p>
+				</li>
+				<li>
+					<p>到期时间</p>
+					<p id="exitTimeStr">2017-12-06</p>
+				</li>
+				<li class="detail-dotted1"></li>
+				<li class="detail-dotted2"></li>
+			</ul>
+		</div>
+		<!-- 出借本金 -->
+		<div class="detail-inv-end">
+			<!-- <p class="dis_none" id="limitTime">转让剩余时间：<span class="enddate">-</span></p> -->
+			<p id="calProfit" style='text-align: center;padding-left: 0;'>出借<span id="amount_same"></span>元,到期预计回报<span class="detail-inv-profit sslx">-</span>元 <a href="javascript:void(0);" class="tip" id="investTip"></a></p>
+		</div>
+		<!-- 向上拖动 -->
+		<div class="detail-drag" id="dwonToTender">
+			<p>点击查看更多</p>
+		</div>
+	</div>
+
+	<div class="detail-main1">
+	<!-- 向上拖动 -->
+		<div class="upArrow" id="upToViewDetail">
+			<!-- <p><span></span>点击查看产品详情记录<span></span></p> -->
+		</div>
+		<!-- 付息头部切换 -->
+		<div class="detail-tab">
+			<ul class="detail-tab-list clearfix">
+				<li class="detail-tab-show" data="#sylb">回报列表</li>
+				<li data="#zqlb">债权列表</li>
+				<li data="#fxjl">回款记录</li>
+			</ul>
+		</div>
+		<div class="wrapper" id="wrapper">
+		<div id="scroller">
+		<!-- 回报列表 -->
+		<div class="detail-record detail-record-shouyi detail-record-show" id="cpxq">
+			<ul class="detail-record-list shouyi-list clearfix" id="syll"></ul>
+			<div class="pulldown"></div>
+			<p class="shouyi-dec">实收利率=借款利率-服务费率-转让费率</p>
+		</div>
+		<!-- 债券列表 -->
+		<div class="detail-record detail-record-zhaiquan" id="zqlb">
+			<ul class="detail-record-list record-zq-list clearfix" id="zqlb_content">
+			</ul>
+			<div class="pulldown"></div>
+		</div>
+		<!-- 收息记录列表 -->
+		<div class="detail-record detail-record-fuxi" id="fxlb">
+			<ul class="detail-record-list detailShouxiOnly clearfix" id="fxlb_content">
+				<li class="clearfix">
+					<p>回款日</p>
+					<p>应收利息</p>
+					<p>应收本金</p>
+					<p>回款状态</p>
+				</li>
+				<li class="clearfix no">暂无数据</li>
+			</ul>
+			<div class="pulldown"></div>
+		</div>
+	</div>
+	</div><!-- iscroll-->
+</div><!-- wrap -->
+	<!-- 马上出借按钮 -->
+<div class="detail-inv-btn"><label id='statusCn'>转让</label>&nbsp;<label data-lasttime='' class="enddate"></label></div>
+</body>
+<script type="text/x-handlebars-template" id="tpl_sylb">
+	{{#each this}}
+		{{#compareIndexEnd1 @index}}
+		<li class="clearfix">
+			<p>持有至</p>
+			<p>实收利率</p>
+		</li>
+		{{/compareIndexEnd1}}
+		<li class="clearfix">
+			<p>{{ratePhase}}</p>
+			<p>{{{curRate}}}{{{checkvip}}}</p>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_hold_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{enTenderId}}" wmpsAgreeMentHolding={{protocolURL}} >
+		<a href="javascript:void(0);">
+			<p>{{tenderTitle}}</p>
+			<p class="checkTenders" data-cessioncancel={{cessionCancelValue}}>{{{checkTenderStatus tenderStatus surplusSeconds isInTenMinTrans cessionCancelValue}}}</p>
+			{{#checkholdshow tenderStatus}}
+				<div class="record-zq-name clearfix">
+					<p>借款人姓名:<span>{{loanUserName}}</span></p>
+					<p>证件号码:<span>{{loanIdCard}}</span></p>
+				</div>
+				<div class="record-zq-name clearfix">
+					<p>出借本金:<span>{{formatNum amount}}元</span></p>
+					<p>持有本金:<span>{{formatNum holdAmount}}元</span></p>
+				</div>
+			{{else}}
+				<div class="record-zq-name clearfix">
+					<p>借款人姓名:<span>{{loanUserName}}</span></p>
+					<p>出借本金:<span>{{formatNum amount}}元</span></p>
+				</div>
+				<div class="record-zq-name clearfix">
+					<p>实收利率:<span>{{{checkHoldVip realProductRate realVipRate realAddRate}}}</span></p>
+					<p>到期时间:<span>{{tenderEndDate}}</span></p>
+				</div>
+			{{/checkholdshow}}
+		</a>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_transfer_zqlb">
+	{{#each this}}
+	{{#checkTransferShow tenderStatus}}
+		<li class="clearfix" id="{{enTenderId}}" wmpsAgreeMentHolding={{protocolURL}} >
+		<a href="javascript:void(0);">
+			<p>{{tenderTitle}}</p>
+			<p class="checkTenders dis_none" data-cessioncancel={{cessionCancelValue}}>{{{checkTenderStatus tenderStatus surplusSeconds isInTenMinTrans cessionCancelValue}}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人姓名:<span>{{loanUserName}}</span></p>
+				<p>证件号码:<span>{{loanIdCard}}</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>转让本金:<span>{{formatNum holdAmount}}元</span></p>
+				<p>浮动金额:<span>{{formatNum floatAmount 'no'}}元</span></p>
+			</div>
+		</a>
+		</li>
+	{{/checkTransferShow}}
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_end_zqlb">
+	{{#each this}}
+		<li class="clearfix" id="{{enTenderId}}" wmpsAgreeMentHolding={{protocolURL}} >
+		<a href="javascript:void(0);">
+			<p>{{tenderTitle}}</p>
+			<p class="checkTenders" data-cessioncancel={{cessionCancelValue}}>{{{checkTenderStatus tenderStatus surplusSeconds isInTenMinTrans cessionCancelValue}}}</p>
+			<div class="record-zq-name clearfix">
+				<p>借款人姓名:<span>{{loanUserName}}</span></p>
+				<p>出借本金:<span>{{formatNum amount}}元</span></p>
+			</div>
+			<div class="record-zq-name clearfix">
+				<p>实收利率:<span>{{{checkHoldVip realProductRate realVipRate realAddRate}}}</span></p>
+				<p>到期时间:<span>{{tenderEndDate}}</span></p>
+			</div>
+		</a>
+		</li>
+	{{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tpl_fxlb">
+	{{#each this}}
+		<li class="clearfix">
+			<p>{{payDate}}</p>
+			<p>{{formatNum payProfit 'yes'}}{{{checkTipShow transferAdvInterest}}}</p>
+			<p>{{formatNum payPrincipal}}</p>
+			<p>{{formatStatus payMentStaus}}</p>
+		</li>
+	{{/each}}
+</script>
+<script src="/static/mobileSite/js/lib/jquery-1.10.1.min.js"></script>
+<script src="/static/mobileSite/js/lib/iscroll.js"></script>
+<script src="/static/mobileSite/js/lib/handlebars-v3.0.1.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.request.js"></script>
+<script src="/static/mobileSite/js/lib/jquery.base64.js"></script>
+<script src="/static/mobileSite/js/tools/jquery.datapage.js?v=0.0.1"></script>
+<script src="/static/mobileSite/js/tools/el.layer.js"></script>
+<script src="/static/mobileSite/js/tools/el.tools.js"></script>
+<script src="/static/mobileSite/js/mobileSet.common.js?v=3.0"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/json_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/calculate_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/date_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/libs/map_1.0.0.js?v=2"></script>
+<script src="https://mobile.eloancn.com/sesame/static/sesame/js/calc/invest_1.0.0.js?v=2"></script>
+<script src="/static/mobileSite/js/common/checkKH.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkVip.js?v=3.0"></script>
+<script src="/static/mobileSite/js/common/checkLogin.js?v=3.0"></script>
+<script src="/static/mobileSite/js/sesame/mySesame_detail.v2.js?v=3.2"></script>
+</html>
